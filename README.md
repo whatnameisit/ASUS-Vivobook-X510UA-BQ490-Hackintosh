@@ -49,7 +49,7 @@ Note that this fork is mostly for myself only (X510UA-BQ490). If you have simila
 ## Step to install
 
 1. Prepair an Mac installer in USB with Clover added (Use creationmedia method or MBR HFS Firmware Check Patch available in https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/ for both Mojave and Catalina)
-2. Replace EFI folder in USB EFI partition with the INCLUDED EFI FOLDER
+2. Replace EFI folder in USB EFI partition with the INCLUDED CLOVER EFI FOLDER
 3. Boot into USB and select MacOs installer
 4. First boot Trackpad will not work, need and mouse connect through USB, Follow mac install instruction you can find it on tonymacx86 or other hackintosh forum
     - If you have chosen to install Catalina in HFS+ file system, follow the directions given in https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/. Updating kexts and Clover is necessary at the moment.
