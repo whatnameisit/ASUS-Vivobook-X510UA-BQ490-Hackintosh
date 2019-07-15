@@ -58,11 +58,11 @@ Note that this fork is mostly for myself only (X510UA-BQ490). If you have simila
 7. This time trackpad and audio will working normally, then you need to use Clover EFI bootloader to install clover to EFI partition
 8. After install success, using Clover Configurator to mount your USB EFI partition then copy it to your System EFI.
 9. After System EFI replaced by your EFI, Using Clover Configurator to change SMBIOS, generate your serial and MBL, then you can use icloud now
-Note: Deleting old and/or installing new kexts, changing the content of config.plist, configuring the USB mapping, or enabling Sleep and Airplane fn button may be required for the following reasons
-        - You have DW1560 installed -- WIFI Replacement
-        - You have DW1560 installed but Bluetooth fails upon wake from sleep -- Set Bluetooth port as internal
-        - You have not replaced the WiFi & BT module with DW1560 but want to have working iMessage and FaceTime with USB WiFi dongle or USB LAN -- Install RehabMan Null Ethernet
-        - You have Sleep and Airplane fn keys
+- Note: Deleting old and/or installing new kexts, changing the content of config.plist, configuring the USB mapping, or enabling Sleep and Airplane fn button may be required for the following reasons
+    - You have DW1560 installed -- WIFI Replacement
+    - You have DW1560 installed but Bluetooth fails upon wake from sleep -- Set Bluetooth port as internal
+    - You have not replaced the WiFi & BT module with DW1560 but want to have working iMessage and FaceTime with USB WiFi dongle or USB LAN -- Install RehabMan Null Ethernet
+    - You have Sleep and Airplane fn keys
 
 ## WIFI Replacement
 
@@ -78,7 +78,7 @@ Note: Deleting old and/or installing new kexts, changing the content of config.p
 3. Under the USB tab, identify the Bluetooth port and set it as internal. The UVC camera can also be set as internal. Export and obtain the codeless injection kext or SSDT-UIA.aml
 4. Install the USBPorts.kext in /L*/E* (or USBInjectAll.kext and SSDT-UIA.aml if you want to have custom USB power configuration which will not be covered here. Refer to https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266/ for more information)
 5. Rebuild cache and reboot
-Note: USBPorts.kext in /kexts/other/additional is specifically for my own X510UA-BQ490. Creating your own mapping is recommended to avoid shutdown/sleep errors.
+- Note: USBPorts.kext in /kexts/other/additional is specifically for my own X510UA-BQ490. Creating your own mapping is recommended to avoid shutdown/sleep errors.
 
 ## Install RehabMan Null Ethernet
 
