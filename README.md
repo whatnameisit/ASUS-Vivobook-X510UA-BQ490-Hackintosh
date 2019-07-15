@@ -108,3 +108,6 @@ Note that this fork is mostly for myself only (X510UA-BQ490). If you have simila
 ## Credits
 
 Apple, tctien342, hieplpvip, the VoodooI2C helpdesk, headkaze, and RehabMan
+
+## For Koreans
+번역 생각중입니다. hackintosh.co.kr 방문하시면 다른 형식의 가이드 있습니다.
