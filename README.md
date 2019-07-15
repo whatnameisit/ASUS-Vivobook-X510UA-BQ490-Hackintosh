@@ -101,7 +101,7 @@ Note: USBPorts.kext in /kexts/other/additional is specifically for my own X510UA
 1. Backup your /L*/E* by copying them to the system EFI partition and/or USB EFI partition
 
 # Problems with the polling mode in other laptops
-1. Enabling FMCN and SSCN and their automatic assignment fixed the issues with the macOS recognizing multiple click inputs with just one click in my X510UA-BQ490. X510UA-BQ492 experiences the same issue when the laptop runs on battery even after implementing the fix. Custom FMCN and SSCN configuration may be required. Refer to https://github.com/hieplpvip/ASUS-ZENBOOK-HACKINTOSH/blob/master/src/hotpatch/SSDT-I2CBUS.dsl and ask for help at the VoodooI2C helpdesk
+1. Enabling FMCN and SSCN and their automatic assignment fixed the issues with the macOS recognizing a single click input as multiple clicks in my X510UA-BQ490. X510UA-BQ492 experiences the same issue when the laptop runs on battery even after implementing the fix. Custom FMCN and SSCN configuration may be required. Refer to https://github.com/hieplpvip/ASUS-ZENBOOK-HACKINTOSH/blob/master/src/hotpatch/SSDT-I2CBUS.dsl and ask for help at the VoodooI2C helpdesk
 
 # Credits
 
