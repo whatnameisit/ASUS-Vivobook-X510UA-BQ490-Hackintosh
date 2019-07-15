@@ -6,23 +6,18 @@ This build running on MacOs X
 
 ## Detail
 
-    Version:    9-A
-    Date:       July 15, 2019
-    Support:    All BIOS
-    Changelogs:
-        9: tctien342's master branch
-            - Fixed BIOS 309
-            - Optimize kext and hotpatch (Ported from ZENBOOK by hieplpvip)
-            - HDMI include sound, SDcard work
-            - Fixed slow input password by using SMBIOS 11,1
-        9-A: Removed many things
-            - Touchpad now uses polling mode with SSDT-ELAN-Polling.aml with automatic activation of FMCN and SSCN with USTP=1 for proper clicks
-            - Trimmed down SSDT-S510UA-KabyLakeR.aml and removed SSDT-RP01_PEGP for X510UA-BQ490
-            - Removed XHC AAPL injections as not required as of Sierra
-            - Removed Sinetek-rtsx.kext as the SD Card Reader is connected via USB
-            - Removed SSDT-UIA.aml and included USBPorts.kext and information for proper USB configuration and working BT after sleep
-            - Removed BT4LEContinuityFixup.kext and FakePCIID.kext and the FakePCIID plugin as AirportBrcmFixup.kext is enough.
-    Status: Stable
+1. Version:    9-A
+2. Date:       July 15, 2019
+3. Support:    All BIOS
+4. Changelogs: Removed many things
+    - Touchpad now uses polling mode with SSDT-ELAN-Polling.aml with automatic activation of FMCN and SSCN with USTP=1 for proper clicks
+    - Trimmed down SSDT-S510UA-KabyLakeR.aml and removed SSDT-RP01_PEGP for X510UA-BQ490 
+    - Removed XHC AAPL injections as not required as of Sierra
+    - Removed Sinetek-rtsx.kext as the SD Card Reader is connected via USB
+    - Removed SSDT-UIA.aml and included USBPorts.kext and information for proper USB configuration and working BT after sleep
+    - Removed BT4LEContinuityFixup.kext and FakePCIID.kext and the FakePCIID plugin as AirportBrcmFixup.kext is enough.
+    - Separated the RMNE device
+5. Status: Stable
 
 ## System specification
 
@@ -57,7 +52,7 @@ Note that this fork is mostly for myself only (X510UA-BQ490). If you have simila
 2. Replace EFI folder in USB EFI partition with the INCLUDED EFI FOLDER
 3. Boot into USB and select MacOs installer
 4. First boot Trackpad will not work, need and mouse connect through USB, Follow mac install instruction you can find it on tonymacx86 or other hackintosh forum
-4A. If you have chosen to install Catalina in HFS+ file system, follow the directions given in https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/. Updating kexts and Clover is necessary at the moment.
+    - If you have chosen to install Catalina in HFS+ file system, follow the directions given in https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/. Updating kexts and Clover is necessary at the moment.
 5. After install success, boot into MacOS, Copy Kext In /kexts/Other -> /Library/Extension
 6. Use Kext Utility (or simply copy this line without the quotation marks: "sudo chmod -R 755 /L*/E*&&sudo chown -R 0:0 /L*/E*&&sudo kextcache -i /")to rebuild kext then reboot
 7. This time trackpad and audio will working normally, then you need to use Clover EFI bootloader to install clover to EFI partition
@@ -95,6 +90,7 @@ Note: USBPorts.kext in /kexts/other/additional is specifically for my own X510UA
 1. Follow the simple directions given in https://github.com/hieplpvip/AsusSMC/wiki/Installation-Instruction
     - Download hieplpvip's repo: https://github.com/hieplpvip/AsusSMC
     - Run AsusSMCDaemon/install_daemon.sh by dragging it onto terminal
+    - Reboot if the script does not seem to work
 
 ## When you think you are done
  
@@ -102,6 +98,12 @@ Note: USBPorts.kext in /kexts/other/additional is specifically for my own X510UA
 
 ## Problems with the polling mode in other laptops
 1. Enabling FMCN and SSCN and their automatic assignment fixed the issues with the macOS recognizing a single click input as multiple clicks in my X510UA-BQ490. X510UA-BQ492 experiences the same issue when the laptop runs on battery even after implementing the fix. Custom FMCN and SSCN configuration may be required. Refer to https://github.com/hieplpvip/ASUS-ZENBOOK-HACKINTOSH/blob/master/src/hotpatch/SSDT-I2CBUS.dsl and ask for help at the VoodooI2C helpdesk
+
+## Other things
+1. OpenCore
+    - Seems to have shutdown issues
+    - Injecting CodecCommander.kext via the supposedly-better-at-injection bootloader does not seem to allow sound input
+    - mostly my lack of skills and knowledge
 
 ## Credits
 
