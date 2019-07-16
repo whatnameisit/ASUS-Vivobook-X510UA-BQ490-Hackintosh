@@ -88,12 +88,8 @@
 		<string>12.0.0</string>
 		<key>com.hieplpvip.AsusSMC</key>
 		<string>1.0.0</string>
-		<key>ru.joedm.SMCSuperIO</key>
-		<string>1.0</string>
 		<key>ru.usrsse2.SMCBatteryManager</key>
 		<string>1.0.0</string>
-		<key>ru.usrsse2.SMCLightSensor</key>
-		<string>1.0</string>
 	</dict>
 	<key>OSBundleRequired</key>
 	<string>Root</string>
