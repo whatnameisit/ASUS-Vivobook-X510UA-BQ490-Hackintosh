@@ -50,7 +50,7 @@ Note that this fork is mostly for myself only (X510UA-BQ490). If you have simila
 
 1. Prepair an Mac installer in USB with Clover added (Use creationmedia method or MBR HFS Firmware Check Patch available in https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/ for both Mojave and Catalina)
 2. Replace EFI folder in USB EFI partition with the INCLUDED CLOVER EFI FOLDER
-3. Boot into USB and select MacOs installer
+3. Disable VT-d in BIOS and boot into USB and select MacOs installer
 4. First boot Trackpad will not work, need and mouse connect through USB, Follow mac install instruction you can find it on tonymacx86 or other hackintosh forum
     - If you have chosen to install Catalina in HFS+ file system, follow the directions given in https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/. Updating Bluetooth kexts for DW1560 is necessary. Download is available at https://github.com/headkaze/OS-X-BrcmPatchRAM/releases and take a moment to read https://www.insanelymac.com/forum/topic/339175-brcmpatchram2-for-1015-catalina-broadcom-bluetooth-firmware-upload/
 5. After install success, boot into MacOS, Copy Kext In /kexts/Other -> /Library/Extension
@@ -83,7 +83,7 @@ Note that this fork is mostly for myself only (X510UA-BQ490). If you have simila
 ## Install RehabMan Null Ethernet
 
 1. Copy /kexts/other/additional/NullEthernet.kext to /L*/E* and rebuild cache
-2. Copy /ACPI/patched/additional/SSDT-RMNE to /ACPI/patched
+2. Copy /ACPI/additional/SSDT-RMNE to /ACPI/patched
 3. Reboot
 
 ## Sleep and Airplane fn keys
@@ -120,4 +120,4 @@ RehabMan for Null Ethernet and many other things
 CrazyBird for HFS+ partitioning in 10.14+
 
 ## For Koreans
-번역 생각중입니다. hackintosh.co.kr 방문하시면 다른 형식의 가이드 있습니다. (뽀로로)
+README-kr.md를 참고하십시오.
