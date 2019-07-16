@@ -57,7 +57,7 @@ This build running on MacOs X
 6. Kext Utility를  이용해서 (또는 큰따옴표를 제외한 다음의 명령어를 터미널에 붙여넣습니다: "sudo chmod -R 755 /L*/E*&&sudo chown -R 0:0 /L*/E*&&sudo kextcache -i /") 캐시를 재생성하고 재부팅하십시오.
 7. 터치패드와 소리가 (마이크) 정상작동합니다. Clover EFI의 하위폴더를 SSD의 EFI 하위폴더로 붙여넣습니다.
 8. EFI 폴더를 설치한 후 Clover Configurator를 이용해서 MacBookPro11,1의 SMBIOS 내용을 생성하십시오.
-- Note: 경우에 따라서 additional의 켁스트와 SSDT를 새로 설치하거나, config.plist의 내용을 변경하거나, USB 매핑을 설정하거나, 잠자기 and 비행기모드 fn 키 설정이 필요할 수 있습니다.
+- Note: 경우에 따라서 additional의 켁스트와 SSDT를 새로 설치하거나, config.plist의 내용을 변경하거나, USB 매핑을 설정하거나, 잠자기와 비행기모드 fn 키 설정이 필요할 수 있습니다.
     - DW1560를 설치한 경우 -- WIFI Replacement
     - DW1560설치 이후 잠자기에서 깨어난 상태에서 블루투스가 작동하지 않을 때 -- Set Bluetooth port as internal
     - WiFi & BT 모듈을 DW1560로 교체하지 않았지만 USB WiFi 동글이나 USB LAN를 통해 iMessage와 FaceTime를 활성화시킬 때 -- Install RehabMan Null Ethernet
@@ -97,7 +97,7 @@ This build running on MacOs X
 1. /L*/E*의 내용을 SSD의 EFI 파티션과 USB (비상용) EFI 파티션에 복사하십시오.
 
 ## Problems with the polling mode in other laptops
-1. X510UA-BQ490에서는 USTP=1 설정으로 FMCN and SSCN의 자동활성화 시 macOS 한 번의 터치패드 클릭을 여러 번으로 인식하는 현상이 수정되었습니다. X510UA-BQ492에서는 패치를 적용한 후에도 노트북이 배터리로 운영되는 중에는 문제가 재발생합니다. FMCN and SSCN의 수동할당이 필요할 수 있습니다. https://github.com/hieplpvip/ASUS-ZENBOOK-HACKINTOSH/blob/master/src/hotpatch/SSDT-I2CBUS.dsl를 참고하고 VoodooI2C helpdesk에 도움을 요청하십시오.
+1. X510UA-BQ490에서는 USTP=1 설정으로 FMCN and SSCN의 자동활성화 시 macOS가 한 번의 터치패드 클릭을 여러 번으로 인식하는 현상이 수정되었습니다. X510UA-BQ492에서는 패치를 적용한 후에도 노트북이 배터리로 운영되는 중에는 문제가 재발생합니다. FMCN and SSCN의 수동할당이 필요할 수 있습니다. https://github.com/hieplpvip/ASUS-ZENBOOK-HACKINTOSH/blob/master/src/hotpatch/SSDT-I2CBUS.dsl를 참고하고 VoodooI2C helpdesk에 도움을 요청하십시오.
 
 ## Other things
 1. OpenCore
