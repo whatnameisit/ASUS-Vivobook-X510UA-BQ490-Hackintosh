@@ -6,10 +6,8 @@
 	<dict>
 		<key>AutoMerge</key>
 		<true/>
-		<key>Comment-DisabledAML(0-2)</key>
+		<key>Comment-DisabledAML</key>
 		<string>Disable other forms of CPU PM due to SSDT/Generate/PluginType=true</string>
-		<key>Comment-DisabledAML(3)</key>
-		<string>Disable only if you have DW1560</string>
 		<key>DSDT</key>
 		<dict>
 			<key>DropOEM_DSM</key>
@@ -271,23 +269,13 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>ELAN: change _STA methods in MATH and LDR2 device to XSTA</string>
+					<string>LPCB: change _STA methods in MATH and LDR2 device to XSTA</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
 					<data>X1NUQQCgDZNQ</data>
 					<key>Replace</key>
 					<data>WFNUQQCgDZNQ</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>ELAN: change Method(_STA,0,NS) in GPI0 to XSTA</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>X1NUQQCgCZNTQlJH</data>
-					<key>Replace</key>
-					<data>WFNUQQCgCZNTQlJH</data>
 				</dict>
 				<dict>
 					<key>Comment</key>

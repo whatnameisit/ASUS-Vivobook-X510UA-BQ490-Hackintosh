@@ -109,7 +109,7 @@ Note that this fork is mostly for myself only (X510UA-BQ490). If you have simila
 
 Apple for macOS
 
-tctien342 and hieplpvip for Asus repo
+tctien342 and hieplpvip for Asus repositories
 
 the VoodooI2C helpdesk for working touchpad
 
@@ -120,4 +120,4 @@ RehabMan for Null Ethernet and many other things
 CrazyBird for HFS+ partitioning in 10.14+
 
 ## For Koreans
-README-kr.md를 참고하십시오.
+[README-kr](README-kr.md)를 참고하십시오.

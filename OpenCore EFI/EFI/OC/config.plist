@@ -677,7 +677,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>ELAN: change _STA methods in MATH and LDR2 device to XSTA</string>
+				<string>LPCB: change _STA methods in MATH and LDR2 device to XSTA</string>
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
@@ -923,7 +923,7 @@
 				<key>Comment</key>
 				<string>SMC Light</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/SMCLightSensor</string>
 				<key>MatchKernel</key>
@@ -937,7 +937,7 @@
 				<key>Comment</key>
 				<string>SMC SIO</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/SMCSuperIO</string>
 				<key>MatchKernel</key>
