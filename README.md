@@ -46,18 +46,17 @@ This build running on MacOs X
 ## Attention please
 Note that this fork is mostly for myself only (X510UA-BQ490). If you have similar features such as no dGPU and no KB backlight, try, but at your own risk. Otherwise, please go to tctien342's original master branch or hieplpvip's Zenbook repository.
 
-## Step to install
+## Steps to install
 
-1. Prepair an Mac installer in USB with Clover added (Use creationmedia method or MBR HFS Firmware Check Patch available in https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/ for both Mojave and Catalina)
-2. Replace EFI folder in USB EFI partition with the INCLUDED CLOVER EFI FOLDER
+1. Prepair an Mac installer in USB (Use creationmedia method or MBR HFS Firmware Check Patch available in https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/ for both Mojave and Catalina)
+2. Replace EFI folder in USB EFI partition with the EFI folder in Clover EFI
 3. Disable VT-d in BIOS and boot into USB and select MacOs installer
-4. First boot Trackpad will not work, need and mouse connect through USB, Follow mac install instruction you can find it on tonymacx86 or other hackintosh forum
+4. During the installation process, touchpad will not work. You need a mouse connected through USB. Follow mac install instruction you can find it on tonymacx86 or other hackintosh forums
     - If you have chosen to install Catalina in HFS+ file system, follow the directions given in https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/. Updating Bluetooth kexts for DW1560 is necessary. Download is available at https://github.com/headkaze/OS-X-BrcmPatchRAM/releases and take a moment to read https://www.insanelymac.com/forum/topic/339175-brcmpatchram2-for-1015-catalina-broadcom-bluetooth-firmware-upload/
-5. After install success, boot into MacOS, Copy Kext In /kexts/Other -> /Library/Extension
-6. Use Kext Utility (or simply copy this line without the quotation marks: "sudo chmod -R 755 /L*/E*&&sudo chown -R 0:0 /L*/E*&&sudo kextcache -i /")to rebuild kext then reboot
-7. This time trackpad and audio will working normally, then you need to use Clover EFI bootloader to install clover to EFI partition
-8. After install success, using Clover Configurator to mount your USB EFI partition then copy it to your System EFI.
-9. After System EFI replaced by your EFI, Using Clover Configurator to change SMBIOS, generate your serial and MBL, then you can use icloud now
+5. After a successful installation, boot into macOS, copy kexts In /kexts/Other -> /Library/Extension
+6. Use Kext Utility (or simply copy this line without the quotation marks: "sudo chmod -R 755 /L*/E*&&sudo chown -R 0:0 /L*/E*&&sudo kextcache -i /") to rebuild kext then reboot
+7. This time, touchpad and audio should function correctly. Then you need to mount EFI and copy Clover EFI to the system EFI partition in like what you have done on USB EFI partition
+8. After System EFI replaced by your EFI, use Clover Configurator to change SMBIOS, generate your serial and MBL. Now you can use icloud
 - Note: installing kexts and SSDT in /additional, changing the content of config.plist, configuring the USB mapping, or enabling Sleep and Airplane fn button may be required for the following reasons:
     - You have DW1560 installed -- WIFI Replacement
     - You have DW1560 installed but Bluetooth fails upon wake from sleep -- Set Bluetooth port as internal
@@ -85,6 +84,7 @@ Note that this fork is mostly for myself only (X510UA-BQ490). If you have simila
 1. Copy /kexts/other/additional/NullEthernet.kext to /L*/E* and rebuild cache
 2. Copy /ACPI/additional/SSDT-RMNE to /ACPI/patched
 3. Reboot
+- Note: For iMessage, FaceTime, and App Store to function correctly with RMNE, I recommend you install RMNE before trying to connect to any USB networking devices. Otherwise, you need to reset the network mapping by having RMNE set to en0. Use Google.
 
 ## Sleep and Airplane fn keys
 1. Follow the simple directions given in https://github.com/hieplpvip/AsusSMC/wiki/Installation-Instruction
