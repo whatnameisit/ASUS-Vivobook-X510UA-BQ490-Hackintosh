@@ -101,9 +101,8 @@ This build running on MacOs X
 
 ## Other things
 1. OpenCore
-    - 종료시 패닉 현상이 발생합니다.
-    - CodecCommander.kext를 OC로 인젝트할 경우 마이크가 작동하지 않습니다.
-    - 대부분 사용자 오류일 것으로 판단됩니다.
+    - BT kexts와 CC kext를 /L*/E*에서 로드합니다.
+    - 종료시 패닉현상은 없습니다.
 
 ## Credits
 

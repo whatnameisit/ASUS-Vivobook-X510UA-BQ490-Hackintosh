@@ -100,11 +100,9 @@ Note that this fork is mostly for myself only (X510UA-BQ490). If you have simila
 1. Enabling FMCN and SSCN and their automatic assignment fixed the issues with the macOS recognizing a single click input as multiple clicks in my X510UA-BQ490. X510UA-BQ492 experiences the same issue when the laptop runs on battery even after implementing the fix. Custom FMCN and SSCN configuration may be required. Refer to https://github.com/hieplpvip/ASUS-ZENBOOK-HACKINTOSH/blob/master/src/hotpatch/SSDT-I2CBUS.dsl and ask for help at the VoodooI2C helpdesk
 
 ## Other things
-1. OpenCore
-    - Seems to have shutdown issues. NVRAM?
-    - Injecting CodecCommander.kext via the supposedly-better-at-injection bootloader does not seem to allow sound input
-    - mostly my lack of skills and knowledge
-    - _DSM to XDSM only on devices with new methods
+1. OpenCore (Tested on 10.15 Beta 2)
+    - Load BT kexts and CC from /L*/E*
+    - No more shutdown panics
 
 ## Credits
 
