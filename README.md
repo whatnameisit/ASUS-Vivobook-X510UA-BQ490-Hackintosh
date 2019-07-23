@@ -101,9 +101,10 @@ Note that this fork is mostly for myself only (X510UA-BQ490). If you have simila
 
 ## Other things
 1. OpenCore
-    - Seems to have shutdown issues
+    - Seems to have shutdown issues. NVRAM?
     - Injecting CodecCommander.kext via the supposedly-better-at-injection bootloader does not seem to allow sound input
     - mostly my lack of skills and knowledge
+    - _DSM to XDSM only on devices with new methods
 
 ## Credits
 
