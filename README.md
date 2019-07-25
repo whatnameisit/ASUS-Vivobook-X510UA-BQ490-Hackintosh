@@ -88,8 +88,8 @@ Note that this fork is mostly for myself only (X510UA-BQ490). If you have simila
 
 ## Sleep and Airplane fn keys
 1. Follow the simple directions given in https://github.com/hieplpvip/AsusSMC/wiki/Installation-Instruction
-    - Download hieplpvip's repo: https://github.com/hieplpvip/AsusSMC
-    - Run AsusSMCDaemon/install_daemon.sh by dragging it onto terminal
+    - Download Release of AsusSMC: https://github.com/hieplpvip/AsusSMC/releases
+    - Run install_daemon.sh by dragging it onto terminal
     - Reboot if the script does not seem to work
 
 ## When you think you are done
@@ -100,9 +100,10 @@ Note that this fork is mostly for myself only (X510UA-BQ490). If you have simila
 1. Enabling FMCN and SSCN and their automatic assignment fixed the issues with the macOS recognizing a single click input as multiple clicks in my X510UA-BQ490. X510UA-BQ492 experiences the same issue when the laptop runs on battery even after implementing the fix. Custom FMCN and SSCN configuration may be required. Refer to https://github.com/hieplpvip/ASUS-ZENBOOK-HACKINTOSH/blob/master/src/hotpatch/SSDT-I2CBUS.dsl and ask for help at the VoodooI2C helpdesk
 
 ## Other things
-1. OpenCore (Tested on 10.15 Beta 2)
+1. OpenCore (10.15 Beta 2)
     - Load BT kexts and CC from /L*/E*
     - No more shutdown panics
+    - For 10.14 or prior, BT kexts are to be replaced with RehabMan's version for stable functionality
 
 ## Credits
 

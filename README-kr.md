@@ -88,8 +88,8 @@ This build running on MacOs X
 
 ## Sleep and Airplane fn keys
 1. https://github.com/hieplpvip/AsusSMC/wiki/Installation-Instruction를 참고하십시오.
-    - hieplpvip의 repository를 다운로드합니다: https://github.com/hieplpvip/AsusSMC
-    - AsusSMCDaemon/install_daemon.sh를 터미널로 드래그해서 실행시키십시오.
+    - AsusSMC Release를 다운로드합니다: https://github.com/hieplpvip/AsusSMC/releases
+    - install_daemon.sh를 터미널로 드래그해서 실행시키십시오.
     - 곧바로 작동하지 않는다면 재부팅하십시오.
 
 ## When you think you are done
@@ -100,9 +100,10 @@ This build running on MacOs X
 1. X510UA-BQ490에서는 USTP=1 설정으로 FMCN and SSCN의 자동활성화 시 macOS가 한 번의 터치패드 클릭을 여러 번으로 인식하는 현상이 수정되었습니다. X510UA-BQ492에서는 패치를 적용한 후에도 노트북이 배터리로 운영되는 중에는 문제가 재발생합니다. FMCN and SSCN의 수동할당이 필요할 수 있습니다. https://github.com/hieplpvip/ASUS-ZENBOOK-HACKINTOSH/blob/master/src/hotpatch/SSDT-I2CBUS.dsl를 참고하고 VoodooI2C helpdesk에 도움을 요청하십시오.
 
 ## Other things
-1. OpenCore
+1. OpenCore (10.15 Beta 2)
     - BT kexts와 CC kext를 /L*/E*에서 로드합니다.
     - 종료시 패닉현상은 없습니다.
+    - 10.14나 이전 버전에서 사용하는 경우 BT 켁스트를 RehabMan 버전으로 교체하는 것을 권장합니다.
 
 ## Credits
 
