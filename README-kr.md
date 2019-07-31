@@ -1,6 +1,6 @@
 # Asus Vivobook X510UA-BQ490
 
-This build running on MacOs X
+This build running on MacOs X. Tested 10.14.6 (Clover) and 10.15 Beta 2 (OpenCore) 
 
 ![Alt text](https://ivanov-audio.com/wp-content/uploads/2014/01/Hackintosh-Featured-Image.png)
 
@@ -15,7 +15,7 @@ This build running on MacOs X
     - 시에라 이후에는 USB 전력 관리에 AAPL properties가 사용되지 않기 때문에 삭제했습니다.
     - SD 카드 리더기가 USB로 연결되어 있기 때문에 Sinetek-rtsx.kext를 삭제했습니다.
     - USBInjectAll.kext와 정확하지 않은 SSDT-UIA.aml를 삭제하고 BQ490 기준으로 패치된 USBPorts.kext와 패치내용을 추가했습니다.
-    - AirportBrcmFixup.kext만으로 와이파이와 Handoff 기능이 충분하기 때문에 BT4LEContinuityFixup.kext, FakePCIID.kext, 그리고 FakePCIID 플러그인 켁스트를 삭제했습니다.
+    - AirportBrcmFixup.kext, BrcmFirmwareRepo, 그리고 BrcmPatchRAM2만으로 와이파이와 Handoff 기능이 충분하기 때문에 BT4LEContinuityFixup.kext, FakePCIID.kext, 그리고 FakePCIID 플러그인 켁스트를 삭제했습니다.
     - RMNE 장치를 기존 SSDT-S510UA-KabyLakeR.aml에서부터 분리했습니다.
 5. Status: Stable
 
@@ -23,7 +23,7 @@ This build running on MacOs X
 
 1. Name:           Asus Vivobook X510UA-BQ490
 2. CPU:            Intel Core i5-8250U
-3. Graphic:        Intel UHD620
+3. Graphic:        Intel UHD Graphics 620 // HDMI 연결하면 작동합니다 (con2). VRAM을 2048 MB로 할당했습니다.
 4. Wifi:           Intel Dual Band Wireless-AC 8265 - with bluetooth // DW1560로 교체 (AirDrop and Handoff 완벽히 작동합니다.)
 5. Card Reader:    USB로 연결
 6. Camera:         ASUS UVC HD
@@ -44,7 +44,8 @@ This build running on MacOs X
 1. 부드러운 움직임과 제스쳐를 위해 Polling mode를 사용합니다.
 
 ## Attention please
-이 fork는 X510UA-BQ490에 최적화되도록 구성했습니다. 만약 본인의 노트북에 옵티머스 외장그래픽이 없고 키보드 백라이트가 없다면 사용할 수 있지만, 책임은 본인에게 있습니다. 부담이 되거나 외장그래픽 기능을 제어해야 한다면 tctien342의 기존 master branch나 hieplpvip의 Zenbook repository를 참고하시길 바랍니다.
+1. 이 fork는 X510UA-BQ490에 최적화되도록 구성했습니다. 만약 본인의 노트북에 옵티머스 외장그래픽이 없고 키보드 백라이트가 없다면 사용할 수 있지만, 책임은 본인에게 있습니다. 부담이 되거나 외장그래픽 기능을 제어해야 한다면 tctien342의 기존 master branch나 hieplpvip의 Zenbook repository를 참고하시길 바랍니다.
+2. VirtualSMC와 플러그인 및 efi 파일의 버전이 서로 일치하지 않으면 터치패드나 기타 전원에 오류가 발생할 수 있습니다. 가장 최근에 나온 안정적인 SMC 패키지를 다운로드하고 알맞게 설치하십시오.
 
 ## Steps to install
 
@@ -65,12 +66,12 @@ This build running on MacOs X
 
 ## WIFI Replacement
 
-1. DW1560 카드를 설치하십시오.
+1. DW1560 카드를 설치하십시오. (또는 값 싸고 성능이 더 좋지만 삽질이 필요한 DW1820A를 원하시면 OSXLatitude 가이드를 참고하십시오: 1. https://osxlatitude.com/forums/topic/11322-broadcom-bcm4350-cards-under-high-sierramojave/ 2. https://osxlatitude.com/forums/topic/11540-dw1820a-for-7490-help/ 페이지 3-5)
 2. 지역이 한국인 경우 bootflag가 brcmfx-country=#a인 것을 확인하십시오.
 3. 권장사항: /kexts/other/additional/LiluFriend.kext를 (또는 새롭게 LiluFriend를 생성하십시오.) /L*/E*에 붙여넣고 캐시를 재생성하십시오.
 4. 재부팅합니다.
 
-## Set Bluetoth port as internal
+## Set Bluetooth port as internal
 
 1. /L*/E*의 3rd party USB 관련 켁스트나 SSDT-UIA.aml가 로드되지 않은 것을 확인하십시오.
 2. headkaze의 Hackintool를 다운로드 하십시오: http://headsoft.com.au/download/mac/Hackintool.zip.
@@ -94,10 +95,8 @@ This build running on MacOs X
 
 ## When you think you are done
  
-1. /L*/E*의 내용을 SSD의 EFI 파티션과 USB (비상용) EFI 파티션에 복사하십시오.
-
-## Problems with the polling mode in other laptops
-1. X510UA-BQ490에서는 USTP=1 설정으로 FMCN and SSCN의 자동활성화 시 macOS가 한 번의 터치패드 클릭을 여러 번으로 인식하는 현상이 수정되었습니다. X510UA-BQ492에서는 패치를 적용한 후에도 노트북이 배터리로 운영되는 중에는 문제가 재발생합니다. FMCN and SSCN의 수동할당이 필요할 수 있습니다. https://github.com/hieplpvip/ASUS-ZENBOOK-HACKINTOSH/blob/master/src/hotpatch/SSDT-I2CBUS.dsl를 참고하고 VoodooI2C helpdesk에 도움을 요청하십시오.
+1. 클로버, 켁스트, 그리고 efi 파일을 최근 버전으로 업데이트 하십시오.
+2. /L*/E*의 내용을 SSD의 EFI 파티션과 USB (비상용) EFI 파티션에 복사하십시오.
 
 ## Other things
 1. OpenCore (10.15 Beta 2)

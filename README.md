@@ -1,6 +1,6 @@
 # Asus Vivobook X510UA-BQ490
 
-This build running on MacOs X
+This build running on MacOs X. Tested 10.14.6 (Clover) and 10.15 Beta 2 (OpenCore) 
 
 ![Alt text](https://ivanov-audio.com/wp-content/uploads/2014/01/Hackintosh-Featured-Image.png)
 
@@ -15,7 +15,7 @@ This build running on MacOs X
     - Removed XHC AAPL properties as not required as of Sierra
     - Removed Sinetek-rtsx.kext as the SD Card Reader is connected via USB
     - Removed SSDT-UIA.aml and included USBPorts.kext and information for proper USB configuration and working BT after sleep
-    - Removed BT4LEContinuityFixup.kext and FakePCIID.kext and the FakePCIID plugin as AirportBrcmFixup.kext is enough.
+    - Removed BT4LEContinuityFixup.kext and FakePCIID.kext and the FakePCIID plugin as AirportBrcmFixup, BrcmFirmwareRepo, and BrcmPatchRAM2 are enough.
     - Separated the RMNE device
 5. Status: Stable
 
@@ -23,7 +23,7 @@ This build running on MacOs X
 
 1. Name:           Asus Vivobook X510UA-BQ490
 2. CPU:            Intel Core i5-8250U
-3. Graphic:        Intel UHD620
+3. Graphic:        Intel UHD Graphics 620 // Dual monitor with HDMI (con2) and 2048 MB VRAM
 4. Wifi:           Intel Dual Band Wireless-AC 8265 - with bluetooth // REPLACED WITH DW1560 (AirDrop and Handoff Working perfectly)
 5. Card Reader:    Connected via USB
 6. Camera:         ASUS UVC HD
@@ -44,7 +44,8 @@ This build running on MacOs X
 1. Polling mode for smooth movements and gestures
 
 ## Attention please
-Note that this fork is mostly for myself only (X510UA-BQ490). If you have similar features such as no dGPU and no KB backlight, try, but at your own risk. Otherwise, please go to tctien342's original master branch or hieplpvip's Zenbook repository.
+1. Note that this fork is mostly for myself only (X510UA-BQ490). If you have similar features such as no dGPU and no KB backlight, try, but at your own risk. Otherwise, please go to tctien342's original master branch or hieplpvip's Zenbook repository.
+2. If the versions of your VirtualSMC and corresponding efi driver and plugins do not match, touchpad and other battery issues might arise. Please make sure to download the most recent stable release of the SMC package and install them accordingly.
 
 ## Steps to install
 
@@ -56,7 +57,7 @@ Note that this fork is mostly for myself only (X510UA-BQ490). If you have simila
 5. After a successful installation, boot into macOS, copy kexts In /kexts/Other -> /Library/Extension
 6. Use Kext Utility (or simply copy this line without the quotation marks: "sudo chmod -R 755 /L*/E*&&sudo chown -R 0:0 /L*/E*&&sudo kextcache -i /") to rebuild kext then reboot
 7. This time, touchpad and audio should function correctly. Then you need to mount EFI and copy Clover EFI to the system EFI partition in like what you have done on USB EFI partition
-8. After System EFI replaced by your EFI, use Clover Configurator to change SMBIOS, generate your serial and MBL. Now you can use icloud
+8. After System EFI replaced by your EFI, use Clover Configurator to change SMBIOS, generate your serial and MBL
 - Note: installing kexts and SSDT in /additional, changing the content of config.plist, configuring the USB mapping, or enabling Sleep and Airplane fn button may be required for the following reasons:
     - You have DW1560 installed -- WIFI Replacement
     - You have DW1560 installed but Bluetooth fails upon wake from sleep -- Set Bluetooth port as internal
@@ -65,12 +66,12 @@ Note that this fork is mostly for myself only (X510UA-BQ490). If you have simila
 
 ## WIFI Replacement
 
-1. Replace your card wifi with DW1560 (Or other if you can find better one, although I doubt there's one any better in terms of stability)
+1. Replace your card wifi with DW1560 (Or other if you can find better one, although I doubt there's one any better in terms of stability. If you like adventures, try DW1820A and follow the guides in OSXLatitude: 1. https://osxlatitude.com/forums/topic/11322-broadcom-bcm4350-cards-under-high-sierramojave/ 2. https://osxlatitude.com/forums/topic/11540-dw1820a-for-7490-help/ pages 3 to 5)
 2. Change the bootflag so you can specify your region. The default is brcmfx-country=#a
 3. Optional: Copy /kexts/other/additional/LiluFriend.kext (or create your own LiluFriend) to /L*/E* and rebuild cache
 4. Reboot
 
-## Set Bluetoth port as internal
+## Set Bluetooth port as internal
 
 1. Make sure USB injection kexts or SSDT-UIA.aml are not loaded
 2. Download Hackintool by headkaze http://headsoft.com.au/download/mac/Hackintool.zip
@@ -94,10 +95,8 @@ Note that this fork is mostly for myself only (X510UA-BQ490). If you have simila
 
 ## When you think you are done
  
-1. Backup your /L*/E* by copying them to the system EFI partition and/or USB EFI partition
-
-## Problems with the polling mode in other laptops
-1. Enabling FMCN and SSCN and their automatic assignment fixed the issues with the macOS recognizing a single click input as multiple clicks in my X510UA-BQ490. X510UA-BQ492 experiences the same issue when the laptop runs on battery even after implementing the fix. Custom FMCN and SSCN configuration may be required. Refer to https://github.com/hieplpvip/ASUS-ZENBOOK-HACKINTOSH/blob/master/src/hotpatch/SSDT-I2CBUS.dsl and ask for help at the VoodooI2C helpdesk
+1. Update Clover, kexts, and efi files.
+2. Backup your /L*/E* by copying them to the system EFI partition and/or USB EFI partition
 
 ## Other things
 1. OpenCore (10.15 Beta 2)
