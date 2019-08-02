@@ -1,10 +1,10 @@
 # Asus Vivobook X510UA-BQ490
 
-This build running on MacOs X. Tested 10.14.6 (Clover) and 10.15 Beta 2 (OpenCore) 
+Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore) 
 
 ![Alt text](https://ivanov-audio.com/wp-content/uploads/2014/01/Hackintosh-Featured-Image.png)
 
-## Detail
+## Details
 
 1. Version:    9-A
 2. Date:       July 15, 2019
@@ -96,7 +96,7 @@ This build running on MacOs X. Tested 10.14.6 (Clover) and 10.15 Beta 2 (OpenCor
 ## When you think you are done
  
 1. Update Clover, kexts, and efi files.
-2. Backup your /L*/E* by copying them to the system EFI partition and/or USB EFI partition
+2. Backup your /L*/E* by copying them to the system EFI partition and/or installation USB EFI partition
 
 ## Other things
 1. OpenCore (10.15 Beta 2)

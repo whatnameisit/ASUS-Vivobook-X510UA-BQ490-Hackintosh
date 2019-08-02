@@ -1,10 +1,10 @@
 # Asus Vivobook X510UA-BQ490
 
-This build running on MacOs X. Tested 10.14.6 (Clover) and 10.15 Beta 2 (OpenCore) 
+Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore) 
 
 ![Alt text](https://ivanov-audio.com/wp-content/uploads/2014/01/Hackintosh-Featured-Image.png)
 
-## Detail
+## Details
 
 1. Version:    9-A
 2. Date:       July 15, 2019
@@ -50,7 +50,7 @@ This build running on MacOs X. Tested 10.14.6 (Clover) and 10.15 Beta 2 (OpenCor
 ## Steps to install
 
 1. macOS 인스톨러 USB를 준비합니다. (creationmedia 방법이나 Mojave와 Catalina를 HFS+ 파일시스템에 설치하고 싶다면 MBR HFS Firmware Check Patch를 사용하십시오. https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/) 기존 맥 시스템이 없다면 가상머신을 이용하실 수 있습니다. 또는 [hackintosh.co.kr](http://hackintosh.co.kr)에서 고스트를 다운로드 받아 설치하시면 편리합니다.
-2. USB의 EFI 파티션에 Clover EFI의 하위폴더 EFI를 붙여넣으시오.
+2. USB의 EFI 파티션에 Clover EFI의 하위폴더 EFI를 붙여넣으십시오.
 3. 바이오스에서 VT-d를 비활성화 시키고 USB로 부팅해서 macOS Installer를 선택하십시오.
 4. 설치중에는 터치패드가 작동하지 않습니다. 따라서 별도의 마우스가 필요합니다. tonymacx86이나 다른 해킨토시 커뮤니티를 참고해서 설치를 마무리하십시오. 한글을 원하시면 [hackintosh.co.kr](http://hackintosh.co.kr)를 이용하십시오.
     - 만약 Catalina를 HFS+ 파일시스템으로 설치하신다면 https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/의 설치방법을 참고하십시오. 설치가 완료된 후 DW1560에 대해 블루투스 켁스트를 Catalina 대응 버전으로 업데이트해야 합니다. https://github.com/headkaze/OS-X-BrcmPatchRAM/releases에서 다운로드 받으실 수 있습니다. 설치 방법이나, 패치 내용은 https://www.insanelymac.com/forum/topic/339175-brcmpatchram2-for-1015-catalina-broadcom-bluetooth-firmware-upload/를 참고하십시오.
@@ -96,7 +96,7 @@ This build running on MacOs X. Tested 10.14.6 (Clover) and 10.15 Beta 2 (OpenCor
 ## When you think you are done
  
 1. 클로버, 켁스트, 그리고 efi 파일을 최근 버전으로 업데이트 하십시오.
-2. /L*/E*의 내용을 SSD의 EFI 파티션과 USB (비상용) EFI 파티션에 복사하십시오.
+2. /L*/E*의 내용을 SSD의 EFI 파티션과 설치 USB EFI 파티션에 복사하십시오.
 
 ## Other things
 1. OpenCore (10.15 Beta 2)
