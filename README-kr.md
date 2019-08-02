@@ -7,7 +7,7 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 ## Details
 
 1. Version:    9-A
-2. Date:       July 15, 2019
+2. Date:       August 2, 2019
 3. Support:    All BIOS
 4. Changelogs: tctien342's master branch로부터 내용을 줄였습니다.
     - 매끄럽고 정확한 클릭을 위해 VoodooI2C 작동모드를 Interrupts에서(SSDT-ELAN.aml) Polling으로(SSDT-ELAN-Polling.aml) 바꾸었습니다.
@@ -17,6 +17,8 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
     - USBInjectAll.kext와 정확하지 않은 SSDT-UIA.aml를 삭제하고 BQ490 기준으로 패치된 USBPorts.kext와 패치내용을 추가했습니다.
     - AirportBrcmFixup.kext, BrcmFirmwareRepo, 그리고 BrcmPatchRAM2만으로 와이파이와 Handoff 기능이 충분하기 때문에 BT4LEContinuityFixup.kext, FakePCIID.kext, 그리고 FakePCIID 플러그인 켁스트를 삭제했습니다.
     - RMNE 장치를 기존 SSDT-S510UA-KabyLakeR.aml에서부터 분리했습니다.
+    - IGPU 및 HDEF 내용을 ACPI에서 config.plist로 옮겼습니다.
+    - XOSI 패치를 제거했습니다.
 5. Status: Stable
 
 ## System specification
