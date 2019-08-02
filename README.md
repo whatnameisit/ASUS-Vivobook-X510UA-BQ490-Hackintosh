@@ -102,7 +102,7 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 
 ## Other things
 1. OpenCore (10.15 Beta 2)
-    - Load BT kexts and CC from /L*/E*
+    - Load CC from /L*/E*
     - No more shutdown panics
     - For 10.14 or prior, BT kexts are to be replaced with RehabMan's version for stable functionality
 

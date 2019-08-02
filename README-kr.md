@@ -102,7 +102,7 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 
 ## Other things
 1. OpenCore (10.15 Beta 2)
-    - BT kexts와 CC kext를 /L*/E*에서 로드합니다.
+    - CC kext를 /L*/E*에서 로드합니다.
     - 종료시 패닉현상은 없습니다.
     - 10.14나 이전 버전에서 사용하는 경우 BT 켁스트를 RehabMan 버전으로 교체하는 것을 권장합니다.
 
