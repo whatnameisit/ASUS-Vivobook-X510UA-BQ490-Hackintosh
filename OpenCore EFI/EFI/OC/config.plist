@@ -38,14 +38,6 @@
 				<key>Path</key>
 				<string>SSDT-ELAN-POLLINGOC.aml</string>
 			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>USB mapping</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-UIACIntOC.aml</string>
-			</dict>
 		</array>
 		<key>Block</key>
 		<array/>
@@ -796,13 +788,11 @@
 			</dict>
 			<dict>
 				<key>BundlePath</key>
-				<string>USBInjectAll.kext</string>
+				<string>USBPorts.kext</string>
 				<key>Comment</key>
-				<string>USB Ports</string>
+				<string>USB Ports - Set Enabled to YES after creating one</string>
 				<key>Enabled</key>
-				<true/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/USBInjectAll</string>
+				<false/>
 				<key>MatchKernel</key>
 				<string></string>
 				<key>PlistPath</key>
