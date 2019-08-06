@@ -46,14 +46,14 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 1. Polling mode for smooth movements and gestures
 
 ## Attention please
-1. Note that this fork is mostly for myself only (X510UA-BQ490). If you have similar features such as no dGPU and no KB backlight, try, but at your own risk. Otherwise, please go to tctien342's original master branch or hieplpvip's Zenbook repository.
+1. Note that this fork is mostly for my laptop only (X510UA-BQ490). If yours has similar features such as no dGPU and no KB backlight, try, but at your own risk. Otherwise, please go to tctien342's original master branch or hieplpvip's Zenbook repository.
 2. If the versions of your VirtualSMC and corresponding efi driver and plugins do not match, touchpad and other battery issues might arise. Please make sure to download the most recent stable release of the SMC package and install them accordingly.
 
 ## Steps to install
 
 1. Prepair an Mac installer in USB (Use creationmedia method or MBR HFS Firmware Check Patch available in https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/ for both Mojave and Catalina)
 2. Replace EFI folder in USB EFI partition with the EFI folder in Clover EFI
-3. Disable VT-d in BIOS and boot into USB and select MacOs installer
+3. Boot into USB and select MacOs installer
 4. During the installation process, touchpad will not work. You need a mouse connected through USB. Follow mac install instruction you can find it on tonymacx86 or other hackintosh forums
     - If you have chosen to install Catalina in HFS+ file system, follow the directions given in https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/. Updating Bluetooth kexts for DW1560 is necessary. Download is available at https://github.com/headkaze/OS-X-BrcmPatchRAM/releases and take a moment to read https://www.insanelymac.com/forum/topic/339175-brcmpatchram2-for-1015-catalina-broadcom-bluetooth-firmware-upload/
 5. After a successful installation, boot into macOS, copy kexts In /kexts/Other -> /Library/Extension
@@ -64,11 +64,11 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
     - You have DW1560 installed -- WIFI Replacement
     - You have DW1560 installed but Bluetooth fails upon wake from sleep -- Set Bluetooth port as internal
     - You have not replaced the WiFi & BT module with DW1560 but want to have working iMessage and FaceTime with USB WiFi dongle or USB LAN -- Install RehabMan Null Ethernet
-    - You have Sleep and Airplane fn keys
+    - You have Sleep and Airplane fn keys -- Sleep and Airplane fn keys
 
 ## WIFI Replacement
 
-1. Replace your card wifi with DW1560 (Or other if you can find better one, although I doubt there's one any better in terms of stability. If you like adventures, try DW1820A and follow the guides in OSXLatitude: 1. https://osxlatitude.com/forums/topic/11322-broadcom-bcm4350-cards-under-high-sierramojave/ 2. https://osxlatitude.com/forums/topic/11540-dw1820a-for-7490-help/ pages 3 to 5)
+1. Replace your card wifi with DW1560 ([Configuration with DW1820A](DW1820A.md))
 2. Change the bootflag so you can specify your region. The default is brcmfx-country=#a
 3. Optional: Copy /kexts/other/additional/LiluFriend.kext (or create your own LiluFriend) to /L*/E* and rebuild cache
 4. Reboot
@@ -78,7 +78,7 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 1. Make sure USB injection kexts or SSDT-UIA.aml are not loaded
 2. Download Hackintool by headkaze http://headsoft.com.au/download/mac/Hackintool.zip
 3. Under the USB tab, identify the Bluetooth port and set it as internal. The UVC camera can also be set as internal. Export and obtain the codeless injection kext or SSDT-UIA.aml
-4. Install the USBPorts.kext in /L*/E* (or USBInjectAll.kext and SSDT-UIA.aml if you want to have custom USB power configuration which will not be covered here. Refer to https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266/ for more information)
+4. Install the USBPorts.kext in /L*/E* (or USBInjectAll.kext and SSDT-UIA.aml if you want to have custom USB power configuration which will not be covered here. Refer to https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266/ for more information. Also, if you set SMBIOS to MBP14,1, you can modify the exported USBPorts.kext for custom USB power injection (kUSB properties))
 5. Rebuild cache and reboot
 - Note: USBPorts.kext in /kexts/other/additional is specifically for my own X510UA-BQ490. Creating your own mapping is recommended to avoid shutdown/sleep errors.
 
@@ -105,6 +105,9 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
     - Load CC from /L*/E*
     - No more shutdown panics
     - For 10.14 or prior, BT kexts are to be replaced with RehabMan's version for stable functionality
+    - Will provide a guide to installation and booting with OC if my build is as stablized as Clover
+2. Clover (10.14.4-10.14.6)
+    - Between MBP11,1 and MBP14,1, the former boots a couple seconds faster. The latter has better options one of which is the built-in "Hey Siri" recognition as well as the aforementioned "easier" USB custom power injection. Your choice.
 
 ## Credits
 

@@ -53,9 +53,9 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 
 1. macOS 인스톨러 USB를 준비합니다. (creationmedia 방법이나 Mojave와 Catalina를 HFS+ 파일시스템에 설치하고 싶다면 MBR HFS Firmware Check Patch를 사용하십시오. https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/) 기존 맥 시스템이 없다면 가상머신을 이용하실 수 있습니다. 또는 [hackintosh.co.kr](http://hackintosh.co.kr)에서 고스트를 다운로드 받아 설치하시면 편리합니다.
 2. USB의 EFI 파티션에 Clover EFI의 하위폴더 EFI를 붙여넣으십시오.
-3. 바이오스에서 VT-d를 비활성화 시키고 USB로 부팅해서 macOS Installer를 선택하십시오.
+3. USB로 부팅해서 macOS Installer를 선택하십시오.
 4. 설치중에는 터치패드가 작동하지 않습니다. 따라서 별도의 마우스가 필요합니다. tonymacx86이나 다른 해킨토시 커뮤니티를 참고해서 설치를 마무리하십시오. 한글을 원하시면 [hackintosh.co.kr](http://hackintosh.co.kr)를 이용하십시오.
-    - 만약 Catalina를 HFS+ 파일시스템으로 설치하신다면 https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/의 설치방법을 참고하십시오. 설치가 완료된 후 DW1560에 대해 블루투스 켁스트를 Catalina 대응 버전으로 업데이트해야 합니다. https://github.com/headkaze/OS-X-BrcmPatchRAM/releases에서 다운로드 받으실 수 있습니다. 설치 방법이나, 패치 내용은 https://www.insanelymac.com/forum/topic/339175-brcmpatchram2-for-1015-catalina-broadcom-bluetooth-firmware-upload/를 참고하십시오.
+    - 만약 Catalina를 HFS+ 파일시스템으로 설치하신다면 https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/의 설치방법을 참고하십시오. 설치가 완료된 후 DW1560에 대해 블루투스 켁스트를 Catalina 대응 버전으로 업데이트해야 합니다. https://github.com/headkaze/OS-X-BrcmPatchRAM/releases에서 다운로드 받으실 수 있습니다. 설치 방법이나, 패치 내용은 https://www.insanelymac.com/forum/topic/339175-brcmpatchram2-for-1015-catalina-broadcom-bluetooth-firmware-upload/ 를 참고하십시오.
 5. 설치가 완료된 후에 macOS로 부팅해서 /kexts/Other의 켁스트를 -> /Library/Extension로 붙여넣으십시오.
 6. Kext Utility를  이용해서 (또는 큰따옴표를 제외한 다음의 명령어를 터미널에 붙여넣습니다: "sudo chmod -R 755 /L*/E*&&sudo chown -R 0:0 /L*/E*&&sudo kextcache -i /") 캐시를 재생성하고 재부팅하십시오.
 7. 터치패드와 소리가 (마이크) 정상작동합니다. SSD의 EFI 파티션을 활성화시키고 (sudo diskutil mount EFI) Clover EFI의 하위폴더를 SSD의 EFI 하위폴더로 붙여넣습니다.
@@ -64,11 +64,14 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
     - DW1560를 설치한 경우 -- WIFI Replacement
     - DW1560설치 이후 잠자기에서 깨어난 상태에서 블루투스가 작동하지 않을 때 -- Set Bluetooth port as internal
     - WiFi & BT 모듈을 DW1560로 교체하지 않았지만 USB WiFi 동글이나 USB LAN를 통해 iMessage와 FaceTime를 활성화시킬 때 -- Install RehabMan Null Ethernet
-    - 잠자기와 비행기모드 fn 버튼이 있을 때
+    - 잠자기와 비행기모드 fn 버튼이 있을 때 -- Sleep and Airplane fn keys
 
 ## WIFI Replacement
 
-1. DW1560 카드를 설치하십시오. (또는 값 싸고 성능이 더 좋지만 삽질이 필요한 DW1820A를 원하시면 OSXLatitude 가이드를 참고하십시오: 1. https://osxlatitude.com/forums/topic/11322-broadcom-bcm4350-cards-under-high-sierramojave/ 2. https://osxlatitude.com/forums/topic/11540-dw1820a-for-7490-help/ 페이지 3-5)
+1. DW1560 카드를 설치하십시오. ([DW1820A 가이드](DW1820A-kr.md))
+    - 기본 가이드 -- CN-0VW3T3 1028:0021 순정: https://osxlatitude.com/forums/topic/11322-broadcom-bcm4350-cards-under-high-sierramojave/
+    - 기타 모델 및 위 링크로 해결되지 않는 경우 추가 정보 -- WiFi: https://osxlatitude.com/forums/topic/11540-dw1820a-for-7490-help/ 페이지 3,4
+    - Bluetooth -- EFI 폴더에 있는 Brcm 켁스트로 작동하지 않는 경우: https://osxlatitude.com/forums/topic/11540-dw1820a-for-7490-help/page/5/
 2. 지역이 한국인 경우 bootflag가 brcmfx-country=#a인 것을 확인하십시오.
 3. 권장사항: /kexts/other/additional/LiluFriend.kext를 (또는 새롭게 LiluFriend를 생성하십시오.) /L*/E*에 붙여넣고 캐시를 재생성하십시오.
 4. 재부팅합니다.
@@ -78,7 +81,7 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 1. /L*/E*의 3rd party USB 관련 켁스트나 SSDT-UIA.aml가 로드되지 않은 것을 확인하십시오.
 2. headkaze의 Hackintool를 다운로드 하십시오: http://headsoft.com.au/download/mac/Hackintool.zip.
 3. USB 탭에서 블루투스 포트를 확인하고 internal로 설정하십시오. UVC 카메라 또한 internal로 설정할 수 있습니다. Export/내보내기 버튼으로 codeless injection kext과 SSDT-UIA.aml를 생성하십시오.
-4. USBPorts.kext를 /L*/E*에 설치하십시오. (또는 추가전력 관리를 수동으로 설정하고 싶다면 USBInjectAll.kext와 SSDT-UIA.aml를 설치하십시오. 자세한 내용은 https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266/ 에서 확인하실 수 있습니다.)
+4. USBPorts.kext를 /L*/E*에 설치하십시오. (또는 추가전력 관리를 수동으로 설정하고 싶다면 USBInjectAll.kext와 SSDT-UIA.aml를 설치하십시오. 자세한 내용은 https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266/ 에서 확인하실 수 있습니다. 또는 SMBIOS를 MBP14,1로 설정하면 USBPorts.kext를 이용해 추가전력 수동할당(kUSB 항목)을 보다 쉽게 진행할 수 있습니다.)
 5. 캐시를 재생성하고 재부팅합니다.
 - Note: kexts/other/additional의 USBPorts.kext는 제 X510UA-BQ490에 해당하는 켁스트입니다. 종료나 잠자기 시 오류를 방지하기 위해 본인의 USB 매핑을 설정하는 것을 추천합니다.
 
@@ -90,7 +93,7 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 - Note: 안정적인 iMessage, FaceTime, 그리고 App Store를 사용하기 위해서는 Null Ethernet를 먼저 설치한 후 기타 USB 동글이나 LAN을 사용하십시오.
 
 ## Sleep and Airplane fn keys
-1. https://github.com/hieplpvip/AsusSMC/wiki/Installation-Instruction를 참고하십시오.
+1. https://github.com/hieplpvip/AsusSMC/wiki/Installation-Instruction 를 참고하십시오.
     - AsusSMC Release를 다운로드합니다: https://github.com/hieplpvip/AsusSMC/releases
     - install_daemon.sh를 터미널로 드래그해서 실행시키십시오.
     - 곧바로 작동하지 않는다면 재부팅하십시오.
@@ -105,6 +108,9 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
     - CC kext를 /L*/E*에서 로드합니다.
     - 종료시 패닉현상은 없습니다.
     - 10.14나 이전 버전에서 사용하는 경우 BT 켁스트를 RehabMan 버전으로 교체하는 것을 권장합니다.
+    - Clover 수준의 안정적인 EFI 폴더 구성 후 가이드를 제공할 예정입니다.
+2. Clover (10.14.4-10.14.6)
+    - SMBIOS MBP11,1과 MBP14,1 중 전자가 부팅시간이 약간 더 짧습니다. 후자는 "시리야"가 자동으로 인식되고는 등 더 많은 옵션이 있는 SMBIOS이고, 앞서 언급한대로 USB 추가전력 수동할당이 더 쉽습니다. 본인 선호에 따라 설정하십시오. 
 
 ## Credits
 
