@@ -25,7 +25,7 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 
 1. Name:           Asus Vivobook X510UA-BQ490
 2. CPU:            Intel Core i5-8250U
-3. Graphic:        Intel UHD Graphics 620 // HDMI 연결하면 작동합니다 (con2). VRAM을 2048 MB로 할당했습니다.
+3. Graphic:        Intel UHD Graphics 620 // HDMI 연결하면 작동합니다 (Index 2). VRAM을 2048 MB로 할당했습니다.
 4. Wifi:           Intel Dual Band Wireless-AC 8265 - with bluetooth // DW1560로 교체 (AirDrop and Handoff 완벽히 작동합니다.)
 5. Card Reader:    USB로 연결
 6. Camera:         ASUS UVC HD
@@ -54,7 +54,7 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 1. macOS 인스톨러 USB를 준비합니다. (creationmedia 방법이나 Mojave와 Catalina를 HFS+ 파일시스템에 설치하고 싶다면 MBR HFS Firmware Check Patch를 사용하십시오. https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/) 기존 맥 시스템이 없다면 가상머신을 이용하실 수 있습니다. 또는 [hackintosh.co.kr](http://hackintosh.co.kr)에서 고스트를 다운로드 받아 설치하시면 편리합니다.
 2. USB의 EFI 파티션에 Clover EFI의 하위폴더 EFI를 붙여넣으십시오.
 3. USB로 부팅해서 macOS Installer를 선택하십시오.
-4. 설치중에는 터치패드가 작동하지 않습니다. 따라서 별도의 마우스가 필요합니다. tonymacx86이나 다른 해킨토시 커뮤니티를 참고해서 설치를 마무리하십시오. 한글을 원하시면 [hackintosh.co.kr](http://hackintosh.co.kr)를 이용하십시오.
+4. 설치중에는 터치패드가 작동하지 않을 수 있습니다. 이 경우 별도의 마우스가 필요합니다. tonymacx86이나 다른 해킨토시 커뮤니티를 참고해서 설치를 마무리하십시오. 한글을 원하시면 [hackintosh.co.kr](http://hackintosh.co.kr)를 이용하십시오.
     - 만약 Catalina를 HFS+ 파일시스템으로 설치하신다면 https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/의 설치방법을 참고하십시오. 설치가 완료된 후 DW1560에 대해 블루투스 켁스트를 Catalina 대응 버전으로 업데이트해야 합니다. https://github.com/headkaze/OS-X-BrcmPatchRAM/releases에서 다운로드 받으실 수 있습니다. 설치 방법이나, 패치 내용은 https://www.insanelymac.com/forum/topic/339175-brcmpatchram2-for-1015-catalina-broadcom-bluetooth-firmware-upload/ 를 참고하십시오.
 5. 설치가 완료된 후에 macOS로 부팅해서 /kexts/Other의 켁스트를 -> /Library/Extension로 붙여넣으십시오.
 6. Kext Utility를  이용해서 (또는 큰따옴표를 제외한 다음의 명령어를 터미널에 붙여넣습니다: "sudo chmod -R 755 /L*/E*&&sudo chown -R 0:0 /L*/E*&&sudo kextcache -i /") 캐시를 재생성하고 재부팅하십시오.
@@ -69,9 +69,6 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 ## WIFI Replacement
 
 1. DW1560 카드를 설치하십시오. ([DW1820A 가이드](DW1820A-kr.md))
-    - 기본 가이드 -- CN-0VW3T3 1028:0021 순정: https://osxlatitude.com/forums/topic/11322-broadcom-bcm4350-cards-under-high-sierramojave/
-    - 기타 모델 및 위 링크로 해결되지 않는 경우 추가 정보 -- WiFi: https://osxlatitude.com/forums/topic/11540-dw1820a-for-7490-help/ 페이지 3,4
-    - Bluetooth -- EFI 폴더에 있는 Brcm 켁스트로 작동하지 않는 경우: https://osxlatitude.com/forums/topic/11540-dw1820a-for-7490-help/page/5/
 2. 지역이 한국인 경우 bootflag가 brcmfx-country=#a인 것을 확인하십시오.
 3. 권장사항: /kexts/other/additional/LiluFriend.kext를 (또는 새롭게 LiluFriend를 생성하십시오.) /L*/E*에 붙여넣고 캐시를 재생성하십시오.
 4. 재부팅합니다.

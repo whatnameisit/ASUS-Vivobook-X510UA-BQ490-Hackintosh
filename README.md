@@ -25,7 +25,7 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 
 1. Name:           Asus Vivobook X510UA-BQ490
 2. CPU:            Intel Core i5-8250U
-3. Graphic:        Intel UHD Graphics 620 // Dual monitor with HDMI (con2) and 2048 MB VRAM
+3. Graphic:        Intel UHD Graphics 620 // Dual monitor with HDMI (Index 2) and 2048 MB VRAM
 4. Wifi:           Intel Dual Band Wireless-AC 8265 - with bluetooth // REPLACED WITH DW1560 (AirDrop and Handoff Working perfectly)
 5. Card Reader:    Connected via USB
 6. Camera:         ASUS UVC HD
@@ -51,14 +51,14 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 
 ## Steps to install
 
-1. Prepair an Mac installer in USB (Use creationmedia method or MBR HFS Firmware Check Patch available in https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/ for both Mojave and Catalina)
+1. Prepair a macOS installer in USB (Use creationmedia method or MBR HFS Firmware Check Patch available in https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/ for both Mojave and Catalina)
 2. Replace EFI folder in USB EFI partition with the EFI folder in Clover EFI
 3. Boot into USB and select MacOs installer
-4. During the installation process, touchpad will not work. You need a mouse connected through USB. Follow mac install instruction you can find it on tonymacx86 or other hackintosh forums
+4. During the installation, touchpad may not work. You need a mouse connected through USB. Follow installation instructions found on tonymacx86 or other hackintosh forums
     - If you have chosen to install Catalina in HFS+ file system, follow the directions given in https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/. Updating Bluetooth kexts for DW1560 is necessary. Download is available at https://github.com/headkaze/OS-X-BrcmPatchRAM/releases and take a moment to read https://www.insanelymac.com/forum/topic/339175-brcmpatchram2-for-1015-catalina-broadcom-bluetooth-firmware-upload/
 5. After a successful installation, boot into macOS, copy kexts In /kexts/Other -> /Library/Extension
 6. Use Kext Utility (or simply copy this line without the quotation marks: "sudo chmod -R 755 /L*/E*&&sudo chown -R 0:0 /L*/E*&&sudo kextcache -i /") to rebuild kext then reboot
-7. This time, touchpad and audio should function correctly. Then you need to mount EFI and copy Clover EFI to the system EFI partition in like what you have done on USB EFI partition
+7. Now the touchpad and sound input should function correctly. You need to mount EFI and copy Clover EFI to the system EFI partition in like what you have done on USB EFI partition
 8. After System EFI replaced by your EFI, use Clover Configurator to change SMBIOS, generate your serial and MBL
 - Note: installing kexts and SSDT in /additional, changing the content of config.plist, configuring the USB mapping, or enabling Sleep and Airplane fn button may be required for the following reasons:
     - You have DW1560 installed -- WIFI Replacement

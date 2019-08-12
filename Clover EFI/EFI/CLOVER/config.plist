@@ -39,57 +39,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change _DSM to XDSM</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>X0RTTQ==</data>
-					<key>Replace</key>
-					<data>WERTTQ==</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change GFX0 to IGPU</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>R0ZYMA==</data>
-					<key>Replace</key>
-					<data>SUdQVQ==</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change HDAS to HDEF</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>SERBUw==</data>
-					<key>Replace</key>
-					<data>SERFRg==</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change HECI to IMEI</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>SEVDSQ==</data>
-					<key>Replace</key>
-					<data>SU1FSQ==</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change SAT0 to SATA</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>U0FUMA==</data>
-					<key>Replace</key>
-					<data>U0FUQQ==</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change LPC to LPCB</string>
+					<string>Rename LPC to LPCB</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -99,7 +49,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>Instant wake fix: change Method(GPRW,2,N) to XPRW</string>
+					<string>Instant wake fix: Rename Method(GPRW,2,N) to XPRW</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -159,7 +109,15 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change Method(_Q0A,0,NS) to XQ0A</string>
+					<string>ATK: Rename Method(IANE,1,S) to XANE</string>
+					<key>Find</key>
+					<data>SUFORQk=</data>
+					<key>Replace</key>
+					<data>WEFORQk=</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>ATK: Rename Method(_Q0A,0,NS) to XQ0A F1</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -169,7 +127,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change Method(_Q0B,0,NS) to XQ0B</string>
+					<string>ATK: Rename Method(_Q0B,0,NS) to XQ0B F2</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -179,7 +137,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change Method(_Q0E,0,NS) to XQ0E</string>
+					<string>ATK: Rename Method(_Q0E,0,NS) to XQ0E F5</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -189,7 +147,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change Method(_Q0F,0,NS) to XQ0F</string>
+					<string>ATK: Rename Method(_Q0F,0,NS) to XQ0F F6</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -199,7 +157,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change Method(_Q11,0,NS) to XQ11</string>
+					<string>ATK: Rename Method(_Q11,0,NS) to XQ11 F8</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -209,7 +167,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change Method(_Q6C,0,NS) to XQ6C ML</string>
+					<string>ATK: Rename Method(_Q6C,0,NS) to XQ6C MR</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -219,7 +177,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change Method(_Q6D,0,NS) to XQ6D MR</string>
+					<string>ATK: Rename Method(_Q6D,0,NS) to XQ6D ML</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -229,7 +187,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change Method(_Q6E,0,NS) to XQ6E MU</string>
+					<string>ATK: Rename Method(_Q6E,0,NS) to XQ6E MU</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -239,7 +197,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change Method(_Q6F,0,NS) to XQ6F MD</string>
+					<string>ATK: Rename Method(_Q6F,0,NS) to XQ6F MD</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -249,17 +207,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>LPCB: change _STA methods in MATH and LDR2 device to XSTA</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>X1NUQQCgDZNQ</data>
-					<key>Replace</key>
-					<data>WFNUQQCgDZNQ</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>ELAN: change Method(_CRS,0,S) in ETPD to XCRS</string>
+					<string>ELAN: Rename Method(_CRS,0,S) in ETPD to XCRS</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -269,7 +217,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>ELAN: change USTP to XSTP to assign default values to SSCN and FMCN</string>
+					<string>ELAN: Rename USTP to XSTP</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
