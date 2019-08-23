@@ -38,14 +38,6 @@
 				<key>Path</key>
 				<string>SSDT-ELAN-POLLINGOC.aml</string>
 			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Add MEM2 device found in real macs. Not necessary</string>
-				<key>Enabled</key>
-				<false/>
-				<key>Path</key>
-				<string>SSDT-MEM2.aml</string>
-			</dict>
 		</array>
 		<key>Block</key>
 		<array/>
