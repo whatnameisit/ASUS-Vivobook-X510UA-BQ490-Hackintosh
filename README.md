@@ -78,7 +78,7 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 1. Make sure USB injection kexts or SSDT-UIA.aml are not loaded
 2. Download Hackintool by headkaze http://headsoft.com.au/download/mac/Hackintool.zip
 3. Under the USB tab, identify the Bluetooth port and set it as internal. The UVC camera can also be set as internal. Export and obtain the codeless injection kext or SSDT-UIA.aml
-4. Install the USBPorts.kext in /L*/E* (or USBInjectAll.kext and SSDT-UIA.aml if you want to have custom USB power configuration which will not be covered here. Refer to https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266/ for more information. Also, if you set SMBIOS to MBP14,1, you can modify the exported USBPorts.kext for custom USB power injection (kUSB properties))
+4. Install the USBPorts.kext in /L*/E* (Refer to https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266/ for more information.)
 5. Rebuild cache and reboot
 - Note: USBPorts.kext in /kexts/other/additional is specifically for my own X510UA-BQ490. Creating your own mapping is recommended to avoid shutdown/sleep errors.
 
@@ -106,8 +106,6 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
     - No more shutdown panics
     - For 10.14 or prior, BT kexts are to be replaced with RehabMan's version for stable functionality
     - Will provide a guide to installation and booting with OC if my build is as stablized as Clover
-2. Clover (10.14.4-10.14.6)
-    - Between MBP11,1 and MBP14,1, the former boots a couple seconds faster. The latter has better options one of which is the built-in "Hey Siri" recognition as well as the aforementioned "easier" USB custom power injection. Your choice.
 
 ## Credits
 

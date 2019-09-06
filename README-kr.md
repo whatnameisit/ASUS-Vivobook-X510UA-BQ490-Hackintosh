@@ -78,7 +78,7 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 1. /L*/E*의 3rd party USB 관련 켁스트나 SSDT-UIA.aml가 로드되지 않은 것을 확인하십시오.
 2. headkaze의 Hackintool를 다운로드 하십시오: http://headsoft.com.au/download/mac/Hackintool.zip.
 3. USB 탭에서 블루투스 포트를 확인하고 internal로 설정하십시오. UVC 카메라 또한 internal로 설정할 수 있습니다. Export/내보내기 버튼으로 codeless injection kext과 SSDT-UIA.aml를 생성하십시오.
-4. USBPorts.kext를 /L*/E*에 설치하십시오. (또는 추가전력 관리를 수동으로 설정하고 싶다면 USBInjectAll.kext와 SSDT-UIA.aml를 설치하십시오. 자세한 내용은 https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266/ 에서 확인하실 수 있습니다. 또는 SMBIOS를 MBP14,1로 설정하면 USBPorts.kext를 이용해 추가전력 수동할당(kUSB 항목)을 보다 쉽게 진행할 수 있습니다.)
+4. USBPorts.kext를 /L*/E*에 설치하십시오. (자세한 내용은 https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266/ 에서 확인하실 수 있습니다.)
 5. 캐시를 재생성하고 재부팅합니다.
 - Note: kexts/other/additional의 USBPorts.kext는 제 X510UA-BQ490에 해당하는 켁스트입니다. 종료나 잠자기 시 오류를 방지하기 위해 본인의 USB 매핑을 설정하는 것을 추천합니다.
 
@@ -106,8 +106,6 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
     - 종료시 패닉현상은 없습니다.
     - 10.14나 이전 버전에서 사용하는 경우 BT 켁스트를 RehabMan 버전으로 교체하는 것을 권장합니다.
     - Clover 수준의 안정적인 EFI 폴더 구성 후 가이드를 제공할 예정입니다.
-2. Clover (10.14.4-10.14.6)
-    - SMBIOS MBP11,1과 MBP14,1 중 전자가 부팅시간이 약간 더 짧습니다. 후자는 "시리야"가 자동으로 인식되고는 등 더 많은 옵션이 있는 SMBIOS이고, 앞서 언급한대로 USB 추가전력 수동할당이 더 쉽습니다. 본인 선호에 따라 설정하십시오. 
 
 ## Credits
 
