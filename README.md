@@ -61,17 +61,18 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 7. Now the touchpad and sound input should function correctly. You need to mount EFI and copy Clover EFI to the system EFI partition in like what you have done on USB EFI partition
 8. After System EFI replaced by your EFI, use Clover Configurator to change SMBIOS, generate your serial and MBL
 - Note: installing kexts and SSDT in /additional, changing the content of config.plist, configuring the USB mapping, or enabling Sleep and Airplane fn button may be required for the following reasons:
-    - You have DW1560 installed -- WIFI Replacement
+    - You have DW1560 installed -- WiFi/Bluetooth Replacement
     - You have DW1560 installed but Bluetooth fails upon wake from sleep -- Set Bluetooth port as internal
     - You have not replaced the WiFi & BT module with DW1560 but want to have working iMessage and FaceTime with USB WiFi dongle or USB LAN -- Install RehabMan Null Ethernet
     - You have Sleep and Airplane fn keys -- Sleep and Airplane fn keys
 
-## WIFI Replacement
+## WiFi/Bluetooth Replacement
 
-1. Replace your card wifi with DW1560 ([Configuration with DW1820A](DW1820A.md))
+1. Replace your card wifi with DW1560
 2. Change the bootflag so you can specify your region. The default is brcmfx-country=#a
-3. Optional: Copy /kexts/other/additional/LiluFriend.kext (or create your own LiluFriend) to /L*/E* and rebuild cache
-4. Reboot
+3. Go to /kexts/other/additional and copy the three Brcm kexts to /L*/E* and rebuild cache
+4. Optional: Copy /kexts/other/additional/LiluFriend.kext (create your own is recommended) to /L*/E* and rebuild cache
+5. Reboot
 
 ## Set Bluetooth port as internal
 

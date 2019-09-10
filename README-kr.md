@@ -61,17 +61,18 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 7. 터치패드와 소리가 (마이크) 정상작동합니다. SSD의 EFI 파티션을 활성화시키고 (sudo diskutil mount EFI) Clover EFI의 하위폴더를 SSD의 EFI 하위폴더로 붙여넣습니다.
 8. EFI 폴더를 설치한 후 Clover Configurator를 이용해서 MacBookPro11,1의 SMBIOS 내용을 생성하십시오.
 - Note: 경우에 따라서 additional의 켁스트와 SSDT를 새로 설치하거나, config.plist의 내용을 변경하거나, USB 매핑을 설정하거나, 잠자기와 비행기모드 fn 키 설정이 필요할 수 있습니다.
-    - DW1560를 설치한 경우 -- WIFI Replacement
+    - DW1560를 설치한 경우 -- WiFi/Bluetooth Replacement
     - DW1560설치 이후 잠자기에서 깨어난 상태에서 블루투스가 작동하지 않을 때 -- Set Bluetooth port as internal
     - WiFi & BT 모듈을 DW1560로 교체하지 않았지만 USB WiFi 동글이나 USB LAN를 통해 iMessage와 FaceTime를 활성화시킬 때 -- Install RehabMan Null Ethernet
     - 잠자기와 비행기모드 fn 버튼이 있을 때 -- Sleep and Airplane fn keys
 
-## WIFI Replacement
+## WiFi/Bluetooth Replacement
 
-1. DW1560 카드를 설치하십시오. ([DW1820A 가이드](DW1820A-kr.md))
+1. DW1560 카드를 설치하십시오.
 2. 지역이 한국인 경우 bootflag가 brcmfx-country=#a인 것을 확인하십시오.
-3. 권장사항: /kexts/other/additional/LiluFriend.kext를 (또는 새롭게 LiluFriend를 생성하십시오.) /L*/E*에 붙여넣고 캐시를 재생성하십시오.
-4. 재부팅합니다.
+3. /kexts/other/additional에 있는 세 개의 Brcm kext들을 /L*/E*로 복사하고 캐시를 재생성하십시오.
+4. 권장사항: /kexts/other/additional/LiluFriend.kext를 (새롭게 LiluFriend를 생성하는 것이 안정적입니다.) /L*/E*에 붙여넣고 캐시를 재생성하십시오.
+5. 재부팅합니다.
 
 ## Set Bluetooth port as internal
 
