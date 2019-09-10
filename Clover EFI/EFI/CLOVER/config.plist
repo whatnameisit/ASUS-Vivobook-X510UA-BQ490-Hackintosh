@@ -39,6 +39,26 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
+					<string>change OSID to XSID (to avoid match against _OSI XOSI patch)</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>T1NJRA==</data>
+					<key>Replace</key>
+					<data>WFNJRA==</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change _OSI to XOSI</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>X09TSQ==</data>
+					<key>Replace</key>
+					<data>WE9TSQ==</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
 					<string>Rename LPC to LPCB</string>
 					<key>Disabled</key>
 					<false/>
@@ -204,16 +224,6 @@
 					<data>X1E2RgA=</data>
 					<key>Replace</key>
 					<data>WFE2RgA=</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>ELAN: Rename Method(_CRS,0,S) in ETPD to XCRS</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>X0NSUwgIU0JGSQ==</data>
-					<key>Replace</key>
-					<data>WENSUwgIU0JGSQ==</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
