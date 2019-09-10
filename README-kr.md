@@ -11,13 +11,14 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 3. Support:    All BIOS
 4. Changelogs: tctien342's master branch로부터 내용을 줄였습니다.
     - 매끄럽고 정확한 클릭을 위해 VoodooI2C 작동모드를 Interrupts에서(SSDT-ELAN.aml) Polling으로(SSDT-X510UA-Touchpad.aml) 바꾸었습니다.
-    - 옵티머스 기능이 없기 때문에 기존 SSDT-S510UA-KabyLakeR.aml의 해당 내용을 삭제하고, SSDT-RP01_PEGP를 삭제했습니다. 
+    - 옵티머스 기능이 없기 때문에 기존 SSDT-S510UA-KabyLakeR.aml의 해당 내용을 삭제하고, SSDT-RP01_PEGP.aml를 삭제했습니다. 
     - 시에라 이후에는 USB 전력 관리에 AAPL properties가 사용되지 않기 때문에 삭제했습니다.
     - SD 카드 리더기가 USB로 연결되어 있기 때문에 Sinetek-rtsx.kext를 삭제했습니다.
     - USBInjectAll.kext와 정확하지 않은 SSDT-UIA.aml를 삭제하고 BQ490 기준으로 패치된 USBPorts.kext와 패치내용을 추가했습니다.
     - AirportBrcmFixup.kext, BrcmBluetoothInjector, BrcmFirmwareRepo, 그리고 BrcmPatchRAM2만으로 와이파이와 블루투스 및 Handoff 기능이 충분하기 때문에 BT4LEContinuityFixup.kext, FakePCIID.kext, 그리고 FakePCIID 플러그인 켁스트를 삭제했습니다.
     - RMNE 장치를 기존 SSDT-S510UA-KabyLakeR.aml에서부터 분리했습니다.
     - IGPU 및 HDEF 내용을 ACPI에서 config.plist로 옮겼습니다.
+    - 키보드 백라이트가 없는 기종이기 때문에 F5와 F6로 백라이트 문양이 나타나는 것을 SSDT-PS2.aml로 기능을 제거했습니다.
 5. Status: Stable
 
 ## System specification
@@ -54,7 +55,7 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 2. USB의 EFI 파티션에 Clover EFI의 하위폴더 EFI를 붙여넣으십시오.
 3. USB로 부팅해서 macOS Installer를 선택하십시오.
 4. 설치중에는 터치패드가 작동하지 않을 수 있습니다. 이 경우 별도의 마우스가 필요합니다. tonymacx86이나 다른 해킨토시 커뮤니티를 참고해서 설치를 마무리하십시오. 한글을 원하시면 [hackintosh.co.kr](http://hackintosh.co.kr)를 이용하십시오.
-    - 만약 Catalina를 HFS+ 파일시스템으로 설치하신다면 https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/의 설치방법을 참고하십시오. 설치가 완료된 후 DW1560에 대해 블루투스 켁스트를 Catalina 대응 버전으로 업데이트해야 합니다. https://github.com/headkaze/OS-X-BrcmPatchRAM/releases에서 다운로드 받으실 수 있습니다. 설치 방법이나, 패치 내용은 https://www.insanelymac.com/forum/topic/339175-brcmpatchram2-for-1015-catalina-broadcom-bluetooth-firmware-upload/ 를 참고하십시오.
+    - 만약 Catalina를 HFS+ 파일시스템으로 설치하신다면 https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/의 설치방법을 참고하십시오.
 5. 설치가 완료된 후에 macOS로 부팅해서 /kexts/Other의 켁스트를 -> /Library/Extension로 붙여넣으십시오.
 6. Kext Utility를  이용해서 (또는 큰따옴표를 제외한 다음의 명령어를 터미널에 붙여넣습니다: "sudo chmod -R 755 /L*/E*&&sudo chown -R 0:0 /L*/E*&&sudo kextcache -i /") 캐시를 재생성하고 재부팅하십시오.
 7. 터치패드와 소리가 (마이크) 정상작동합니다. SSD의 EFI 파티션을 활성화시키고 (sudo diskutil mount EFI) Clover EFI의 하위폴더를 SSD의 EFI 하위폴더로 붙여넣습니다.
@@ -104,7 +105,6 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 1. OpenCore (10.15 Beta 2)
     - CC kext를 /L*/E*에서 로드합니다.
     - 종료시 패닉현상은 없습니다.
-    - 10.14나 이전 버전에서 사용하는 경우 BT 켁스트를 RehabMan 버전으로 교체하는 것을 권장합니다.
     - Clover 수준의 안정적인 EFI 폴더 구성 후 가이드를 제공할 예정입니다.
 
 ## Credits

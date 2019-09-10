@@ -18,6 +18,7 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
     - Removed BT4LEContinuityFixup.kext and FakePCIID.kext and the FakePCIID plugin as AirportBrcmFixup, BrcmBluetoothInjector, BrcmFirmwareRepo, and BrcmPatchRAM2 are enough
     - Separated the RMNE device
     - Moved IGPU and HDEF contents from ACPI to config.plist
+    - Made F5 and F6 keys do nothing with SSDT-PS2.aml as they are associated with keyboard backlight which X510UA-BQ490 does not have
 5. Status: Stable
 
 ## System specification
@@ -54,7 +55,7 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 2. Replace EFI folder in USB EFI partition with the EFI folder in Clover EFI
 3. Boot into USB and select MacOs installer
 4. During the installation, touchpad may not work. You need a mouse connected through USB. Follow installation instructions found on tonymacx86 or other hackintosh forums
-    - If you have chosen to install Catalina in HFS+ file system, follow the directions given in https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/. Updating Bluetooth kexts for DW1560 is necessary. Download is available at https://github.com/headkaze/OS-X-BrcmPatchRAM/releases and take a moment to read https://www.insanelymac.com/forum/topic/339175-brcmpatchram2-for-1015-catalina-broadcom-bluetooth-firmware-upload/
+    - If you have chosen to install Catalina in HFS+ file system, follow the directions given in https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/.
 5. After a successful installation, boot into macOS, copy kexts In /kexts/Other -> /Library/Extension
 6. Use Kext Utility (or simply copy this line without the quotation marks: "sudo chmod -R 755 /L*/E*&&sudo chown -R 0:0 /L*/E*&&sudo kextcache -i /") to rebuild kext then reboot
 7. Now the touchpad and sound input should function correctly. You need to mount EFI and copy Clover EFI to the system EFI partition in like what you have done on USB EFI partition
@@ -104,7 +105,6 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 1. OpenCore (10.15 Beta 2)
     - Load CC from /L*/E*
     - No more shutdown panics
-    - For 10.14 or prior, BT kexts are to be replaced with RehabMan's version for stable functionality
     - Will provide a guide to installation and booting with OC if my build is as stablized as Clover
 
 ## Credits
