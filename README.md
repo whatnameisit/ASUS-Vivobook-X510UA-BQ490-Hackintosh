@@ -10,15 +10,14 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 2. Date:       August 2, 2019
 3. Support:    All BIOS
 4. Changelogs: Removed many things
-    - Touchpad now uses polling mode with SSDT-ELAN-Polling.aml with automatic activation of FMCN and SSCN with USTP=1 for proper clicks
+    - Touchpad now uses polling mode with SSDT-X510UA-Touchpad.aml with assignment of FMCN and SSCN with activation from USTP=1 for proper clicks
     - Trimmed down SSDT-S510UA-KabyLakeR.aml and removed SSDT-RP01_PEGP for X510UA-BQ490 
     - Removed XHC AAPL properties as not required as of Sierra
     - Removed Sinetek-rtsx.kext as the SD Card Reader is connected via USB
     - Removed SSDT-UIA.aml and included USBPorts.kext and information for proper USB configuration and working BT after sleep
-    - Removed BT4LEContinuityFixup.kext and FakePCIID.kext and the FakePCIID plugin as AirportBrcmFixup, BrcmFirmwareRepo, and BrcmPatchRAM2 are enough
+    - Removed BT4LEContinuityFixup.kext and FakePCIID.kext and the FakePCIID plugin as AirportBrcmFixup, BrcmBluetoothInjector, BrcmFirmwareRepo, and BrcmPatchRAM2 are enough
     - Separated the RMNE device
     - Moved IGPU and HDEF contents from ACPI to config.plist
-    - Removed XOSI patch. 
 5. Status: Stable
 
 ## System specification
@@ -70,8 +69,8 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 
 1. Replace your card wifi with DW1560
 2. Change the bootflag so you can specify your region. The default is brcmfx-country=#a
-3. Go to /kexts/other/additional and copy the three Brcm kexts to /L*/E* and rebuild cache
-4. Optional: Copy /kexts/other/additional/LiluFriend.kext (create your own is recommended) to /L*/E* and rebuild cache
+3. Go to /kexts/other/additional and copy AirportBrcmFixup and the three Brcm kexts to /L*/E* and rebuild cache
+4. Optional: Copy /kexts/other/additional/LiluFriend.kext (recommended to create your own) to /L*/E* and rebuild cache
 5. Reboot
 
 ## Set Bluetooth port as internal

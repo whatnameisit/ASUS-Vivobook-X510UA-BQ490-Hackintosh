@@ -10,15 +10,14 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 2. Date:       August 2, 2019
 3. Support:    All BIOS
 4. Changelogs: tctien342's master branch로부터 내용을 줄였습니다.
-    - 매끄럽고 정확한 클릭을 위해 VoodooI2C 작동모드를 Interrupts에서(SSDT-ELAN.aml) Polling으로(SSDT-ELAN-Polling.aml) 바꾸었습니다.
+    - 매끄럽고 정확한 클릭을 위해 VoodooI2C 작동모드를 Interrupts에서(SSDT-ELAN.aml) Polling으로(SSDT-X510UA-Touchpad.aml) 바꾸었습니다.
     - 옵티머스 기능이 없기 때문에 기존 SSDT-S510UA-KabyLakeR.aml의 해당 내용을 삭제하고, SSDT-RP01_PEGP를 삭제했습니다. 
     - 시에라 이후에는 USB 전력 관리에 AAPL properties가 사용되지 않기 때문에 삭제했습니다.
     - SD 카드 리더기가 USB로 연결되어 있기 때문에 Sinetek-rtsx.kext를 삭제했습니다.
     - USBInjectAll.kext와 정확하지 않은 SSDT-UIA.aml를 삭제하고 BQ490 기준으로 패치된 USBPorts.kext와 패치내용을 추가했습니다.
-    - AirportBrcmFixup.kext, BrcmFirmwareRepo, 그리고 BrcmPatchRAM2만으로 와이파이와 Handoff 기능이 충분하기 때문에 BT4LEContinuityFixup.kext, FakePCIID.kext, 그리고 FakePCIID 플러그인 켁스트를 삭제했습니다.
+    - AirportBrcmFixup.kext, BrcmBluetoothInjector, BrcmFirmwareRepo, 그리고 BrcmPatchRAM2만으로 와이파이와 블루투스 및 Handoff 기능이 충분하기 때문에 BT4LEContinuityFixup.kext, FakePCIID.kext, 그리고 FakePCIID 플러그인 켁스트를 삭제했습니다.
     - RMNE 장치를 기존 SSDT-S510UA-KabyLakeR.aml에서부터 분리했습니다.
     - IGPU 및 HDEF 내용을 ACPI에서 config.plist로 옮겼습니다.
-    - XOSI 패치를 제거했습니다.
 5. Status: Stable
 
 ## System specification
@@ -70,7 +69,7 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 
 1. DW1560 카드를 설치하십시오.
 2. 지역이 한국인 경우 bootflag가 brcmfx-country=#a인 것을 확인하십시오.
-3. /kexts/other/additional에 있는 세 개의 Brcm kext들을 /L*/E*로 복사하고 캐시를 재생성하십시오.
+3. /kexts/other/additional에 있는 AirportBrcmFixup과 세 개의 Brcm kext들을 /L*/E*로 복사하고 캐시를 재생성하십시오.
 4. 권장사항: /kexts/other/additional/LiluFriend.kext를 (새롭게 LiluFriend를 생성하는 것이 안정적입니다.) /L*/E*에 붙여넣고 캐시를 재생성하십시오.
 5. 재부팅합니다.
 
