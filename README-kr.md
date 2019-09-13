@@ -4,23 +4,6 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 
 ![Alt text](https://ivanov-audio.com/wp-content/uploads/2014/01/Hackintosh-Featured-Image.png)
 
-## Details
-
-1. Version:    9-A
-2. Date:       August 2, 2019
-3. Support:    All BIOS
-4. Changelogs: tctien342's master branch로부터 내용을 줄였습니다.
-    - 매끄럽고 정확한 클릭을 위해 VoodooI2C 작동모드를 Interrupts에서(SSDT-ELAN.aml) Polling으로(SSDT-X510UA-Touchpad.aml) 바꾸었습니다.
-    - 옵티머스 기능이 없기 때문에 기존 SSDT-S510UA-KabyLakeR.aml의 해당 내용을 삭제하고, SSDT-RP01_PEGP.aml를 삭제했습니다. 
-    - 시에라 이후에는 USB 전력 관리에 AAPL properties가 사용되지 않기 때문에 삭제했습니다.
-    - SD 카드 리더기가 USB로 연결되어 있기 때문에 Sinetek-rtsx.kext를 삭제했습니다.
-    - USBInjectAll.kext와 정확하지 않은 SSDT-UIA.aml를 삭제하고 BQ490 기준으로 패치된 USBPorts.kext와 패치내용을 추가했습니다.
-    - AirportBrcmFixup.kext, BrcmBluetoothInjector, BrcmFirmwareRepo, 그리고 BrcmPatchRAM2만으로 와이파이와 블루투스 및 Handoff 기능이 충분하기 때문에 BT4LEContinuityFixup.kext, FakePCIID.kext, 그리고 FakePCIID 플러그인 켁스트를 삭제했습니다.
-    - RMNE 장치를 기존 SSDT-S510UA-KabyLakeR.aml에서부터 분리했습니다.
-    - IGPU 및 HDEF 내용을 ACPI에서 config.plist로 옮겼습니다.
-    - 키보드 백라이트가 없는 기종이기 때문에 F5와 F6로 백라이트 문양이 나타나는 것을 SSDT-PS2.aml로 기능을 제거했습니다.
-5. Status: Stable
-
 ## System specification
 
 1. Name:           Asus Vivobook X510UA-BQ490
@@ -59,12 +42,14 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 5. 설치가 완료된 후에 macOS로 부팅해서 /kexts/Other의 켁스트를 -> /Library/Extension로 붙여넣으십시오.
 6. Kext Utility를  이용해서 (또는 큰따옴표를 제외한 다음의 명령어를 터미널에 붙여넣습니다: "sudo chmod -R 755 /L*/E*&&sudo chown -R 0:0 /L*/E*&&sudo kextcache -i /") 캐시를 재생성하고 재부팅하십시오.
 7. 터치패드와 소리가 (마이크) 정상작동합니다. SSD의 EFI 파티션을 활성화시키고 (sudo diskutil mount EFI) Clover EFI의 하위폴더를 SSD의 EFI 하위폴더로 붙여넣습니다.
-8. EFI 폴더를 설치한 후 Clover Configurator를 이용해서 MacBookPro11,1의 SMBIOS 내용을 생성하십시오.
+8. EFI 폴더를 설치한 후 Clover Configurator를 이용해서 MacBookPro14,1의 SMBIOS 내용을 생성하십시오.
 - Note: 경우에 따라서 additional의 켁스트와 SSDT를 새로 설치하거나, config.plist의 내용을 변경하거나, USB 매핑을 설정하거나, 잠자기와 비행기모드 fn 키 설정이 필요할 수 있습니다.
     - DW1560를 설치한 경우 -- WiFi/Bluetooth Replacement
     - DW1560설치 이후 잠자기에서 깨어난 상태에서 블루투스가 작동하지 않을 때 -- Set Bluetooth port as internal
     - WiFi & BT 모듈을 DW1560로 교체하지 않았지만 USB WiFi 동글이나 USB LAN를 통해 iMessage와 FaceTime를 활성화시킬 때 -- Install RehabMan Null Ethernet
     - 잠자기와 비행기모드 fn 버튼이 있을 때 -- Sleep and Airplane fn keys
+    - 백라이트 버튼 기능을 제거할 경우 -- PS2 remap
+    - XOSI 대신 다른 패치를 사용할 경우 -- Replacement of XOSI patch
 
 ## WiFi/Bluetooth Replacement
 
@@ -96,6 +81,18 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
     - install_daemon.sh를 터미널로 드래그해서 실행시키십시오.
     - 곧바로 작동하지 않는다면 재부팅하십시오.
 
+## PS2 remap
+1. MaciASL을 이용하여 ACPI/additional/SSDT-PS2.dsl을 .aml 확장자로 Patched 폴더에 저장하십시오.
+2. 재부팅합니다.
+- Optional: non-macOS USB 키보드를 사용할 경우 SSDT-PS2.dsl의 commented-out 내용을 활성화시키고 Karabiner-Elements를 이용하여 left-cmd와 left-alt를 교환시키면 PS2 키보드와 USB 키보드 둘 다 left-cmd와 left-alt가 동일한 기능으로 작동합니다.
+
+## Replacement of XOSI patch
+1. ACPI/Patched/SSDT-XOSI.aml을 삭제하십시오.
+2. MaciASL을 이용하여 ACPI/replacement/SSDT-_OSI-XINI.dsl을 .aml 확장자로 Patched 폴더에 저장하십시오.
+3. 기존 config.plist를 백업하고, additional/config-_OSI-XINI.plist의 이름을 config.plist로 변경해서 기존 것과 대치하십시오.
+4. 백업한 config.plist로부터 SMBIOS 내용을 가져옵니다.
+5. 재부팅합니다.
+
 ## When you think you are done
  
 1. 클로버, 켁스트, 그리고 efi 파일을 최근 버전으로 업데이트 하십시오.
@@ -106,6 +103,22 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
     - CC kext를 /L*/E*에서 로드합니다.
     - 종료시 패닉현상은 없습니다.
     - Clover 수준의 안정적인 EFI 폴더 구성 후 가이드를 제공할 예정입니다.
+
+## Changelog
+
+September 13, 2019
+- XOSI 패치 대신 별도 방법으로 구현한 _OSI Darwin 패치를 사용할 수 있습니다 (SSDT-_OSI-XINI.dsl).
+- SSDT-PS2.aml을 삭제하고 설명을 넣은 SSDT-PS2.dsl을 추가했습니다.
+Prior to September 13, 2019
+- 매끄럽고 정확한 클릭을 위해 VoodooI2C 작동모드를 Interrupts에서(SSDT-ELAN.aml) Polling으로(SSDT-X510UA-Touchpad.aml) 바꾸었습니다.
+- 옵티머스 기능이 없기 때문에 기존 SSDT-S510UA-KabyLakeR.aml의 해당 내용을 삭제하고, SSDT-RP01_PEGP.aml를 삭제했습니다. 
+- 시에라 이후에는 USB 전력 관리에 AAPL properties가 사용되지 않기 때문에 삭제했습니다.
+- SD 카드 리더기가 USB로 연결되어 있기 때문에 Sinetek-rtsx.kext를 삭제했습니다.
+- USBInjectAll.kext와 정확하지 않은 SSDT-UIA.aml를 삭제하고 BQ490 기준으로 패치된 USBPorts.kext와 패치내용을 추가했습니다.
+- AirportBrcmFixup.kext, BrcmBluetoothInjector, BrcmFirmwareRepo, 그리고 BrcmPatchRAM2만으로 와이파이와 블루투스 및 Handoff 기능이 충분하기 때문에 BT4LEContinuityFixup.kext, FakePCIID.kext, 그리고 FakePCIID 플러그인 켁스트를 삭제했습니다.
+- RMNE 장치를 기존 SSDT-S510UA-KabyLakeR.aml에서부터 분리했습니다.
+- IGPU 및 HDEF 내용을 ACPI에서 config.plist로 옮겼습니다.
+- 키보드 백라이트가 없는 기종이기 때문에 F5와 F6로 백라이트 문양이 나타나는 것을 SSDT-PS2.aml로 기능을 제거했습니다.
 
 ## Credits
 

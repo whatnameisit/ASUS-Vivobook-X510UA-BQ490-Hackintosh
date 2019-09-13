@@ -39,23 +39,13 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>XOSI: change OSID to XSID (to avoid match against _OSI XOSI patch)</string>
+					<string>Fixing _OSI: directing default OSYS to a method</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-					<data>T1NJRA==</data>
+					<data>cAvQB09TWVM=</data>
 					<key>Replace</key>
-					<data>WFNJRA==</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>XOSI: change _OSI to XOSI</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>X09TSQ==</data>
-					<key>Replace</key>
-					<data>WE9TSQ==</data>
+					<data>WElOSaOjo6M=</data>
 				</dict>
 				<dict>
 					<key>Comment</key>

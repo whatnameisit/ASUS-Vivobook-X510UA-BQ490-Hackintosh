@@ -4,23 +4,6 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 
 ![Alt text](https://ivanov-audio.com/wp-content/uploads/2014/01/Hackintosh-Featured-Image.png)
 
-## Details
-
-1. Version:    9-A
-2. Date:       August 2, 2019
-3. Support:    All BIOS
-4. Changelogs: Removed many things
-    - Touchpad now uses polling mode with SSDT-X510UA-Touchpad.aml with assignment of FMCN and SSCN with activation from USTP=1 for proper clicks
-    - Trimmed down SSDT-S510UA-KabyLakeR.aml and removed SSDT-RP01_PEGP for X510UA-BQ490 
-    - Removed XHC AAPL properties as not required as of Sierra
-    - Removed Sinetek-rtsx.kext as the SD Card Reader is connected via USB
-    - Removed SSDT-UIA.aml and included USBPorts.kext and information for proper USB configuration and working BT after sleep
-    - Removed BT4LEContinuityFixup.kext and FakePCIID.kext and the FakePCIID plugin as AirportBrcmFixup, BrcmBluetoothInjector, BrcmFirmwareRepo, and BrcmPatchRAM2 are enough
-    - Separated the RMNE device
-    - Moved IGPU and HDEF contents from ACPI to config.plist
-    - Made F5 and F6 keys do nothing with SSDT-PS2.aml as they are associated with keyboard backlight which X510UA-BQ490 does not have
-5. Status: Stable
-
 ## System specification
 
 1. Name:           Asus Vivobook X510UA-BQ490
@@ -65,6 +48,8 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
     - You have DW1560 installed but Bluetooth fails upon wake from sleep -- Set Bluetooth port as internal
     - You have not replaced the WiFi & BT module with DW1560 but want to have working iMessage and FaceTime with USB WiFi dongle or USB LAN -- Install RehabMan Null Ethernet
     - You have Sleep and Airplane fn keys -- Sleep and Airplane fn keys
+    - You want to get rid of the control buttons to nonexistent keyboard backlight -- PS2 remap
+    - You want to try a different _OSI patch -- Replacement of XOSI patch
 
 ## WiFi/Bluetooth Replacement
 
@@ -96,6 +81,18 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
     - Run install_daemon.sh by dragging it onto terminal
     - Reboot if the script does not seem to work
 
+## PS2 remap
+1. Use MaciASL to save ACPI/additional/SSDT-PS2.dsl with the .aml extension in Patched folder
+2. Reboot
+- Optional: If you have a non-macOS USB keyboard, uncommenting the code in SSDT-PS2.dsl will swap left-cmd and left-alt. Install and configure Karabiner-Elements to switch back left-cmd and left-alt. This result in the same mapping in your PS2 keyboard and USB keyboard
+
+## Replacement of XOSI patch
+1. Delete ACPI/Patched/SSDT-XOSI.aml
+2. Use MaciASL to save ACPI/replacement/SSDT-_OSI-XINI.dsl with the .aml extension in Patched folder
+3. Back up your config.plist and copy and paste additional/config-_OSI-XINI.plist as config.plist
+4. Grab the SMBIOS contents from your back-up to the replaced config.plist
+5. Reboot
+
 ## When you think you are done
  
 1. Update Clover, kexts, and efi files.
@@ -106,6 +103,22 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
     - Load CC from /L*/E*
     - No more shutdown panics
     - Will provide a guide to installation and booting with OC if my build is as stablized as Clover
+    
+## Changelog
+
+September 13, 2019
+- Option to replace XOSI patch by invoking If _OSI Darwin with SSDT-_OSI-XINI.dsl
+- Delete SSDT-PS2.aml and add SSDT-PS2.dsl with comments
+Prior to September 13, 2019
+- Touchpad now uses polling mode with SSDT-X510UA-Touchpad.aml with assignment of FMCN and SSCN with activation from USTP=1 for proper clicks
+- Trimmed down SSDT-S510UA-KabyLakeR.aml and removed SSDT-RP01_PEGP for X510UA-BQ490 
+- Removed XHC AAPL properties as not required as of Sierra
+- Removed Sinetek-rtsx.kext as the SD Card Reader is connected via USB
+- Removed SSDT-UIA.aml and included USBPorts.kext and information for proper USB configuration and working BT after sleep
+- Removed BT4LEContinuityFixup.kext and FakePCIID.kext and the FakePCIID plugin as AirportBrcmFixup, BrcmBluetoothInjector, BrcmFirmwareRepo, and BrcmPatchRAM2 are enough
+- Separated the RMNE device
+- Moved IGPU and HDEF contents from ACPI to config.plist
+- Made F5 and F6 keys do nothing with SSDT-PS2.aml as they are associated with keyboard backlight which X510UA-BQ490 does not have
 
 ## Credits
 
