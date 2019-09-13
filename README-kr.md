@@ -109,6 +109,7 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 September 13, 2019
 - XOSI 패치 대신 별도 방법으로 구현한 _OSI Darwin 패치를 사용할 수 있습니다 (SSDT-_OSI-XINI.dsl).
 - SSDT-PS2.aml을 삭제하고 설명을 넣은 SSDT-PS2.dsl을 추가했습니다.
+
 Prior to September 13, 2019
 - 매끄럽고 정확한 클릭을 위해 VoodooI2C 작동모드를 Interrupts에서(SSDT-ELAN.aml) Polling으로(SSDT-X510UA-Touchpad.aml) 바꾸었습니다.
 - 옵티머스 기능이 없기 때문에 기존 SSDT-S510UA-KabyLakeR.aml의 해당 내용을 삭제하고, SSDT-RP01_PEGP.aml를 삭제했습니다. 

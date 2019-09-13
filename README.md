@@ -109,6 +109,7 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 September 13, 2019
 - Option to replace XOSI patch by invoking If _OSI Darwin with SSDT-_OSI-XINI.dsl
 - Delete SSDT-PS2.aml and add SSDT-PS2.dsl with comments
+
 Prior to September 13, 2019
 - Touchpad now uses polling mode with SSDT-X510UA-Touchpad.aml with assignment of FMCN and SSCN with activation from USTP=1 for proper clicks
 - Trimmed down SSDT-S510UA-KabyLakeR.aml and removed SSDT-RP01_PEGP for X510UA-BQ490 
