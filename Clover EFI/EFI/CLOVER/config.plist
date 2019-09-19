@@ -59,16 +59,6 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>Rename LPC to LPCB</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>TFBDXw==</data>
-					<key>Replace</key>
-					<data>TFBDQg==</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
 					<string>Instant wake fix: Rename Method(GPRW,2,N) to XPRW</string>
 					<key>Disabled</key>
 					<false/>
@@ -184,46 +174,6 @@
 					<data>X1ExMQg=</data>
 					<key>Replace</key>
 					<data>WFExMQg=</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>ATK: Rename Method(_Q6C,0,NS) to XQ6C MR</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>X1E2QwA=</data>
-					<key>Replace</key>
-					<data>WFE2QwA=</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>ATK: Rename Method(_Q6D,0,NS) to XQ6D ML</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>X1E2RAA=</data>
-					<key>Replace</key>
-					<data>WFE2RAA=</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>ATK: Rename Method(_Q6E,0,NS) to XQ6E MU</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>X1E2RQA=</data>
-					<key>Replace</key>
-					<data>WFE2RQA=</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>ATK: Rename Method(_Q6F,0,NS) to XQ6F MD</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>X1E2RgA=</data>
-					<key>Replace</key>
-					<data>WFE2RgA=</data>
 				</dict>
 			</array>
 		</dict>
