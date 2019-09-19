@@ -215,16 +215,6 @@
 					<key>Replace</key>
 					<data>WFE2RgA=</data>
 				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>ELAN: Rename USTP to XSTP</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>VVNUUA==</data>
-					<key>Replace</key>
-					<data>WFNUUA==</data>
-				</dict>
 			</array>
 		</dict>
 		<key>DisabledAML</key>

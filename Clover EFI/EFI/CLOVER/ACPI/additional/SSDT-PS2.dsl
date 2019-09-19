@@ -15,9 +15,10 @@ DefinitionBlock ("", "SSDT", 2, "hack", "ps2", 0x00000000)
                 "3f=0", // Map f5 to nothing
                 "40=0", // Map f6 to nothing
                 // Uncomment if you want to use non-macOS USB keyboard to map PS2 to USB keyboard
-                // Then use Karabiner Elements to switch back
-                /*"e05b=38", // PS2-left-cmd to PS2-left-alt
-                "38=e05b" // PS2-left-alt to PS2-left-cmd
+                // Then use Karabiner-Elements to switch back
+                // Then you would disable the above two mapping lines and make K-E do the work
+                /*"e05b=3a", // PS2-left-cmd to ADB-left-alt
+                "38=37" // PS2-left-alt to ADB-left-cmd
                 */
             }
         }

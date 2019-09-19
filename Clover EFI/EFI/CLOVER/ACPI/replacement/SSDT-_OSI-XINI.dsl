@@ -1,5 +1,5 @@
 // Alternative to XOSI patch
-// Use with the provided config.plist ACPI patch
+// Use with the provided config.plist ACPI patch: config-_OSI.XINI.plist
 // credit whatnameisit
 #ifndef NO_DEFINITIONBLOCK
 DefinitionBlock ("", "SSDT", 2, "hack", "_OSI", 0x00000000)
@@ -7,7 +7,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_OSI", 0x00000000)
 #endif
     External (OSYS, FieldUnitObj)    // (from opcode)
 
-    Method (\_SB.PCI0.XINI, 0, NotSerialized)
+    Method (XINI, 0, NotSerialized)
     {
         // Original Store (0x07D, OSYS) in DSDT is changed to call XINI in this SSDT
         Store (0x07D0, OSYS)
