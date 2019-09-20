@@ -103,6 +103,8 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
     - CC kext를 /L*/E*에서 로드합니다.
     - 종료시 패닉현상은 없습니다.
     - Clover 수준의 안정적인 EFI 폴더 구성 후 가이드를 제공할 예정입니다.
+2. Clover
+    - 키보드 Fn 조합 (터치패드 활성화/비활성화 버튼) 이 작동하지 않는 경우 CC를 제외한 켁스트를 전부 Clover에서 로드하십시오. 단, Clover에서 로드하는 경우 BrcmFirmwareRepo 대신 BrcmFirmwareData를 사용해야 블루투스가 안정적입니다.
 
 ## Changelog
 

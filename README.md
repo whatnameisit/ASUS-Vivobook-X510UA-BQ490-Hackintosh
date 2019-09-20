@@ -103,7 +103,8 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
     - Load CC from /L*/E*
     - No more shutdown panics
     - Will provide a guide to installation and booting with OC if my build is as stablized as Clover
-    
+2. Clover
+    - If you can't get Fn keys to work (namely touchpad enable/disable), try loading all kexts except CC from Clover in which case BrcmFirmwareData needs to load instead of BrcmFirmwareRepo
 ## Changelog
 
 September 13, 2019
