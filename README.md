@@ -31,7 +31,7 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 ## Attention please
 1. Note that this fork is mostly for my laptop only (X510UA-BQ490). If yours has similar features such as no dGPU and no KB backlight, try, but at your own risk. Otherwise, please go to tctien342's original master branch or hieplpvip's Zenbook repository.
 2. If the versions of your VirtualSMC and corresponding efi driver and plugins do not match, touchpad and other battery issues may arise. Please make sure to download the most recent stable release of the SMC package and install them accordingly.
-3. The touchpad may not work if your laptop model is different. The Sec. Configuring your own touchpad code covers how to activate your touchpad. Also for stability, it is recommended to write your own touchpad SSDT even if the touchpad works.
+3. The touchpad may not work if your laptop model is different. Sec. Configuring your own touchpad code covers how to activate your touchpad. Also, for stability, it is recommended to write your own touchpad SSDT even if the touchpad works.
 
 ## Steps to install
 
@@ -56,15 +56,15 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 ## Configure your own touchpad code
 
 1. Open your Clover-extracted DSDT.aml with MaciASL.
-2. Copy \_SB.PCI0.I2C1.ETPD device contents and replace the corresponding codes in the ETXX device in SSDT-X510UA-Touchpad.aml except Method (_STA) and Method (_CRS) and save.
+2. Copy \_SB.PCI0.I2C1.ETPD device contents and replace the corresponding codes in the ETXX device in SSDT-X510UA-Touchpad.aml *except* `Method (_STA)` and `Method (_CRS)`.
 3. Rename the SSDT after the name of your own model.
 4. Reboot.
-- Please share your modified SSDT.
+- Please share your modified SSDT and state full model name.
 - If you can't get your touchpad to work, please file a ticket in Issues or refer to tctien342's original repo and the patches in https://github.com/tctien342/Asus-Vivobook-S510UA-High-Sierra-10.13-Hackintosh/issues/25
 
 ## Replace WiFi/Bluetooth card
 
-1. Replace your card wifi with DW1560.
+1. Replace your stock card with DW1560.
 2. Change the bootflag so you can specify your region. The default is brcmfx-country=#a.
 3. Go to /kexts/other/additional and copy AirportBrcmFixup and the three Brcm kexts (Repo, Injector, RAM2) to /L*/E* and rebuild cache.
 4. Optional: Copy /kexts/other/additional/LiluFriend.kext (recommended to create your own) to /L*/E* and rebuild cache.
@@ -74,7 +74,7 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 
 1. Make sure USB injection kexts or SSDT-UIA.aml are not loaded.
 2. Download Hackintool by headkaze http://headsoft.com.au/download/mac/Hackintool.zip
-3. Under the USB tab, identify the Bluetooth port and set it as internal. The UVC camera can also be set as internal. Export and obtain the codeless injection kext and SSDTs. Delete the SSDTs.
+3. Under the USB tab, identify the Bluetooth port and set it as internal. The UVC camera can also be set as internal. Export and obtain the codeless injection kext and SSDTs in ~/Desktop. Delete the SSDTs.
 4. Install the USBPorts.kext in /L*/E* (Refer to https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266/ for more information.).
 5. Rebuild cache and reboot.
 - Note: USBPorts.kext in /kexts/other/additional is specifically for my own X510UA-BQ490. Creating your own mapping is recommended to avoid shutdown/sleep errors..
@@ -131,6 +131,7 @@ Pick one of the below two patches.
 September 26, 2019
 - Added another XOSI replacement patch: SSDT-OSYS.dsl.
 - Added the steps to write your own touchpad SSDT.
+
 September 13, 2019
 - Option to replace XOSI patch by invoking If _OSI Darwin with SSDT-_OSI-XINI.dsl.
 - Delete SSDT-PS2.aml and add SSDT-PS2.dsl with comments.

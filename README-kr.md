@@ -56,10 +56,10 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 ## Configure your own touchpad code
 
 1. MaciASL을 실행하여 Clover로 추출한 DSDT.aml 코드를 확인하십시오.
-2. \_SB.PCI0.I2C1.ETPD 장치 내용을 복사하여 SSDT-X510UA-Touchpad.aml ETXX의 해당하는 부분에 대치하십시오. 이 때 Method (_STA)와 Method (_CRS)는 바꾸지 않습니다.
+2. \_SB.PCI0.I2C1.ETPD 장치 내용을 복사하여 SSDT-X510UA-Touchpad.aml ETXX의 해당하는 부분에 대치하십시오. *주의* 이 때 `Method (_STA)`와 `Method (_CRS)`는 바꾸지 않습니다.
 3. 패치한 SSDT를 본인 모델명으로 변경하십시오.
 4. 재부팅합니다.
-- 패치한 SSDT를 공유하면 다른 ASUS 노트북 사용자에게 도움이 됩니다.
+- 패치한 SSDT를 공유하면 다른 ASUS 노트북 사용자에게 도움이 됩니다. SSDT와 노트북 모델명을 첨부해주시기 바랍니다.
 - 패치가 어렵다면 Issues에 ticket을 작성하거나, tctien342의 repo와 https://github.com/tctien342/Asus-Vivobook-S510UA-High-Sierra-10.13-Hackintosh/issues/25에 있는 파일을 참고하십시오.
 
 ## Replace WiFi/Bluetooth card
@@ -74,7 +74,7 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 
 1. /L*/E*의 3rd party USB 관련 켁스트나 SSDT-UIA.aml가 로드되지 않은 것을 확인하십시오.
 2. headkaze의 Hackintool를 다운로드 하십시오: http://headsoft.com.au/download/mac/Hackintool.zip.
-3. USB 탭에서 블루투스 포트를 확인하고 internal로 설정하십시오. UVC 카메라 또한 internal로 설정할 수 있습니다. Export/내보내기 버튼으로 codeless injection kext과 SSDT들을 생성하고, 생성된 SSDT들은 삭제하십시오.
+3. USB 탭에서 블루투스 포트를 확인하고 internal로 설정하십시오. UVC 카메라 또한 internal로 설정할 수 있습니다. Export/내보내기 버튼으로 codeless injection kext과 SSDT들을 데스크톱에 생성하고, 생성된 SSDT들은 삭제하십시오.
 4. USBPorts.kext를 /L*/E*에 설치하십시오. (자세한 내용은 https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266/ 에서 확인하실 수 있습니다.)
 5. 캐시를 재생성하고 재부팅합니다.
 - Note: kexts/other/additional의 USBPorts.kext는 제 X510UA-BQ490에 해당하는 켁스트입니다. 종료나 잠자기 시 오류를 방지하기 위해 본인의 USB 매핑을 설정하는 것을 추천합니다.
