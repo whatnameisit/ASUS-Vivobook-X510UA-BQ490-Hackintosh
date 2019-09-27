@@ -128,6 +128,9 @@ Pick one of the below two patches.
 
 ## Changelog
 
+September 27, 2019
+- Added back MATH and LDR2 devices: SSDT-MATHLDR2_STA.aml.
+
 September 26, 2019
 - Added another XOSI replacement patch: SSDT-OSYS.dsl.
 - Added the steps to write your own touchpad SSDT.

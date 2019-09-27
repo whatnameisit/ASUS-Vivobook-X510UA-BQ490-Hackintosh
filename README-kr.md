@@ -128,6 +128,9 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 
 ## Changelog
 
+September 27, 2019
+- 기존에 삭제했던 MATH와 LDR2 장치를 추가했습니다: SSDT-MATHLDR2_STA.aml.
+
 September 26, 2019
 - XOSI 대응 패치를 추가했습니다: SSDT-OSYS.dsl.
 - 터치패드 코드 작성법을 추가했습니다.

@@ -69,6 +69,14 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
+					<string>Resource tables for MBP14,1: Rename _STA methods in MATH and LDR2 device to XSTA, pair with SSDT-MATHLDR2_STA.aml</string>
+					<key>Find</key>
+					<data>X1NUQQCgDZNQ</data>
+					<key>Replace</key>
+					<data>WFNUQQCgDZNQ</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
 					<string>Battery: Rename Method(_BIX,0) to Method(XBIX,0)</string>
 					<key>Disabled</key>
 					<false/>
