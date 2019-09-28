@@ -31,7 +31,7 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 ## Attention please
 1. 이 fork는 X510UA-BQ490에 최적화되도록 구성했습니다. 만약 본인의 노트북에 옵티머스 외장그래픽이 없고 키보드 백라이트가 없다면 사용할 수 있지만, 책임은 본인에게 있습니다. 부담이 되거나 외장그래픽 기능을 제어해야 한다면 tctien342의 기존 master branch나 hieplpvip의 Zenbook repository를 참고하시길 바랍니다.
 2. VirtualSMC와 플러그인 및 efi 파일의 버전이 서로 일치하지 않으면 터치패드나 기타 전원에 오류가 발생할 수 있습니다. 가장 최근에 나온 안정적인 SMC 패키지를 다운로드하고 알맞게 설치하십시오.
-3. X510UA-BQ490이 아니라면 터치패드가 작동하지 않을 수 있습니다. 아래 Configuring your own touchpad code 섹션에 개별 터치패드를 활성화하는 방법이 있습니다. 터치패드가 작동하더라도 자신에게 알맞는 코드를 작성하는 것을 추천합니다.
+3. X510UA-BQ490이 아니라면 터치패드가 작동하지 않을 수 있습니다. 아래 Configure your own touchpad code 섹션에 개별 터치패드를 활성화하는 방법이 있습니다. 터치패드가 작동하더라도 자신에게 알맞는 코드를 작성하는 것을 추천합니다.
 
 ## Steps to install
 
@@ -106,7 +106,7 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 2. MaciASL을 이용하여 ACPI/replacement/SSDT-_OSI-XINI.dsl을 .aml 확장자로 Patched 폴더에 저장하십시오.
 3. 기존 config.plist/ACPI/DSDT/Patches/ 중 _OSI와 OSID 패치를 삭제하고 /replacement/config-_OSI-XINI.plist/ACPI/DSDT/Patches의 OSYS 패치를 복사하여 붙여넣으십시오.
 4. 재부팅합니다.
-### Assign Windows 2015 OSYS value
+### Assign OSYS "Windows 2015" value
 1. ACPI/Patches/SSDT-XOSI.aml을 삭제하십시오.
 2. MaciASL을 이용하여 ACPI/replacement/SSDT-OSYS.dsl을 .aml 확장자로 Patched 폴더에 저장하십시오.
 3. 재부팅합니다.
@@ -127,6 +127,9 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
     - 키보드 Fn 조합 (터치패드 활성화/비활성화 버튼) 이 작동하지 않는 경우 CC를 제외한 켁스트를 전부 Clover에서 로드하십시오. 단, Clover에서 로드하는 경우 BrcmFirmwareRepo 대신 BrcmFirmwareData를 사용해야 블루투스가 안정적입니다.
 
 ## Changelog
+
+September 28, 2019
+- MBP14,1 DSDT에 알맞게 DSDT Fixes중 일부를 삭제하고 SSDT를 추가했습니다: FixMutex, FixIPIC, FixHPET, SSDT-HPET.aml.
 
 September 27, 2019
 - 기존에 삭제했던 MATH와 LDR2 장치를 추가했습니다: SSDT-MATHLDR2_STA.aml.
