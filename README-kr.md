@@ -45,13 +45,14 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 7. 터치패드와 소리가 (마이크) 정상작동합니다. SSD의 EFI 파티션을 활성화시키고 (sudo diskutil mount EFI) Clover EFI의 하위폴더를 SSD의 EFI 하위폴더로 붙여넣습니다.
 8. EFI 폴더를 설치한 후 Clover Configurator를 이용해서 MacBookPro14,1의 SMBIOS 내용을 생성하십시오.
 - Note: 경우에 따라서 별도 패치가 필요할 수 있습니다.
-    - X510UA-BQ490이 아닌 경우 -- Configuring your own touchpad code
+    - X510UA-BQ490이 아닌 경우 -- Configure your own touchpad code
     - DW1560를 설치한 경우 -- Replace WiFi/Bluetooth card
     - DW1560설치 이후 잠자기에서 깨어난 상태에서 블루투스가 작동하지 않을 때 -- Set Bluetooth port as internal
     - WiFi & BT 모듈을 DW1560로 교체하지 않았지만 USB WiFi 동글이나 USB LAN를 통해 iMessage와 FaceTime를 활성화시킬 때 -- Install RehabMan's Null Ethernet
     - 잠자기와 비행기모드 fn 버튼이 있을 때 -- Activate Sleep and Airplane fn keys
     - 백라이트 버튼 기능을 제거할 경우 -- Remap PS2
     - XOSI 대신 다른 패치를 사용할 경우 -- Replace XOSI patch
+    - 카탈리나를 설치한 경우 -- Check IOReg and remove SSDT-EC.aml
 
 ## Configure your own touchpad code
 
@@ -112,6 +113,12 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 3. 재부팅합니다.
 - SSDT-OSYS.dsl이 SSDT-_OSI-XINI.dsl보다 안정적일 것으로 예상됩니다.
 
+## Check IOReg and remove SSDT-EC.aml
+1. IORegistryExplorer를 다운로드 받고 실행하십시오.
+2. IOResources에 AppleBusPowerController가 하위항목으로 있는지 확인하고, 그렇다면 /ACPI/patched/SSDT-EC.aml을 삭제하십시오.
+3. 재부팅합니다..
+- 만약 AppleBusPowerController가 EC의 하위항목으로 있다면 SSDT-EC.aml을 지우면 안 됩니다.
+
 ## When you think you are done
  
 1. 클로버, 켁스트, 그리고 efi 파일을 최근 버전으로 업데이트 하십시오.
@@ -127,6 +134,8 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
     - 키보드 Fn 조합 (터치패드 활성화/비활성화 버튼) 이 작동하지 않는 경우 CC를 제외한 켁스트를 전부 Clover에서 로드하십시오. 단, Clover에서 로드하는 경우 BrcmFirmwareRepo 대신 BrcmFirmwareData를 사용해야 블루투스가 안정적입니다.
 
 ## Changelog
+October 4, 2019
+- 메인 SSDT로부터 EC 장치를 분리했습니다: SSDT-EC.aml.
 
 September 28, 2019
 - MBP14,1 DSDT에 알맞게 DSDT Fixes중 일부를 삭제하고 SSDT를 추가했습니다: FixMutex, FixIPIC, FixHPET, SSDT-HPET.aml.

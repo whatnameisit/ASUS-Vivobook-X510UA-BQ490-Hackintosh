@@ -52,6 +52,7 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
     - You have Sleep and Airplane fn keys -- Activate Sleep and Airplane fn keys
     - You want to get rid of the control buttons to nonexistent keyboard backlight -- Remap PS2
     - You want to try a different _OSI patch -- Replace XOSI patch
+    - You have installed Catalina Beta -- Check IOReg and remove SSDT-EC.aml
 
 ## Configure your own touchpad code
 
@@ -112,6 +113,12 @@ Pick one of the below two patches.
 3. Reboot.
 - In my opinion, SSDT-OSYS.dsl is safer than SSDT-_OSI-XINI.dsl.
 
+## Check IOReg and remove SSDT-EC.aml
+1. Download and run IORegistryExplorer.
+2. See if AppleBusPowerController is attached to IOResources. If yes, remove SSDT-EC.aml.
+3. Reboot.
+- If you have AppleBusPowerController attached to EC, then you have nothing to do. Do NOT remove SSDT-EC.aml.
+
 ## When you think you are done
 
 1. Update Clover, kexts, and efi files.
@@ -124,9 +131,11 @@ Pick one of the below two patches.
     - No more shutdown panics
     - Will provide a guide to installation and booting with OC if my build is as stablized as Clover
 2. Clover
-- If you can't get Fn keys to work (namely touchpad enable/disable), try loading all kexts except CC from Clover in which case BrcmFirmwareData needs to load instead of BrcmFirmwareRepo.
+    - If you can't get Fn keys to work (namely touchpad enable/disable), try loading all kexts except CC from Clover in which case BrcmFirmwareData needs to load instead of BrcmFirmwareRepo.
 
 ## Changelog
+October 4, 2019
+- Separated fake EC device from main SSDT: SSDT-EC.aml.
 
 September 28, 2019
 - Deleted some entries in /config.plist/ACPI/DSDT/Fixes and added an SSDT to make the laptop behave more like MBP14,1: FixMutex, FixIPIC, FixHPET, SSDT-HPET.aml.
