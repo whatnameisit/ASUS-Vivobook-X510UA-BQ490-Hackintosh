@@ -61,7 +61,7 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 3. Rename the SSDT after the name of your own model.
 4. Reboot.
 - Please share your modified SSDT and state full model name.
-- If you can't get your touchpad to work, please file a ticket in Issues or refer to tctien342's original repo and the patches in https://github.com/tctien342/Asus-Vivobook-S510UA-High-Sierra-10.13-Hackintosh/issues/25
+- If you can't get your touchpad to work, please file a ticket in Issues or use the general patch in the touchpad folder.
 
 ## Replace WiFi/Bluetooth card
 
@@ -134,6 +134,9 @@ Pick one of the below two patches.
     - If you can't get Fn keys to work (namely touchpad enable/disable), try loading all kexts except CC from Clover in which case BrcmFirmwareData needs to load instead of BrcmFirmwareRepo.
 
 ## Changelog
+October 6, 2019
+- Added the general touchpad polling mode patch that corresponds to the laptops in hieplpvip's repo: config-touchpad_general.plist, SSDT-ELAN-General.aml
+
 October 4, 2019
 - Separated fake EC device from main SSDT: SSDT-EC.aml.
 

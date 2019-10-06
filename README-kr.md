@@ -61,7 +61,7 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 3. 패치한 SSDT를 본인 모델명으로 변경하십시오.
 4. 재부팅합니다.
 - 패치한 SSDT를 공유하면 다른 ASUS 노트북 사용자에게 도움이 됩니다. SSDT와 노트북 모델명을 첨부해주시기 바랍니다.
-- 패치가 어렵다면 Issues에 ticket을 작성하거나, tctien342의 repo와 https://github.com/tctien342/Asus-Vivobook-S510UA-High-Sierra-10.13-Hackintosh/issues/25에 있는 파일을 참고하십시오.
+- 패치가 어렵다면 Issues에 ticket을 작성하거나, touchpad 폴더의 패치를 사용하십시오.
 
 ## Replace WiFi/Bluetooth card
 
@@ -134,6 +134,9 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
     - 키보드 Fn 조합 (터치패드 활성화/비활성화 버튼) 이 작동하지 않는 경우 CC를 제외한 켁스트를 전부 Clover에서 로드하십시오. 단, Clover에서 로드하는 경우 BrcmFirmwareRepo 대신 BrcmFirmwareData를 사용해야 블루투스가 안정적입니다.
 
 ## Changelog
+October 6, 2019
+- 대부분 Vivobook/Zenbook에서 작동하는 터치패드 코드를 추가했습니다: config-touchpad_general.plist, SSDT-ELAN-General.aml.
+
 October 4, 2019
 - 메인 SSDT로부터 EC 장치를 분리했습니다: SSDT-EC.aml.
 
