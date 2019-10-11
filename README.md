@@ -52,7 +52,6 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
     - You have Sleep and Airplane fn keys -- Activate Sleep and Airplane fn keys
     - You want to get rid of the control buttons to nonexistent keyboard backlight -- Remap PS2
     - You want to try a different _OSI patch -- Replace XOSI patch
-    - You have installed Catalina Beta -- Check IOReg and remove SSDT-EC.aml
 
 ## Configure your own touchpad code
 
@@ -112,12 +111,6 @@ Pick one of the below two patches.
 2. Use MaciASL to save ACPI/replacement/SSDT-OSYS.dsl with the .aml extension in Patched folder.
 3. Reboot.
 - In my opinion, SSDT-OSYS.dsl is safer than SSDT-_OSI-XINI.dsl.
-
-## Check IOReg and remove SSDT-EC.aml
-1. Download and run IORegistryExplorer.
-2. See if AppleBusPowerController is attached to IOResources. If yes, remove SSDT-EC.aml.
-3. Reboot.
-- If you have AppleBusPowerController attached to EC, then you have nothing to do. Do NOT remove SSDT-EC.aml.
 
 ## When you think you are done
 

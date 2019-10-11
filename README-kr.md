@@ -52,7 +52,6 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
     - 잠자기와 비행기모드 fn 버튼이 있을 때 -- Activate Sleep and Airplane fn keys
     - 백라이트 버튼 기능을 제거할 경우 -- Remap PS2
     - XOSI 대신 다른 패치를 사용할 경우 -- Replace XOSI patch
-    - 카탈리나를 설치한 경우 -- Check IOReg and remove SSDT-EC.aml
 
 ## Configure your own touchpad code
 
@@ -112,12 +111,6 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 2. MaciASL을 이용하여 ACPI/replacement/SSDT-OSYS.dsl을 .aml 확장자로 Patched 폴더에 저장하십시오.
 3. 재부팅합니다.
 - SSDT-OSYS.dsl이 SSDT-_OSI-XINI.dsl보다 안정적일 것으로 예상됩니다.
-
-## Check IOReg and remove SSDT-EC.aml
-1. IORegistryExplorer를 다운로드 받고 실행하십시오.
-2. IOResources에 AppleBusPowerController가 하위항목으로 있는지 확인하고, 그렇다면 /ACPI/patched/SSDT-EC.aml을 삭제하십시오.
-3. 재부팅합니다..
-- 만약 AppleBusPowerController가 EC의 하위항목으로 있다면 SSDT-EC.aml을 지우면 안 됩니다.
 
 ## When you think you are done
  

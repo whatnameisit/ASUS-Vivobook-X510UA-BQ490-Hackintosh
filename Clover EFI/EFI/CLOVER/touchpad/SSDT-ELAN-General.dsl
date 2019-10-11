@@ -4,8 +4,9 @@ DefinitionBlock ("", "SSDT", 2, "hack", "tpad_gen", 0x00000000)
 {
     External (_SB_.PCI0.I2C1, DeviceObj)    // (from opcode)
     External (_SB_.PCI0.I2C1.ETPD, DeviceObj)    // (from opcode)
-// Uncomment if you have SMD0 in Method(_SB.PCI0.I2C0._STA)
-/*    External (SMD0, FieldUnitObj)    // (from opcode)
+// Uncomment if you have SMD0 in Method(_SB.PCI0.I2C0._STA) and also understand what the condition means.
+/*
+    External (SMD0, FieldUnitObj)    // (from opcode)
     External (_SB_.PCI0.I2C0, DeviceObj)    // (from opcode)
     Scope (_SB.PCI0.I2C0)
     {
