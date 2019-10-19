@@ -91,7 +91,7 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 1. Follow the simple directions given in https://github.com/hieplpvip/AsusSMC/wiki/Installation-Instruction
     - Download Release of AsusSMC: https://github.com/hieplpvip/AsusSMC/releases
     - Run install_daemon.sh by dragging it onto terminal.
-    - Reboot if the script does not seem to work.
+    - Reboot if the script does not seem to work. After updating your EFI folder or any kexts, you may need to run the script again.
 
 ## Remap PS2
 

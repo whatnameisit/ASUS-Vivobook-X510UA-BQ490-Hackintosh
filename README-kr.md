@@ -91,7 +91,7 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 1. https://github.com/hieplpvip/AsusSMC/wiki/Installation-Instruction 를 참고하십시오.
     - AsusSMC Release를 다운로드합니다: https://github.com/hieplpvip/AsusSMC/releases
     - install_daemon.sh를 터미널로 드래그해서 실행시키십시오.
-    - 곧바로 작동하지 않는다면 재부팅하십시오.
+- 곧바로 작동하지 않는다면 재부팅하십시오. 켁스트와 efi 드라이버, OS, 클로버 등을 업데이트 할 때 새로 실행해야 할 수 있습니다.
 
 ## Remap PS2
 
