@@ -1,6 +1,6 @@
 # Asus Vivobook X510UA-BQ490
 
-Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore) 
+Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore) 
 
 ![Alt text](https://ivanov-audio.com/wp-content/uploads/2014/01/Hackintosh-Featured-Image.png)
 
@@ -127,6 +127,9 @@ Pick one of the below two patches.
     - If you can't get Fn keys to work (namely touchpad enable/disable), try loading all kexts except CC from Clover in which case BrcmFirmwareData needs to load instead of BrcmFirmwareRepo.
 
 ## Changelog
+October 26, 2019
+- Update bluetooth kexts: BrcmPatchRAM2, BrcmPatchRAM3, BrcmFirmwareData, BrcmFirmwareRepo, BrcmBluetoothInjector.kext.
+
 October 6, 2019
 - Added the general touchpad polling mode patch that corresponds to the laptops in hieplpvip's repo: config-touchpad_general.plist, SSDT-ELAN-General.aml
 

@@ -1,6 +1,6 @@
 # Asus Vivobook X510UA-BQ490
 
-Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore) 
+Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore) 
 
 ![Alt text](https://ivanov-audio.com/wp-content/uploads/2014/01/Hackintosh-Featured-Image.png)
 
@@ -66,9 +66,10 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
 
 1. DW1560 카드를 설치하십시오.
 2. 지역이 한국인 경우 bootflag가 brcmfx-country=#a인 것을 확인하십시오.
-3. /kexts/other/additional에 있는 AirportBrcmFixup과 세 개의 Brcm kext들 (Repo, Injector, RAM2) 을 /L*/E*로 복사하고 캐시를 재생성하십시오.
-4. 권장사항: /kexts/other/additional/LiluFriend.kext를 (새롭게 LiluFriend를 생성하는 것이 안정적입니다.) /L*/E*에 붙여넣고 캐시를 재생성하십시오.
-5. 재부팅합니다.
+3. /kexts/other/additional에 있는 AirportBrcmFixup를 /L*/E*로 복사하십시오.
+4. 모하비의 경우 두 개의 블루투스 Brcm kext들 (Repo, RAM2), 카탈리나의 경우 세 개를 (Repo, Injector, RAM3) /L*/E*로 복사하고 캐시를 재생성하십시오.
+5. 권장사항: /kexts/other/additional/LiluFriend.kext를 (새롭게 LiluFriend를 생성하는 것이 안정적입니다.) /L*/E*에 붙여넣고 캐시를 재생성하십시오.
+6. 재부팅합니다.
 
 ## Set Bluetooth port as internal
 
@@ -127,6 +128,9 @@ Tested on 10.14.4-10.14.6 (Clover) and 10.15 Beta 2 (OpenCore)
     - 키보드 Fn 조합 (터치패드 활성화/비활성화 버튼) 이 작동하지 않는 경우 CC를 제외한 켁스트를 전부 Clover에서 로드하십시오. 단, Clover에서 로드하는 경우 BrcmFirmwareRepo 대신 BrcmFirmwareData를 사용해야 블루투스가 안정적입니다.
 
 ## Changelog
+October 26, 2019
+- 블루투스 켁스트 업데이트: BrcmPatchRAM2, BrcmPatchRAM3, BrcmFirmwareData, BrcmFirmwareRepo, BrcmBluetoothInjector.kext.
+
 October 6, 2019
 - 대부분 Vivobook/Zenbook에서 작동하는 터치패드 코드를 추가했습니다: config-touchpad_general.plist, SSDT-ELAN-General.aml.
 
