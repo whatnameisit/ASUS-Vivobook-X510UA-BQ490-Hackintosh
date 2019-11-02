@@ -61,6 +61,7 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 4. 재부팅합니다.
 - 패치한 SSDT를 공유하면 다른 ASUS 노트북 사용자에게 도움이 됩니다. SSDT와 노트북 모델명을 첨부해주시기 바랍니다.
 - 패치가 어렵다면 Issues에 ticket을 작성하거나, touchpad 폴더의 패치를 사용하십시오.
+- patched/replacement/SSDT-X510UA-I2Cx_USTP.dsl로 터치패드가 활성화되는지 확인해볼 수도 있습니다.
 
 ## Replace WiFi/Bluetooth card
 
@@ -128,6 +129,9 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
     - 키보드 Fn 조합 (터치패드 활성화/비활성화 버튼) 이 작동하지 않는 경우 CC를 제외한 켁스트를 전부 Clover에서 로드하십시오. 단, Clover에서 로드하는 경우 BrcmFirmwareRepo 대신 BrcmFirmwareData를 사용해야 블루투스가 안정적입니다.
 
 ## Changelog
+October 28, 2019
+- 최대한 적은 패치로 터치패드를 활성화할 수 있는 SSDT를 추가했습니다: SSDT-I2Cx_USTP.dsl.
+
 October 26, 2019
 - 블루투스 켁스트 업데이트: BrcmPatchRAM2, BrcmPatchRAM3, BrcmFirmwareData, BrcmFirmwareRepo, BrcmBluetoothInjector.kext.
 

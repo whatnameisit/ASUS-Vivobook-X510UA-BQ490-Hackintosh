@@ -61,6 +61,7 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 4. Reboot.
 - Please share your modified SSDT and state full model name.
 - If you can't get your touchpad to work, please file a ticket in Issues or use the general patch in the touchpad folder.
+- Test if you can get your touchpad working with patched/replacement/SSDT-I2Cx_USTP.dsl.
 
 ## Replace WiFi/Bluetooth card
 
@@ -127,6 +128,9 @@ Pick one of the below two patches.
     - If you can't get Fn keys to work (namely touchpad enable/disable), try loading all kexts except CC from Clover in which case BrcmFirmwareData needs to load instead of BrcmFirmwareRepo.
 
 ## Changelog
+October 28, 2019
+- Added a simplified and minimum patch of the touchpad code in ACPI: SSDT-I2Cx_USTP.dsl.
+
 October 26, 2019
 - Update bluetooth kexts: BrcmPatchRAM2, BrcmPatchRAM3, BrcmFirmwareData, BrcmFirmwareRepo, BrcmBluetoothInjector.kext.
 
