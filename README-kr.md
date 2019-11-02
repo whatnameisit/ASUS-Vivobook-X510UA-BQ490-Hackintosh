@@ -35,13 +35,14 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 
 ## Steps to install
 
-1. macOS 인스톨러 USB를 준비합니다. (creationmedia 방법이나 Mojave와 Catalina를 HFS+ 파일시스템에 설치하고 싶다면 MBR HFS Firmware Check Patch를 사용하십시오. https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/) 기존 맥 시스템이 없다면 가상머신을 이용하실 수 있습니다. 또는 [hackintosh.co.kr](http://hackintosh.co.kr)에서 고스트를 다운로드 받아 설치하시면 편리합니다.
+1. macOS 인스톨러 USB를 준비합니다. (creationmedia 방법이나 모하비와 카탈리나를 HFS+ 파일시스템에 설치하고 싶다면 MBR HFS Firmware Check Patch를 사용하십시오. https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/) 기존 맥 시스템이 없다면 가상머신을 이용하실 수 있습니다. 또는 [hackintosh.co.kr](http://hackintosh.co.kr)에서 고스트를 다운로드 받아 설치하시면 편리합니다.
 2. USB의 EFI 파티션에 Clover EFI의 하위폴더 EFI를 붙여넣으십시오.
 3. USB로 부팅해서 macOS Installer를 선택하십시오.
 4. 설치중에는 터치패드가 작동하지 않을 수 있습니다. 이 경우 별도의 마우스가 필요합니다. tonymacx86이나 다른 해킨토시 커뮤니티를 참고해서 설치를 마무리하십시오. 한글을 원하시면 [hackintosh.co.kr](http://hackintosh.co.kr)를 이용하십시오.
-    - 만약 Catalina를 HFS+ 파일시스템으로 설치하신다면 https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/의 설치방법을 참고하십시오.
+    - 만약 카탈리나를 HFS+ 파일시스템으로 설치하신다면 https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/의 설치방법을 참고하십시오.
 5. 설치가 완료된 후에 macOS로 부팅해서 /kexts/Other의 켁스트를 -> /Library/Extension로 붙여넣으십시오.
 6. Kext Utility를  이용해서 (또는 큰따옴표를 제외한 다음의 명령어를 터미널에 붙여넣습니다: "sudo chmod -R 755 /L*/E*&&sudo chown -R 0:0 /L*/E*&&sudo kextcache -i /") 캐시를 재생성하고 재부팅하십시오.
+    - 카탈리나를 설치했다면 Hackintool로 먼저 Gate Keeper를 비활성화 시킨 후 진행하십시오. http://headsoft.com.au/download/mac/Hackintool.zip.
 7. 터치패드와 소리가 (마이크) 정상작동합니다. SSD의 EFI 파티션을 활성화시키고 (sudo diskutil mount EFI) Clover EFI의 하위폴더를 SSD의 EFI 하위폴더로 붙여넣습니다.
 8. EFI 폴더를 설치한 후 Clover Configurator를 이용해서 MacBookPro14,1의 SMBIOS 내용을 생성하십시오.
 - Note: 경우에 따라서 별도 패치가 필요할 수 있습니다.

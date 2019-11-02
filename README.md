@@ -42,6 +42,7 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
     - If you have chosen to install Catalina in HFS+ file system, follow the directions given in https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/
 5. After a successful installation, boot into macOS, copy kexts In /kexts/Other -> /Library/Extension.
 6. Use Kext Utility (or simply copy this line without the quotation marks: "sudo chmod -R 755 /L*/E*&&sudo chown -R 0:0 /L*/E*&&sudo kextcache -i /") to rebuild kext cache then reboot.
+- If you have installed Catalina, use Hackintool to disable Gate Keeper beforehand. http://headsoft.com.au/download/mac/Hackintool.zip.
 7. Now the touchpad and sound input should function correctly. You need to mount EFI and copy Clover EFI to the system EFI partition in like what you have done on USB EFI partition.
 8. After System EFI replaced by your EFI, use Clover Configurator to change SMBIOS, generate your serial and MBL.
 - Note: You may want to complete these extra steps.
@@ -67,7 +68,7 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 
 1. Replace your stock card with DW1560.
 2. Change the bootflag so you can specify your region. The default is brcmfx-country=#a.
-3. Go to /kexts/other/additional and copy AirportBrcmFixup and the three Brcm kexts (Repo, Injector, RAM2) to /L*/E* and rebuild cache.
+3. Go to /kexts/other/additional and copy AirportBrcmFixup and the two Brcm kexts for Mojave (Repo and RAM2) and three for Catalina (Repo, Injector, RAM3) to /L*/E* and rebuild cache.
 4. Optional: Copy /kexts/other/additional/LiluFriend.kext (recommended to create your own) to /L*/E* and rebuild cache.
 5. Reboot.
 
