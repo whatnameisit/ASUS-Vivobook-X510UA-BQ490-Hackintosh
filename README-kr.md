@@ -128,6 +128,7 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
     - Clover 수준의 안정적인 EFI 폴더 구성 후 가이드를 제공할 예정입니다.
 2. Clover
     - 키보드 Fn 조합 (터치패드 활성화/비활성화 버튼) 이 작동하지 않는 경우 CC를 제외한 켁스트를 전부 Clover에서 로드하십시오. 단, Clover에서 로드하는 경우 BrcmFirmwareRepo 대신 BrcmFirmwareData를 사용해야 블루투스가 안정적입니다.
+    - 가장 최신 버전의 AppleALC.kext (1.4.3)으로 CX8050에서의 마이크 기능을 활성화시킬 수 있습니다. CodecCommander.kext와 SSDT의 해당 내용을 삭제하고 테스트 하십시오. layout-id는 13, 즉 0d000000입니다.
 
 ## Changelog
 October 28, 2019

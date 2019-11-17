@@ -42,7 +42,7 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
     - If you have chosen to install Catalina in HFS+ file system, follow the directions given in https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/
 5. After a successful installation, boot into macOS, copy kexts In /kexts/Other -> /Library/Extension.
 6. Use Kext Utility (or simply copy this line without the quotation marks: "sudo chmod -R 755 /L*/E*&&sudo chown -R 0:0 /L*/E*&&sudo kextcache -i /") to rebuild kext cache then reboot.
-- If you have installed Catalina, use Hackintool to disable Gate Keeper beforehand. http://headsoft.com.au/download/mac/Hackintool.zip.
+    - If you have installed Catalina, use Hackintool to disable Gate Keeper beforehand. http://headsoft.com.au/download/mac/Hackintool.zip.
 7. Now the touchpad and sound input should function correctly. You need to mount EFI and copy Clover EFI to the system EFI partition in like what you have done on USB EFI partition.
 8. After System EFI replaced by your EFI, use Clover Configurator to change SMBIOS, generate your serial and MBL.
 - Note: You may want to complete these extra steps.
@@ -127,6 +127,7 @@ Pick one of the below two patches.
     - Will provide a guide to installation and booting with OC if my build is as stablized as Clover
 2. Clover
     - If you can't get Fn keys to work (namely touchpad enable/disable), try loading all kexts except CC from Clover in which case BrcmFirmwareData needs to load instead of BrcmFirmwareRepo.
+    - You can try the latest release of AppleALC.kext (1.4.3) with the layout-id of 13 (or 0d000000) which now has native support for many Vivobook Series' CX8050. Delete CodecCommander kext and contents in the main SSDT. I keep having sound card failures, so I am using 1.4.2 for now.
 
 ## Changelog
 October 28, 2019
