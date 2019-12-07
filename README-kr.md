@@ -8,7 +8,7 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 
 1. Name:           Asus Vivobook X510UA-BQ490
 2. CPU:            Intel Core i5-8250U
-3. Graphic:        Intel UHD Graphics 620 // HDMI 연결하면 작동합니다 (Index 2). VRAM을 2048 MB로 할당했습니다.
+3. Graphics:        Intel UHD Graphics 620 // HDMI 연결하면 작동합니다 (Index 2). VRAM을 2048 MB로 할당했습니다.
 4. Wifi:           Intel Dual Band Wireless-AC 8265 - with bluetooth // DW1560로 교체 (AirDrop and Handoff 완벽히 작동합니다.)
 5. Card Reader:    USB로 연결
 6. Camera:         ASUS UVC HD
