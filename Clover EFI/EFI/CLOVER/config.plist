@@ -275,7 +275,7 @@
 				<key>name</key>
 				<string>audio</string>
 				<key>layout-id</key>
-				<data>AwAAAA==</data>
+				<data>DQAAAA==</data>
 				<key>hda-gfx</key>
 				<string>onboard-1</string>
 			</dict>
@@ -401,36 +401,7 @@
 			</dict>
 		</array>
 		<key>KextsToPatch</key>
-		<array>
-			<dict>
-				<key>Comment</key>
-				<string>Prevent Apple I2C kexts from attaching to I2C controllers, credit CoolStar</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>SU9LaXQ=</data>
-				<key>InfoPlistPatch</key>
-				<true/>
-				<key>Name</key>
-				<string>AppleIntelLpssI2CController</string>
-				<key>Replace</key>
-				<data>SU9LaXM=</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Prevent Apple I2C kexts from attaching to I2C controllers, credit CoolStar</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>SU9LaXQ=</data>
-				<key>InfoPlistPatch</key>
-				<true/>
-				<key>Name</key>
-				<string>AppleIntelLpssI2C</string>
-				<key>Replace</key>
-				<data>SU9LaXM=</data>
-			</dict>
-		</array>
+		<array/>
 	</dict>
 	<key>RtVariables</key>
 	<dict>

@@ -127,9 +127,11 @@ Pick one of the below two patches.
     - Will provide a guide to installation and booting with OC if my build is as stablized as Clover
 2. Clover
     - If you can't get Fn keys to work (namely touchpad enable/disable), try loading all kexts except CC from Clover in which case BrcmFirmwareData needs to load instead of BrcmFirmwareRepo.
-    - You can try the latest release of AppleALC.kext (1.4.3) with the layout-id of 13 (or 0d000000) which now has native support for many Vivobook Series' CX8050. Delete CodecCommander kext and contents in the main SSDT. I keep having sound card failures, so I am using 1.4.2 for now.
 
 ## Changelog
+December 15, 2019
+- Updated AppleALC to 1.4.4 and deleted CodecCommander and the corresponding patches.
+
 October 28, 2019
 - Added a simplified and minimum patch of the touchpad code in ACPI: SSDT-I2Cx_USTP.dsl.
 
