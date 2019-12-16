@@ -31,7 +31,6 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 ## Attention please
 1. 이 fork는 X510UA-BQ490에 최적화되도록 구성했습니다. 만약 본인의 노트북에 옵티머스 외장그래픽이 없고 키보드 백라이트가 없다면 사용할 수 있지만, 책임은 본인에게 있습니다. 부담이 되거나 외장그래픽 기능을 제어해야 한다면 tctien342의 기존 master branch나 hieplpvip의 Zenbook repository를 참고하시길 바랍니다.
 2. VirtualSMC와 플러그인 및 efi 파일의 버전이 서로 일치하지 않으면 터치패드나 기타 전원에 오류가 발생할 수 있습니다. 가장 최근에 나온 안정적인 SMC 패키지를 다운로드하고 알맞게 설치하십시오.
-3. X510UA-BQ490이 아니라면 터치패드가 작동하지 않을 수 있습니다. 아래 Configure your own touchpad code 섹션에 개별 터치패드를 활성화하는 방법이 있습니다. 터치패드가 작동하더라도 자신에게 알맞는 코드를 작성하는 것을 추천합니다.
 
 ## Steps to install
 
@@ -46,23 +45,12 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 7. 터치패드와 소리가 (마이크) 정상작동합니다. SSD의 EFI 파티션을 활성화시키고 (sudo diskutil mount EFI) Clover EFI의 하위폴더를 SSD의 EFI 하위폴더로 붙여넣습니다.
 8. EFI 폴더를 설치한 후 Clover Configurator를 이용해서 MacBookPro14,1의 SMBIOS 내용을 생성하십시오.
 - Note: 경우에 따라서 별도 패치가 필요할 수 있습니다.
-    - X510UA-BQ490이 아닌 경우 -- Configure your own touchpad code
     - DW1560를 설치한 경우 -- Replace WiFi/Bluetooth card
     - DW1560설치 이후 잠자기에서 깨어난 상태에서 블루투스가 작동하지 않을 때 -- Set Bluetooth port as internal
     - WiFi & BT 모듈을 DW1560로 교체하지 않았지만 USB WiFi 동글이나 USB LAN를 통해 iMessage와 FaceTime를 활성화시킬 때 -- Install RehabMan's Null Ethernet
     - 잠자기와 비행기모드 fn 버튼이 있을 때 -- Activate Sleep and Airplane fn keys
     - 백라이트 버튼 기능을 제거할 경우 -- Remap PS2
     - XOSI 대신 다른 패치를 사용할 경우 -- Replace XOSI patch
-
-## Configure your own touchpad code
-
-1. MaciASL을 실행하여 Clover로 추출한 DSDT.aml 코드를 확인하십시오.
-2. \_SB.PCI0.I2C1.ETPD 장치 내용을 복사하여 SSDT-X510UA-Touchpad.aml ETXX의 해당하는 부분에 대치하십시오. *주의* 이 때 `Method (_STA)`와 `Method (_CRS)`는 바꾸지 않습니다.
-3. 패치한 SSDT를 본인 모델명으로 변경하십시오.
-4. 재부팅합니다.
-- 패치한 SSDT를 공유하면 다른 ASUS 노트북 사용자에게 도움이 됩니다. SSDT와 노트북 모델명을 첨부해주시기 바랍니다.
-- 패치가 어렵다면 Issues에 ticket을 작성하거나, touchpad 폴더의 패치를 사용하십시오.
-- patched/replacement/SSDT-X510UA-I2Cx_USTP.dsl로 터치패드가 활성화되는지 확인해볼 수도 있습니다.
 
 ## Replace WiFi/Bluetooth card
 
@@ -130,6 +118,10 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
     - 키보드 Fn 조합 (터치패드 활성화/비활성화 버튼) 이 작동하지 않는 경우 CC를 제외한 켁스트를 전부 Clover에서 로드하십시오. 단, Clover에서 로드하는 경우 BrcmFirmwareRepo 대신 BrcmFirmwareData를 사용해야 블루투스가 안정적입니다.
 
 ## Changelog
+
+December 16, 2019
+- 기본 터치패드 패치를 SSDT-I2C1_USTP.aml로 설정했습니다.
+
 December 15, 2019
 - AppleALC 1.4.4 업데이트로 CodecCommander와 해당 패치를 삭제했습니다.
 

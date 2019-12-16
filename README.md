@@ -31,7 +31,6 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 ## Attention please
 1. Note that this fork is mostly for my laptop only (X510UA-BQ490). If yours has similar features such as no dGPU and no KB backlight, try, but at your own risk. Otherwise, please go to tctien342's original master branch or hieplpvip's Zenbook repository.
 2. If the versions of your VirtualSMC and corresponding efi driver and plugins do not match, touchpad and other battery issues may arise. Please make sure to download the most recent stable release of the SMC package and install them accordingly.
-3. The touchpad may not work if your laptop model is different. Sec. Configure your own touchpad code covers how to activate your touchpad. Also, for stability, it is recommended to write your own touchpad SSDT even if the touchpad works.
 
 ## Steps to install
 
@@ -46,23 +45,12 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 7. Now the touchpad and sound input should function correctly. You need to mount EFI and copy Clover EFI to the system EFI partition in like what you have done on USB EFI partition.
 8. After System EFI replaced by your EFI, use Clover Configurator to change SMBIOS, generate your serial and MBL.
 - Note: You may want to complete these extra steps.
-    - You have a laptop different from X510UA-BQ490 -- Configure your own touchpad code
     - You have DW1560 installed -- Replace WiFi/Bluetooth card
     - You have DW1560 installed but Bluetooth fails upon wake from sleep -- Set Bluetooth port as internal
     - You have not replaced the WiFi & BT module with DW1560 but want to have working iMessage and FaceTime with USB WiFi dongle or USB LAN -- Install RehabMan's Null Ethernet
     - You have Sleep and Airplane fn keys -- Activate Sleep and Airplane fn keys
     - You want to get rid of the control buttons to nonexistent keyboard backlight -- Remap PS2
     - You want to try a different _OSI patch -- Replace XOSI patch
-
-## Configure your own touchpad code
-
-1. Open your Clover-extracted DSDT.aml with MaciASL.
-2. Copy \_SB.PCI0.I2C1.ETPD device contents and replace the corresponding codes in the ETXX device in SSDT-X510UA-Touchpad.aml *except* `Method (_STA)` and `Method (_CRS)`.
-3. Rename the SSDT after the name of your own model.
-4. Reboot.
-- Please share your modified SSDT and state full model name.
-- If you can't get your touchpad to work, please file a ticket in Issues or use the general patch in the touchpad folder.
-- Test if you can get your touchpad working with patched/replacement/SSDT-I2Cx_USTP.dsl.
 
 ## Replace WiFi/Bluetooth card
 
@@ -127,9 +115,12 @@ Pick one of the below two patches.
     - Will provide a guide to installation and booting with OC if my build is as stablized as Clover
 2. Clover
     - If you can't get Fn keys to work (namely touchpad enable/disable), try loading all kexts except CC from Clover in which case BrcmFirmwareData needs to load instead of BrcmFirmwareRepo.
-
 ## Changelog
-December 15, 2019
+
+December 16, 2019
+- Set the default touchpad patch to be SSDT-I2C1_USTP.aml.
+
+-December 15, 2019
 - Updated AppleALC to 1.4.4 and deleted CodecCommander and the corresponding patches.
 
 October 28, 2019
