@@ -1,7 +1,7 @@
 // Touchpad activation with VoodooI2C and HID satellite kexts
 // SBFx patches are not needed because the HID kext falls into the polling mode
-// The piece of code that causes kp is removed.
 // after finding that APIC and GPIO are incompatible.
+// The piece of code in SSDT-I2Cx_USTP.aml that caused kp with v2.3 VoodooI2C kexts is now removed.
 #ifndef NO_DEFINITIONBLOCK
 DefinitionBlock ("", "SSDT", 2, "hack", "elan", 0x00000000)
 {
