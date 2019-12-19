@@ -1,7 +1,7 @@
 // Touchpad activation with VoodooI2C and HID satellite kexts
 // SBFx patches are not needed because the HID kext falls into the polling mode
-// If used with v2.3 VoodooI2C package, the kernel will panic upon wake from sleep. v2.2 or older is recommended.
 // after finding that APIC and GPIO are incompatible.
+// If used with v2.3 VoodooI2C package, the kernel will panic upon wake from sleep. v2.2 or older is recommended.
 #ifndef NO_DEFINITIONBLOCK
 DefinitionBlock ("", "SSDT", 2, "hack", "elan", 0x00000000)
 {
