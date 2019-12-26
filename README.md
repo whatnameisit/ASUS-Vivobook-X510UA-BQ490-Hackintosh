@@ -116,6 +116,10 @@ Pick one of the below two patches.
 2. Clover
     - If you can't get Fn keys to work (namely touchpad enable/disable), try loading all kexts except CC from Clover in which case BrcmFirmwareData needs to load instead of BrcmFirmwareRepo.
 ## Changelog
+December 26, 2019
+- Deleted USB configuration as not needed for working bluetooth on wake from sleep in 10.15.2: deleted USBPorts.kext.
+- Changed SMBIOS to MacBookPro15,4 and added NoTouchID.kext.
+- Switched CPUFriendDataProvider.kext to a new one: BPOWER-CPUFriendDataProvider.kext.
 
 December 16, 2019
 - Set the default touchpad patch to be SSDT-I2C1_USTP.aml.
@@ -175,6 +179,10 @@ RehabMan for Null Ethernet and many other things
 CrazyBird for HFS+ partitioning in 10.14+
 
 daliansky and williambj1 for many hotpatch methods
+
+LeeBinder for many helps
+
+fewtarius for new CPUFriendDataProvider.kext and SMBIOS
 
 ## For Koreans
 [README-kr](README-kr.md)를 참고하십시오.

@@ -118,6 +118,10 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
     - 키보드 Fn 조합 (터치패드 활성화/비활성화 버튼) 이 작동하지 않는 경우 CC를 제외한 켁스트를 전부 Clover에서 로드하십시오. 단, Clover에서 로드하는 경우 BrcmFirmwareRepo 대신 BrcmFirmwareData를 사용해야 블루투스가 안정적입니다.
 
 ## Changelog
+December 26, 2019
+- 10.15.2 이후로는 USB 포트 설정 없이도 잠자기 이후 블루투스가 정상 작동합니다: USBPorts.kext 삭제.
+- SMBIOS를 MacBookPro15,4로 설정하고 NoTouchID.kext를 추가했습니다.
+- CPUFriendDataProvider.kext를 교체했습니다: BPOWER-CPUFriendDataProvider.kext.
 
 December 16, 2019
 - 기본 터치패드 패치를 SSDT-I2C1_USTP.aml로 설정했습니다.
@@ -177,6 +181,10 @@ RehabMan for Null Ethernet and many other things
 CrazyBird for HFS+ partitioning in 10.14+
 
 daliansky and williambj1 for many hotpatch methods
+
+LeeBinder for many helps
+
+fewtarius for new CPUFriendDataProvider.kext and SMBIOS
 
 ## [hackintosh.co.kr](http://hackintosh.co.kr)
 이 한국 커뮤니티에 방문하시면 기타 정보를 얻으실 수 있습니다.
