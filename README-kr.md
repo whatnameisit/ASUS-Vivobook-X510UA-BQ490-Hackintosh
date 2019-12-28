@@ -68,7 +68,6 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 3. USB 탭에서 블루투스 포트를 확인하고 internal로 설정하십시오. UVC 카메라 또한 internal로 설정할 수 있습니다. Export/내보내기 버튼으로 codeless injection kext과 SSDT들을 데스크톱에 생성하고, 생성된 SSDT들은 삭제하십시오.
 4. USBPorts.kext를 /L*/E*에 설치하십시오. (자세한 내용은 https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266/ 에서 확인하실 수 있습니다.)
 5. 캐시를 재생성하고 재부팅합니다.
-- Note: kexts/other/additional의 USBPorts.kext는 제 X510UA-BQ490에 해당하는 켁스트입니다. 종료나 잠자기 시 오류를 방지하기 위해 본인의 USB 매핑을 설정하는 것을 추천합니다.
 
 ## Install RehabMan's Null Ethernet
 
@@ -118,6 +117,10 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
     - 키보드 Fn 조합 (터치패드 활성화/비활성화 버튼) 이 작동하지 않는 경우 CC를 제외한 켁스트를 전부 Clover에서 로드하십시오. 단, Clover에서 로드하는 경우 BrcmFirmwareRepo 대신 BrcmFirmwareData를 사용해야 블루투스가 안정적입니다.
 
 ## Changelog
+December 28, 2019
+- AppleALC를 1.4.2로 되돌리고, layout-id를 03000000로, CodecCommander를 다시 설치, 그리고 CodecCommander 데이터 SSDT를 다시 추가했습니다: SSDT-CC.aml.
+- ACPI 스펙에 맞추어 USBPorts.kext를 다시 추가했습니다.
+
 December 26, 2019
 - 10.15.2 이후로는 USB 포트 설정 없이도 잠자기 이후 블루투스가 정상 작동합니다: USBPorts.kext 삭제.
 - SMBIOS를 MacBookPro15,4로 설정하고 NoTouchID.kext를 추가했습니다.

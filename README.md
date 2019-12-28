@@ -67,7 +67,6 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 3. Under the USB tab, identify the Bluetooth port and set it as internal. The UVC camera can also be set as internal. Export and obtain the codeless injection kext and SSDTs in ~/Desktop. Delete the SSDTs.
 4. Install the USBPorts.kext in /L*/E* (Refer to https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266/ for more information.).
 5. Rebuild cache and reboot.
-- Note: USBPorts.kext in /kexts/other/additional is specifically for my own X510UA-BQ490. Creating your own mapping is recommended to avoid shutdown/sleep errors..
 
 ## Install RehabMan's Null Ethernet
 
@@ -116,6 +115,10 @@ Pick one of the below two patches.
 2. Clover
     - If you can't get Fn keys to work (namely touchpad enable/disable), try loading all kexts except CC from Clover in which case BrcmFirmwareData needs to load instead of BrcmFirmwareRepo.
 ## Changelog
+December 28, 2019
+- Reverted back to AppleALC 1.4.2 with the layout-id 03000000, reinstalled CodecCommander and the corresponding SSDT: SSDT-CC.aml
+- Reinstall USBPorts.kext to comply with ACPI specifications.
+
 December 26, 2019
 - Deleted USB configuration as not needed for working bluetooth on wake from sleep in 10.15.2: deleted USBPorts.kext.
 - Changed SMBIOS to MacBookPro15,4 and added NoTouchID.kext.
