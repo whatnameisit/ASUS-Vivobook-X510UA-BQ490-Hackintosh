@@ -63,7 +63,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>Resource tables for MBP14,1: Rename _STA methods in MATH and LDR2 device to XSTA, pair with SSDT-MATHLDR2_STA.aml</string>
+					<string>Resource tables for many Macs: Rename _STA methods in MATH and LDR2 device to XSTA, pair with SSDT-MATHLDR2_STA.aml</string>
 					<key>Find</key>
 					<data>X1NUQQCgDZNQ</data>
 					<key>Replace</key>
@@ -275,7 +275,7 @@
 				<key>name</key>
 				<string>audio</string>
 				<key>layout-id</key>
-				<data>DQAAAA==</data>
+				<data>AwAAAA==</data>
 				<key>hda-gfx</key>
 				<string>onboard-1</string>
 			</dict>
