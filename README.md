@@ -115,6 +115,12 @@ Pick one of the below two patches.
 2. Clover
     - If you can't get Fn keys to work (namely touchpad enable/disable), try loading all kexts except CC from Clover in which case BrcmFirmwareData needs to load instead of BrcmFirmwareRepo.
 ## Changelog
+January 27, 2020 
+- Updated kexts and Clover.
+- AppleALC.kext stays on 1.4.2. Built AsusSMC.kext 1.2.0 with 10.15.2 and latest Lilu and VirtualSMC SDKs.
+- Added NoTouchID.kext and other SMC sensor kexts.
+- Deleted .efi files specific to FileVault. If needed, they can be obtained from the Release.
+
 December 28, 2019
 - Reverted back to AppleALC 1.4.2 with the layout-id 03000000, reinstalled CodecCommander and the corresponding SSDT: SSDT-CC.aml
 - Reinstall USBPorts.kext to comply with ACPI specifications.

@@ -117,6 +117,12 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
     - 키보드 Fn 조합 (터치패드 활성화/비활성화 버튼) 이 작동하지 않는 경우 CC를 제외한 켁스트를 전부 Clover에서 로드하십시오. 단, Clover에서 로드하는 경우 BrcmFirmwareRepo 대신 BrcmFirmwareData를 사용해야 블루투스가 안정적입니다.
 
 ## Changelog
+January 27, 2020 
+- 켁스트, 클로버 등을 업데이트 했습니다.
+- AppleALC.kext는 1.4.2로 동일하고, AsusSMC.kext는 1.2.0을 직접 빌드했습니다.
+- NoTouchID.kext와 SMC 센서 켁스트를 전부 추가했습니다.
+- FileVault를 사용하지 않는 관계로 필요 없는 .efi를 전부 삭제했습니다. 필요하다면 Release에서 다운로드 받을 수 있습니다.
+
 December 28, 2019
 - AppleALC를 1.4.2로 되돌리고, layout-id를 03000000로, CodecCommander를 다시 설치, 그리고 CodecCommander 데이터 SSDT를 다시 추가했습니다: SSDT-CC.aml.
 - ACPI 스펙에 맞추어 USBPorts.kext를 다시 추가했습니다.
