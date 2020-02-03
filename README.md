@@ -108,13 +108,16 @@ Pick one of the below two patches.
 
 ## Other things
 
-1. OpenCore (10.15 Beta 2)
+1. OpenCore
     - Load CC from /L*/E*
-    - No more shutdown panics
-    - Will provide a guide to installation and booting with OC if my build is as stablized as Clover
+    - Boot Windows
+    - Need to configure BlessOverride
 2. Clover
     - If you can't get Fn keys to work (namely touchpad enable/disable), try loading all kexts except CC from Clover in which case BrcmFirmwareData needs to load instead of BrcmFirmwareRepo.
 ## Changelog
+February 3, 2020
+- Updated OpenCore to 0.5.4.
+
 January 27, 2020 
 - Updated kexts and Clover.
 - AppleALC.kext stays on 1.4.2. Built AsusSMC.kext 1.2.0 with 10.15.2 and latest Lilu and VirtualSMC SDKs.
