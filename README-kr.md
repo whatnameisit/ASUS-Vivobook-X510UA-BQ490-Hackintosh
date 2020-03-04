@@ -51,6 +51,7 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
     - 잠자기와 비행기모드 fn 버튼이 있을 때 -- Activate Sleep and Airplane fn keys
     - 백라이트 버튼 기능을 제거할 경우 -- Remap PS2
     - XOSI 대신 다른 패치를 사용할 경우 -- Replace XOSI patch
+    - (OpenCore) 전력관리를 최대 활성화하고자 하는 경우 -- Unlock MSR 0xE2 (CFG Lock)
 
 ## Replace WiFi/Bluetooth card
 
@@ -102,6 +103,11 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 3. 재부팅합니다.
 - SSDT-OSYS.dsl이 SSDT-_OSI-XINI.dsl보다 안정적일 것으로 예상됩니다.
 
+## Unlock MSR 0xE2 (CFG Lock)
+- Note: 자신의 노트북의 바이오스 버전을 확실히 알아야 합니다. 버전이 다르다면 노트북에 이상이 생길 수 있습니다.
+1. https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/extras/msr-lock를 참고하십시오.
+2. BIOS 버전이 309이라면 설정해주어야 할 Offset은 0x527에 해당합니다.
+
 ## When you think you are done
  
 1. 클로버, 켁스트, 그리고 efi 파일을 최근 버전으로 업데이트 하십시오.
@@ -117,8 +123,10 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
     - 키보드 Fn 조합 (터치패드 활성화/비활성화 버튼) 이 작동하지 않는 경우 CC를 제외한 켁스트를 전부 Clover에서 로드하십시오. 단, Clover에서 로드하는 경우 BrcmFirmwareRepo 대신 BrcmFirmwareData를 사용해야 블루투스가 안정적입니다.
 
 ## Changelog
+March 4, 2020
+-OpenCore를 0.5.6으로 업데이트 했습니다.
 February 3, 2020
-- OpenCore를 0.5.4로 업데이트했습니다.
+- OpenCore를 0.5.4로 업데이트 했습니다.
 
 January 27, 2020 
 - 켁스트, 클로버 등을 업데이트 했습니다.

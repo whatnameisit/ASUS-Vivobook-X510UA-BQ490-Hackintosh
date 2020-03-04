@@ -51,6 +51,8 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
     - You have Sleep and Airplane fn keys -- Activate Sleep and Airplane fn keys
     - You want to get rid of the control buttons to nonexistent keyboard backlight -- Remap PS2
     - You want to try a different _OSI patch -- Replace XOSI patch
+    - (OpenCore) You want to enable full power management -- Unlock MSR 0xE2 (CFG Lock)
+
 
 ## Replace WiFi/Bluetooth card
 
@@ -101,6 +103,11 @@ Pick one of the below two patches.
 3. Reboot.
 - In my opinion, SSDT-OSYS.dsl is safer than SSDT-_OSI-XINI.dsl.
 
+## Unlock MSR 0xE2 (CFG Lock)
+- Note: You need to know the BIOS version matches your laptop model. Otherwise, there may be a permanent damage to your laptop.
+1. Follow https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/extras/msr-lock.
+2. The offset will be at 0x527 if your BIOS version is 309.
+
 ## When you think you are done
 
 1. Update Clover, kexts, and efi files.
@@ -115,6 +122,9 @@ Pick one of the below two patches.
 2. Clover
     - If you can't get Fn keys to work (namely touchpad enable/disable), try loading all kexts except CC from Clover in which case BrcmFirmwareData needs to load instead of BrcmFirmwareRepo.
 ## Changelog
+March 4, 2020
+- Updated OpenCore to 0.5.6.
+
 February 3, 2020
 - Updated OpenCore to 0.5.4.
 
