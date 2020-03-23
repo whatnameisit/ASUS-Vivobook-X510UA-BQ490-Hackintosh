@@ -374,7 +374,7 @@
 	<key>KernelAndKextPatches</key>
 	<dict>
 		<key>AppleRTC</key>
-		<true/>
+		<false/>
 		<key>PanicNoKextDump</key>
 		<true/>
 		<key>DellSMBIOSPatch</key>

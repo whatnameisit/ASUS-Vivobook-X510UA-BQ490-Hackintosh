@@ -27,6 +27,7 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 ## VoodooI2C
 
 1. Polling mode for smooth movements and gestures
+2. Finger ID-implemented VoodooInput and VoodooI2C for persistent gesture input
 
 ## Attention please
 1. Note that this fork is mostly for my laptop only (X510UA-BQ490). If yours has similar features such as no dGPU and no KB backlight, try, but at your own risk. Otherwise, please go to tctien342's original master branch or hieplpvip's Zenbook repository.
@@ -122,6 +123,10 @@ Pick one of the below two patches.
 2. Clover
     - If you can't get Fn keys to work (namely touchpad enable/disable), try loading all kexts except CC from Clover in which case BrcmFirmwareData needs to load instead of BrcmFirmwareRepo.
 ## Changelog
+
+March 23, 2020
+- Use Finger ID-implemented VoodooInput and VoodooI2C for persistent touchpad gestures.
+
 March 4, 2020
 - Updated OpenCore to 0.5.6.
 

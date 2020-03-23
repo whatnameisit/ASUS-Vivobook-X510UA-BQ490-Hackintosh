@@ -27,6 +27,7 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 ## VoodooI2C
 
 1. 부드러운 움직임과 제스쳐를 위해 Polling mode를 사용합니다.
+2. 터치패드 제스쳐의 안정적인 사용을 위해 Finger ID가 포함된 VoodooInput와 VoodooI2C를 사용합니다.
 
 ## Attention please
 1. 이 fork는 X510UA-BQ490에 최적화되도록 구성했습니다. 만약 본인의 노트북에 옵티머스 외장그래픽이 없고 키보드 백라이트가 없다면 사용할 수 있지만, 책임은 본인에게 있습니다. 부담이 되거나 외장그래픽 기능을 제어해야 한다면 tctien342의 기존 master branch나 hieplpvip의 Zenbook repository를 참고하시길 바랍니다.
@@ -123,8 +124,13 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
     - 키보드 Fn 조합 (터치패드 활성화/비활성화 버튼) 이 작동하지 않는 경우 CC를 제외한 켁스트를 전부 Clover에서 로드하십시오. 단, Clover에서 로드하는 경우 BrcmFirmwareRepo 대신 BrcmFirmwareData를 사용해야 블루투스가 안정적입니다.
 
 ## Changelog
+
+March 23, 2020
+- 터치패드 제스쳐의 안정적인 사용을 위해 Finger ID가 포함된 VoodooInput과 VoodooI2C를 사용합니다.
+
 March 4, 2020
--OpenCore를 0.5.6으로 업데이트 했습니다.
+- OpenCore를 0.5.6으로 업데이트 했습니다.
+
 February 3, 2020
 - OpenCore를 0.5.4로 업데이트 했습니다.
 
