@@ -222,9 +222,9 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>abm_firstpolldelay=8000 brcmfx-country=#a</string>
+		<string>brcmfx-country=#a</string>
 		<key>#Arguments - 2</key>
-		<string>abm_firstpolldelay=8000</string>
+		<string></string>
 		<key>#Comment-Arguments</key>
 		<string>Only if you have DW1560</string>
 		<key>#Comment-#Arguments - 2</key>
