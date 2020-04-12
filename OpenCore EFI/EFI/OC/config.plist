@@ -499,7 +499,7 @@
 			<true/>
 			<key>ForceExitBootServices</key>
 			<false/>
-			<key>ProtectCsmRegion</key>
+			<key>ProtectMemoryRegions</key>
 			<false/>
 			<key>ProtectSecureBoot</key>
 			<false/>
@@ -1117,6 +1117,8 @@
 		<array/>
 		<key>Boot</key>
 		<dict>
+			<key>ConsoleAttributes</key>
+			<integer>0</integer>
 			<key>HibernateMode</key>
 			<string>None</string>
 			<key>PickerMode</key>
@@ -1287,14 +1289,6 @@
 	</dict>
 	<key>UEFI</key>
 	<dict>
-		<key>ConnectDrivers</key>
-		<true/>
-		<key>Drivers</key>
-		<array>
-			<string>HfsPlus.efi</string>
-			<string>ApfsDriverLoader.efi</string>
-			<string>OpenRuntime.efi</string>
-		</array>
 		<key>Audio</key>
 		<dict>
 			<key>AudioSupport</key>
@@ -1312,6 +1306,14 @@
 			<key>VolumeAmplifier</key>
 			<integer>0</integer>
 		</dict>
+		<key>ConnectDrivers</key>
+		<true/>
+		<key>Drivers</key>
+		<array>
+			<string>HfsPlus.efi</string>
+			<string>ApfsDriverLoader.efi</string>
+			<string>OpenRuntime.efi</string>
+		</array>
 		<key>Input</key>
 		<dict>
 			<key>KeyFiltering</key>
