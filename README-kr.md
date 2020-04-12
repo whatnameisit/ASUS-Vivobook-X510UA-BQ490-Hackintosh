@@ -35,20 +35,19 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 
 ## Steps to install
 
-1. macOS 인스톨러 USB를 준비합니다. (creationmedia 방법이나 모하비와 카탈리나를 HFS+ 파일시스템에 설치하고 싶다면 MBR HFS Firmware Check Patch를 사용하십시오. https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/) 기존 맥 시스템이 없다면 가상머신을 이용하실 수 있습니다. 또는 [hackintosh.co.kr](http://hackintosh.co.kr)에서 고스트를 다운로드 받아 설치하시면 편리합니다.
+1. macOS 인스톨러 USB를 준비합니다. 기존 맥 시스템이 없다면 가상머신을 이용하실 수 있습니다. 또는 [hackintosh.co.kr](http://hackintosh.co.kr)에서 고스트를 다운로드 받아 설치하시면 편리합니다.
 2. USB의 EFI 파티션에 Clover EFI의 하위폴더 EFI를 붙여넣으십시오.
 3. USB로 부팅해서 macOS Installer를 선택하십시오.
-4. 설치중에는 터치패드가 작동하지 않습니다. 따라서 별도의 마우스가 필요합니다. (또는 VoodooI2CHID.kext의 info.plist에서 IOGraphicsFamily에 대한 dependency를 삭제하십시오.) tonymacx86이나 다른 해킨토시 커뮤니티를 참고해서 설치를 마무리하십시오. 한글을 원하시면 [hackintosh.co.kr](http://hackintosh.co.kr)를 이용하십시오.
-    - 만약 카탈리나를 HFS+ 파일시스템으로 설치하신다면 https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/의 설치방법을 참고하십시오.
+4. 설치중에는 터치패드가 작동하지 않습니다. 따라서 별도의 마우스가 필요합니다. (또는 VoodooI2CHID.kext의 info.plist에서 IOGraphicsFamily에 대한 dependency를 삭제하거나 config.plist/KernelAndKextPatches/ForceKextsToLoad에서 force-load 하십시오.) tonymacx86이나 다른 해킨토시 커뮤니티를 참고해서 설치를 마무리하십시오. 한글을 원하시면 [hackintosh.co.kr](http://hackintosh.co.kr)를 이용하십시오.
 5. 설치가 완료된 후에 macOS로 부팅해서 /kexts/Other의 켁스트를 -> /Library/Extension로 붙여넣으십시오.
 6. Kext Utility를  이용해서 (또는 큰따옴표를 제외한 다음의 명령어를 터미널에 붙여넣습니다: "sudo chmod -R 755 /L*/E*&&sudo chown -R 0:0 /L*/E*&&sudo kextcache -i /") 캐시를 재생성하고 재부팅하십시오.
-    - 카탈리나를 설치했다면 Hackintool로 먼저 Gate Keeper를 비활성화 시킨 후 진행하십시오. http://headsoft.com.au/download/mac/Hackintool.zip.
+    - 카탈리나를 설치했다면 [Hackintool](http://headsoft.com.au/download/mac/Hackintool.zip)로 먼저 Gate Keeper를 비활성화 시킨 후 진행하십시오.
 7. 터치패드와 소리가 (마이크) 정상작동합니다. SSD의 EFI 파티션을 활성화시키고 (sudo diskutil mount EFI) Clover EFI의 하위폴더를 SSD의 EFI 하위폴더로 붙여넣습니다.
-8. EFI 폴더를 설치한 후 Clover Configurator를 이용해서 MacBookPro14,1의 SMBIOS 내용을 생성하십시오.
+8. EFI 폴더를 설치한 후 Clover Configurator를 이용해서 MacBookPro15,4의 SMBIOS 내용을 생성하십시오.
 - Note: 경우에 따라서 별도 패치가 필요할 수 있습니다.
-    - DW1560를 설치한 경우 -- Replace WiFi/Bluetooth card
-    - DW1560설치 이후 잠자기에서 깨어난 상태에서 블루투스가 작동하지 않을 때 -- Set Bluetooth port as internal
-    - WiFi & BT 모듈을 DW1560로 교체하지 않았지만 USB WiFi 동글이나 USB LAN를 통해 iMessage와 FaceTime를 활성화시킬 때 -- Install RehabMan's Null Ethernet
+    - macOS에서 WiFi/Bluetooth를 정상적으로 사용하길 원하는 경우 -- Replace WiFi/Bluetooth card
+    - WiFi/Bluetooth 카드 설치 이후 잠자기에서 깨어난 상태에서 블루투스가 작동하지 않을 때 -- Set Bluetooth port as internal
+    - WiFi/Bluetooh 카드를 교체하지 않았지만 USB WiFi 동글이나 USB LAN를 통해 iMessage와 FaceTime를 활성화시킬 때 -- Install RehabMan's Null Ethernet
     - 잠자기와 비행기모드 fn 버튼이 있을 때 -- Activate Sleep and Airplane fn keys
     - 백라이트 버튼 기능을 제거할 경우 -- Remap PS2
     - XOSI 대신 다른 패치를 사용할 경우 -- Replace XOSI patch
@@ -56,19 +55,22 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 
 ## Replace WiFi/Bluetooth card
 
-1. DW1560 카드를 설치하십시오.
-2. 지역이 한국인 경우 bootflag가 brcmfx-country=#a인 것을 확인하십시오.
-3. /kexts/other/additional에 있는 AirportBrcmFixup를 /L*/E*로 복사하십시오.
-4. 모하비의 경우 두 개의 블루투스 Brcm kext들 (Repo, RAM2), 카탈리나의 경우 세 개를 (Repo, Injector, RAM3) /L*/E*로 복사하고 캐시를 재생성하십시오.
-5. 권장사항: /kexts/other/additional/LiluFriend.kext를 (새롭게 LiluFriend를 생성하는 것이 안정적입니다.) /L*/E*에 붙여넣고 캐시를 재생성하십시오.
-6. 재부팅합니다.
+1. BCM94360NG 카드를 설치하십시오.
+2. 모하비의 경우 두 개의 블루투스 Brcm kext들 (Repo, RAM2), 카탈리나의 경우 세 개를 (Repo, Injector, RAM3) /L*/E*로 복사하고 캐시를 재생성하십시오.
+3. 재부팅합니다.
+- Note 1: 2020.04.12 기준으로 WiFi/Bluetooth를 정상적으로 작동할 수 있는 다른 옵션이 있습니다.
+    - Fenvi's AC1200 BCM94352Z (와이파이 켁스트 불필요)
+    - Other BCM94352Z variants (와이파이 켁스트 필요)
+    - BCM94350ZAE variants (와이파이 켁스트 필요. pci-aspm-default에 0, 66, 또는 67 설정. 이 [issue](https://github.com/acidanthera/bugtracker/issues/794#issuecomment-608139817)를 참고하십시오.)
+    - DW1830 (와이파이 켁스트 불필요. 카드가 슬롯보다 크기가 크기 때문에 연장선이 필요합니다.)
+- Note 2: 와이파이 켁스트가 필요 없는 경우 블루투스 켁스트도 필요 없는지는 의견이 다 다릅니다. 직접 확인해보는 것이 가장 좋습니다.
 
 ## Set Bluetooth port as internal
 
 1. /L*/E*의 3rd party USB 관련 켁스트나 SSDT-UIA.aml가 로드되지 않은 것을 확인하십시오.
-2. headkaze의 Hackintool를 다운로드 하십시오: http://headsoft.com.au/download/mac/Hackintool.zip.
+2. headkaze의 [Hackintool]( http://headsoft.com.au/download/mac/Hackintool.zip)를 다운로드 하십시오:
 3. USB 탭에서 블루투스 포트를 확인하고 internal로 설정하십시오. UVC 카메라 또한 internal로 설정할 수 있습니다. Export/내보내기 버튼으로 codeless injection kext과 SSDT들을 데스크톱에 생성하고, 생성된 SSDT들은 삭제하십시오.
-4. USBPorts.kext를 /L*/E*에 설치하십시오. (자세한 내용은 https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266/ 에서 확인하실 수 있습니다.)
+4. USBPorts.kext를 /L*/E*에 설치하십시오.
 5. 캐시를 재생성하고 재부팅합니다.
 
 ## Install RehabMan's Null Ethernet
@@ -76,14 +78,14 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 1. /kexts/other/additional/NullEthernet.kext를 /L*/E*에 설치하고 캐시를 재생성하십시오.
 2. /ACPI/additional/SSDT-RMNE를 /ACPI/patched로 복사하십시오.
 3. 재부팅합니다.
-- Note: 안정적인 iMessage, FaceTime, 그리고 App Store를 사용하기 위해서는 Null Ethernet를 먼저 설치한 후 기타 USB 동글이나 LAN을 사용하십시오.
+- Note 1: 안정적인 iMessage, FaceTime, 그리고 App Store를 사용하기 위해서는 Null Ethernet를 먼저 설치한 후 기타 USB 동글이나 LAN을 사용하십시오.
+- Note 2: 인텔 카드의 경우에도 와이파이와 블루투스를 작동시킬 수 있습니다. [WiFi](https://github.com/zxystd/itlwm) and [Bluetooth](https://github.com/zxystd/IntelBluetoothFirmware/releases). 와이파이 켁스트의 경우 XCode로 빌드해야 하며, 잘 작동하지 않을 수 있습니다. 본인 사용감에 무리가 없다면 RMNE를 삭제하십시오.
 
 ## Activate Sleep and Airplane fn keys
 
-1. https://github.com/hieplpvip/AsusSMC/wiki/Installation-Instruction 를 참고하십시오.
-    - AsusSMC Release를 다운로드합니다: https://github.com/hieplpvip/AsusSMC/releases
-    - install_daemon.sh를 터미널로 드래그해서 실행시키십시오.
-- 곧바로 작동하지 않는다면 재부팅하십시오. 켁스트와 efi 드라이버, OS, 클로버 등을 업데이트 할 때 새로 실행해야 할 수 있습니다.
+1. [AsusSMC](https://github.com/hieplpvip/AsusSMC/releases)를 다운로드합니다.
+2. install_daemon.sh를 터미널로 드래그해서 실행시키십시오.
+- Note: 곧바로 작동하지 않는다면 재부팅하십시오. 켁스트와 efi 드라이버, OS, 클로버 등을 업데이트 할 때 새로 실행해야 할 수 있습니다.
 
 ## Remap PS2
 
@@ -124,6 +126,8 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
     - 키보드 Fn 조합 (터치패드 활성화/비활성화 버튼) 이 작동하지 않는 경우 CC를 제외한 켁스트를 전부 Clover에서 로드하십시오. 단, Clover에서 로드하는 경우 BrcmFirmwareRepo 대신 BrcmFirmwareData를 사용해야 블루투스가 안정적입니다.
 
 ## Changelog
+April 12, 2020
+- OpenCore를 r0.5.7로, VoodooI2C를 r2.4로 업데이트 했습니다.
 
 March 23, 2020
 - 터치패드 제스쳐의 안정적인 사용을 위해 Finger ID가 포함된 VoodooInput과 VoodooI2C를 사용합니다.
@@ -198,19 +202,21 @@ Apple for macOS
 
 tctien342 and hieplpvip for Asus repositories
 
-the VoodooI2C helpdesk for working touchpad
+The VoodooI2C helpdesk for working touchpad
 
 headkaze for Hackintool
 
 RehabMan for Null Ethernet and many other things
-
-CrazyBird for HFS+ partitioning in 10.14+
 
 daliansky and williambj1 for many hotpatch methods
 
 LeeBinder for many helps
 
 fewtarius for new CPUFriendDataProvider.kext and SMBIOS
+
+The Acidanthera team for OpenCore and many kexts
+
+zxystd for Intel WiFi/Bluetooth support
 
 ## [hackintosh.co.kr](http://hackintosh.co.kr)
 이 한국 커뮤니티에 방문하시면 기타 정보를 얻으실 수 있습니다.

@@ -35,20 +35,19 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 
 ## Steps to install
 
-1. Prepair a macOS installer in USB (Use creationmedia method or MBR HFS Firmware Check Patch available in https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/ for both Mojave and Catalina).
+1. Prepare USB drive with macOS installer mounted on it.
 2. Replace EFI folder in USB EFI partition with the EFI folder in Clover EFI.
 3. Boot into USB and select macOS installer.
-4. During the installation, touchpad does not work. You need a mouse connected through USB. (Or you may delete the IOGraphicsFamily dependency from VoodooI2CHID.kext/info.plist.) Follow installation instructions found on tonymacx86 or other hackintosh forums.
-    - If you have chosen to install Catalina in HFS+ file system, follow the directions given in https://www.insanelymac.com/forum/files/file/985-catalina-mbr-hfs-firmware-check-patch/
-5. After a successful installation, boot into macOS, copy kexts In /kexts/Other -> /Library/Extension.
+4. During the installation, touchpad does not work. You need a mouse connected through USB. (Or you may delete the IOGraphicsFamily dependency from VoodooI2CHID.kext/info.plist. or force-load it in config.plist/KernelAndKextPatches/ForceKextsToLoad.) Follow installation instructions found on tonymacx86 or other hackintosh forums.
+5. After installation, boot into macOS, copy kexts In /kexts/Other -> /Library/Extension.
 6. Use Kext Utility (or simply copy this line without the quotation marks: "sudo chmod -R 755 /L*/E*&&sudo chown -R 0:0 /L*/E*&&sudo kextcache -i /") to rebuild kext cache then reboot.
-    - If you have installed Catalina, use Hackintool to disable Gate Keeper beforehand. http://headsoft.com.au/download/mac/Hackintool.zip.
+    - If you have installed Catalina, use [Hackintool](http://headsoft.com.au/download/mac/Hackintool.zip) to disable Gate Keeper beforehand.
 7. Now the touchpad and sound input should function correctly. You need to mount EFI and copy Clover EFI to the system EFI partition in like what you have done on USB EFI partition.
 8. After System EFI replaced by your EFI, use Clover Configurator to change SMBIOS, generate your serial and MBL.
 - Note: You may want to complete these extra steps.
-    - You have DW1560 installed -- Replace WiFi/Bluetooth card
-    - You have DW1560 installed but Bluetooth fails upon wake from sleep -- Set Bluetooth port as internal
-    - You have not replaced the WiFi & BT module with DW1560 but want to have working iMessage and FaceTime with USB WiFi dongle or USB LAN -- Install RehabMan's Null Ethernet
+    - You want to replace the WiFi/Bluetooth card for macOS support -- Replace WiFi/Bluetooth card
+    - You have replaced the WiFi/Bluetooth card but Bluetooth fails upon wake from sleep -- Set Bluetooth port as internal
+    - You have not replaced the WiFi/Bluetooth card but want to have working iMessage and FaceTime with USB WiFi dongle or USB LAN -- Install RehabMan's Null Ethernet
     - You have Sleep and Airplane fn keys -- Activate Sleep and Airplane fn keys
     - You want to get rid of the control buttons to nonexistent keyboard backlight -- Remap PS2
     - You want to try a different _OSI patch -- Replace XOSI patch
@@ -57,18 +56,22 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 
 ## Replace WiFi/Bluetooth card
 
-1. Replace your stock card with DW1560.
-2. Change the bootflag so you can specify your region. The default is brcmfx-country=#a.
-3. Go to /kexts/other/additional and copy AirportBrcmFixup and the two Brcm kexts for Mojave (Repo and RAM2) and three for Catalina (Repo, Injector, RAM3) to /L*/E* and rebuild cache.
-4. Optional: Copy /kexts/other/additional/LiluFriend.kext (recommended to create your own) to /L*/E* and rebuild cache.
-5. Reboot.
+1. Replace your stock card with BCM94360NG.
+2. Go to /kexts/other/additional and copy the two Brcm kexts for Mojave (Repo and RAM2) and three for Catalina (Repo, Injector, RAM3) to /L*/E* and rebuild cache.
+3. Reboot.
+- Note 1: There are a few other options to replace and get the WiFi/Bluetooth working to the fullest as of 2020.04.12.
+    - Fenvi's AC1200 BCM94352Z (No WiFi kext required.)
+    - Other BCM94352Z variants (WiFi kext required)
+    - BCM94350ZAE variants (WiFi kext required. pci-aspm-default set to 0, 66, or 67. Refer to this [issue](https://github.com/acidanthera/bugtracker/issues/794#issuecomment-608139817))
+    - DW1830 (No WiFi kext required. An extension cord is needed as the card does not fit into the slot)
+- Note 2: It is unknown to me whether no kext for WiFi required also means the same for Bluetooth. If you can test it yourself, please share the results.
 
 ## Set Bluetooth port as internal
 
 1. Make sure USB injection kexts or SSDT-UIA.aml are not loaded.
-2. Download Hackintool by headkaze http://headsoft.com.au/download/mac/Hackintool.zip
+2. Download [Hackintool](http://headsoft.com.au/download/mac/Hackintool.zip) by headkaze.
 3. Under the USB tab, identify the Bluetooth port and set it as internal. The UVC camera can also be set as internal. Export and obtain the codeless injection kext and SSDTs in ~/Desktop. Delete the SSDTs.
-4. Install the USBPorts.kext in /L*/E* (Refer to https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266/ for more information.).
+4. Install the USBPorts.kext in /L*/E*.
 5. Rebuild cache and reboot.
 
 ## Install RehabMan's Null Ethernet
@@ -76,14 +79,14 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 1. Copy /kexts/other/additional/NullEthernet.kext to /L*/E* and rebuild cache.
 2. Copy /ACPI/additional/SSDT-RMNE to /ACPI/patched.
 3. Reboot.
-- Note: For iMessage, FaceTime, and App Store to function correctly with RMNE, I recommend you install RMNE before trying to connect to any USB networking devices. Otherwise, you need to reset the network mapping by having RMNE set to en0. Use Google.
+- Note 1: For iMessage, FaceTime, and App Store to function correctly with RMNE, I recommend you install RMNE before trying to connect to any USB networking devices. Otherwise, you need to reset the network mapping by having RMNE set to en0. Use Google.
+- Note 2: The stock Intel WiFi/Bluetooth card can be made to work with limitations. [WiFi](https://github.com/zxystd/itlwm) and [Bluetooth](https://github.com/zxystd/IntelBluetoothFirmware/releases). You need to build the WiFi kext with XCode. If you are satisfied with how it works, you can delete RMNE.
 
 ## Activate Sleep and Airplane fn keys
 
-1. Follow the simple directions given in https://github.com/hieplpvip/AsusSMC/wiki/Installation-Instruction
-    - Download Release of AsusSMC: https://github.com/hieplpvip/AsusSMC/releases
-    - Run install_daemon.sh by dragging it onto terminal.
-    - Reboot if the script does not seem to work. After updating your EFI folder or any kexts, you may need to run the script again.
+1. Download Release of [AsusSMC](https://github.com/hieplpvip/AsusSMC/releases).
+2. Run install_daemon.sh by dragging it onto terminal.
+- Note: Reboot if the script does not seem to work. After updating your EFI folder or any kexts, you may need to rerun the script.
 
 ## Remap PS2
 
@@ -105,7 +108,7 @@ Pick one of the below two patches.
 - In my opinion, SSDT-OSYS.dsl is safer than SSDT-_OSI-XINI.dsl.
 
 ## Unlock MSR 0xE2 (CFG Lock)
-- Note: You need to know the BIOS version matches your laptop model. Otherwise, there may be a permanent damage to your laptop.
+- Note: You need to know which BIOS version matches your laptop model. Otherwise, there may be a permanent damage to your laptop.
 1. Follow https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/extras/msr-lock.
 2. The offset will be at 0x527 if your BIOS version is 309.
 
@@ -123,6 +126,8 @@ Pick one of the below two patches.
 2. Clover
     - If you can't get Fn keys to work (namely touchpad enable/disable), try loading all kexts except CC from Clover in which case BrcmFirmwareData needs to load instead of BrcmFirmwareRepo.
 ## Changelog
+April 12, 2020
+- Updated OpenCore to r0.5.7 and VoodooI2C to r2.4.
 
 March 23, 2020
 - Use Finger ID-implemented VoodooInput and VoodooI2C for persistent touchpad gestures.
@@ -197,19 +202,21 @@ Apple for macOS
 
 tctien342 and hieplpvip for Asus repositories
 
-the VoodooI2C helpdesk for working touchpad
+The VoodooI2C helpdesk for working touchpad
 
 headkaze for Hackintool
 
 RehabMan for Null Ethernet and many other things
-
-CrazyBird for HFS+ partitioning in 10.14+
 
 daliansky and williambj1 for many hotpatch methods
 
 LeeBinder for many helps
 
 fewtarius for new CPUFriendDataProvider.kext and SMBIOS
+
+The Acidanthera team for OpenCore and many kexts
+
+zxystd for Intel WiFi/Bluetooth support
 
 ## For Koreans
 [README-kr](README-kr.md)를 참고하십시오.
