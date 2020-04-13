@@ -851,7 +851,7 @@
 			</dict>
 			<dict>
 				<key>BundlePath</key>
-				<string>VoodooInput.kext</string>
+				<string>VoodooI2C.kext/Contents/Plugins/VoodooInput.kext</string>
 				<key>Comment</key>
 				<string>MT2</string>
 				<key>Enabled</key>

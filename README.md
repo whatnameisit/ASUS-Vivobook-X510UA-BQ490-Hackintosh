@@ -114,7 +114,7 @@ Pick one of the below two patches.
 
 ## When you think you are done
 
-1. Update Clover, kexts, and efi files.
+1. Update Clover, kexts, and efi files, but make sure to delete VoodooInput.kext inside VoodooPS2Controller.kext.
 2. Backup your /L*/E* by copying them to the system EFI partition and/or installation USB EFI partition.
 
 ## Other things
@@ -125,6 +125,7 @@ Pick one of the below two patches.
     - Need to configure BlessOverride
 2. Clover
     - If you can't get Fn keys to work (namely touchpad enable/disable), try loading all kexts except CC from Clover in which case BrcmFirmwareData needs to load instead of BrcmFirmwareRepo.
+    - If you update kexts, you need to delete VoodooInput.kext in VoodooPS2Controller.kext/Contents/Plugins to avoid loading VoodooInput twice. VoodooInput.kext, which is required by VoodooI2C for MT2 emulation, is already bundled with VoodooI2C.
 ## Changelog
 April 12, 2020
 - Updated OpenCore to r0.5.7 and VoodooI2C to r2.4.
