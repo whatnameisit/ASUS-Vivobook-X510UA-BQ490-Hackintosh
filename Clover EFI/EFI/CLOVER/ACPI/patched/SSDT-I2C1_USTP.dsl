@@ -1,7 +1,6 @@
-// Touchpad activation with VoodooI2C and HID satellite kexts
-// SBFx patches are not needed because the HID kext falls into the polling mode
-// after finding that APIC and GPIO are incompatible.
-// The piece of code in SSDT-I2Cx_USTP.aml that caused kp with v2.3 VoodooI2C kexts is now removed.
+// Touchpad activation with VoodooInput, VoodooI2C, and HID satellite kexts.
+// "Infinite Click" in polling mode is fixed by assining USTP to One
+// created by whatnameisit thanks to williambj1 and ben9923
 #ifndef NO_DEFINITIONBLOCK
 DefinitionBlock ("", "SSDT", 2, "hack", "elan", 0x00000000)
 {
@@ -12,19 +11,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "elan", 0x00000000)
     {
         If (_OSI ("Darwin"))
         {
-            Name (USTP, One) // "Infinite click" fix.
-            Name (SSCN, Package (0x03) // Assignment of SSCN and FMCN
-            {
-                0x0210, 
-                0x0280, 
-                0x1E
-            })
-            Name (FMCN, Package (0x03)
-            {
-                0x80, 
-                0xA0, 
-                0x1E
-            })
+            Name (USTP, One)
         }
     }
 #ifndef NO_DEFINITIONBLOCK

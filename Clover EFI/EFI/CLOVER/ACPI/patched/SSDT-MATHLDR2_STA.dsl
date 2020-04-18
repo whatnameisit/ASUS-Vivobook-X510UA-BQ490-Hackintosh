@@ -1,11 +1,5 @@
-// Activate resource table devices in MBP14,1 turned off by default
-// LDRC and LDR2 in stock ACPI combine to make macOS LDRC, and stock MATH provides the same resources as in macOS
-// Rename original M(_STA) to XSTA in MATH and LDR2 to turn on these devices in config.plist
-// _STA also returns true for "Darwin", or macOS
-// It returns the value in the original _STA (now named XSTA) in other OS
-// Optimal for OpenCore where all OS share the same ACPI table
-// Not a necessary patch
-// This SSDT is created by whatnameisit
+// New methods LDR2._STA and MATH._STA execute the renamed old XSTA in non-mac OS.
+// created by whatnameisit
 #ifndef NO_DEFINITIONBLOCK
 DefinitionBlock ("", "SSDT", 2, "hack", "MATHLDR2", 0x00000000)
 {
