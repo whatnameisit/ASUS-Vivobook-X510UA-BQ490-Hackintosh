@@ -2,7 +2,7 @@
 // "Infinite Click" in polling mode is fixed by assining USTP to One
 // created by whatnameisit thanks to williambj1 and ben9923
 #ifndef NO_DEFINITIONBLOCK
-DefinitionBlock ("", "SSDT", 2, "hack", "elan", 0x00000000)
+DefinitionBlock ("", "SSDT", 2, "what", "elan", 0x00000000)
 {
 #endif
     External (_SB_.PCI0.I2C1, DeviceObj)    // (from opcode)

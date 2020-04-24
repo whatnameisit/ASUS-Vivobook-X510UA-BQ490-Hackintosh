@@ -3,7 +3,7 @@
 // after finding that APIC and GPIO are incompatible.
 // If used with v2.3 VoodooI2C package, the kernel will panic upon wake from sleep. v2.2 or older is recommended.
 #ifndef NO_DEFINITIONBLOCK
-DefinitionBlock ("", "SSDT", 2, "hack", "elan", 0x00000000)
+DefinitionBlock ("", "SSDT", 2, "what", "elan", 0x00000000)
 {
 #endif
     External (_SB_.PCI0.I2C0, DeviceObj)    // (from opcode)

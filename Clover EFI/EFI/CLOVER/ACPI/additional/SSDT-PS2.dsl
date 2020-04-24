@@ -1,6 +1,6 @@
 // PS2 remap
 #ifndef NO_DEFINITIONBLOCK
-DefinitionBlock ("", "SSDT", 2, "hack", "ps2", 0x00000000)
+DefinitionBlock ("", "SSDT", 2, "what", "ps2", 0x00000000)
 {
 #endif
     Name (_SB.PCI0.LPCB.PS2K.RMCF, Package (0x02)

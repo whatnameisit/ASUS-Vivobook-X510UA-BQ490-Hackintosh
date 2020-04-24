@@ -1,7 +1,7 @@
 // APSS lookup in non-mac OS is done with Method APSS returning the renamed APXX.
 // created by whatnameisit
 #ifndef NO_DEFINITIONBLOCK
-DefinitionBlock ("", "SSDT", 2, "hack", "APSS", 0x00000000)
+DefinitionBlock ("", "SSDT", 2, "what", "APSS", 0x00000000)
 {
 #endif
     External (_SB_.APXX, FieldUnitObj)    // (from opcode)

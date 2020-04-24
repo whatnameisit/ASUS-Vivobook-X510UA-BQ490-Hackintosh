@@ -1,7 +1,7 @@
 // New methods LDR2._STA and MATH._STA execute the renamed old XSTA in non-mac OS.
 // created by whatnameisit
 #ifndef NO_DEFINITIONBLOCK
-DefinitionBlock ("", "SSDT", 2, "hack", "MATHLDR2", 0x00000000)
+DefinitionBlock ("", "SSDT", 2, "what", "MATHLDR2", 0x00000000)
 {
 #endif
     External (_SB_.PCI0.LPCB.LDR2, DeviceObj)    // (from opcode)
