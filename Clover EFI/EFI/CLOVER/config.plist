@@ -23,6 +23,16 @@
 			<array>
 				<dict>
 					<key>Comment</key>
+					<string>Sleep fix: M(_PTS,1,N) to ZTPS</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>X1BUUwE=</data>
+					<key>Replace</key>
+					<data>WlBUUwE=</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
 					<string>AICPUPM: change APSS to APXX</string>
 					<key>Disabled</key>
 					<false/>
@@ -108,6 +118,16 @@
 					<data>U01CVw0=</data>
 					<key>Replace</key>
 					<data>WFNNVw0=</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>Battery: Rename Method(FBST,4) to Method(XBST,4)</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>RkJTVAQ=</data>
+					<key>Replace</key>
+					<data>WEJTVAQ=</data>
 				</dict>
 				<dict>
 					<key>Comment</key>

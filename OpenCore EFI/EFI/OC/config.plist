@@ -110,11 +110,45 @@
 				<key>Path</key>
 				<string>SSDT-X510UA.aml</string>
 			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Battery FBST fix</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-FBST.aml</string>
+			</dict>
 		</array>
 		<key>Block</key>
 		<array/>
 		<key>Patch</key>
 		<array>
+			<dict>
+				<key>Comment</key>
+				<string>Sleep fix: M(_PTS,1,N) to ZTPS</string>
+				<key>Count</key>
+				<integer>0</integer>
+				<key>Enabled</key>
+				<true/>
+				<key>Find</key>
+				<data>X1BUUwE=</data>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data></data>
+				<key>OemTableId</key>
+				<data></data>
+				<key>Replace</key>
+				<data>WlBUUwE=</data>
+				<key>ReplaceMask</key>
+				<data></data>
+				<key>Skip</key>
+				<integer>0</integer>
+				<key>TableLength</key>
+				<integer>0</integer>
+				<key>TableSignature</key>
+				<data></data>
+			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>AICPUPM: change APSS to APXX</string>
@@ -171,7 +205,7 @@
 				<key>Comment</key>
 				<string>Resource tables for many Macs: Rename _STA methods in MATH and LDR2 device to XSTA, pair with SSDT-MATHLDR2_STA.aml</string>
 				<key>Count</key>
-				<integer>1</integer>
+				<integer>2</integer>
 				<key>Enabled</key>
 				<true/>
 				<key>Find</key>
@@ -288,6 +322,32 @@
 				<data></data>
 				<key>Replace</key>
 				<data>WE1CVw0=</data>
+				<key>ReplaceMask</key>
+				<data></data>
+				<key>Skip</key>
+				<integer>0</integer>
+				<key>TableLength</key>
+				<integer>0</integer>
+				<key>TableSignature</key>
+				<data></data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>(Battery) Rename Method(FBST,4) to Method(XBST,4)</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Find</key>
+				<data>RkJTVAQ=</data>
+				<key>Replace</key>
+				<data>WEJTVAQ=</data>
+				<key>Count</key>
+				<integer>0</integer>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data></data>
+				<key>OemTableId</key>
+				<data></data>
 				<key>ReplaceMask</key>
 				<data></data>
 				<key>Skip</key>
