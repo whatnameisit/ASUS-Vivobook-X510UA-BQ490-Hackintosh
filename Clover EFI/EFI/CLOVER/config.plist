@@ -23,16 +23,6 @@
 			<array>
 				<dict>
 					<key>Comment</key>
-					<string>Sleep fix: M(_PTS,1,N) to ZTPS</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>X1BUUwE=</data>
-					<key>Replace</key>
-					<data>WlBUUwE=</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
 					<string>AICPUPM: change APSS to APXX</string>
 					<key>Disabled</key>
 					<false/>
