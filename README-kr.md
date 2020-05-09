@@ -127,6 +127,10 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
     - 켁스트를 업데이트 한 경우 VoodooPS2Controller.kext/Contents/Plugins 폴더 안의 VoodooInput.kext를 삭제해야 합니다. VoodooI2C.kext/Contents/Plugins/VoodooInput.kext로 VoodooI2C에 필요한 MT2 emulation이 이미 적용됩니다.
 
 ## Changelog
+May 9, 2020
+- _PTS 패치는 종료시 재부팅되는 것을 방지하는 것이기 때문에 다시 지웠습니다.
+- 간헐적 커널 패닉이 일어나는 VoodooTSCSync.kext로부터 패닉이 없는 CpuTscSync.kext로 변경했습니다.
+
 April 24, 2020
 - 잠자기에서 깨울 때 "Device not ejected properly" 메시지가 표기되지 않도록 _PTS 관련 ACPI 패치를 다시 추가했습니다.
 
