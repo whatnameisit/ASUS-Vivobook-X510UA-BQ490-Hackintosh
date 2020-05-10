@@ -109,7 +109,7 @@ Pick one of the below two patches.
 
 ## Unlock MSR 0xE2 (CFG Lock)
 - Note: You need to know which BIOS version matches your laptop model. Otherwise, there may be a permanent damage to your laptop.
-1. Follow https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/extras/msr-lock.
+1. Follow [Dortania's guide](https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/extras/msr-lock).
 2. The offset will be at 0x527 if your BIOS version is 309.
 
 ## When you think you are done
@@ -121,15 +121,15 @@ Pick one of the below two patches.
 
 1. OpenCore
     - Load CC from /L*/E*
-    - Boot Windows
+    - Booting Windows is OK if you use KMS license.
     - Need to configure BlessOverride
 2. Clover
     - If you can't get Fn keys to work (namely touchpad enable/disable), try loading all kexts except CC from Clover in which case BrcmFirmwareData needs to load instead of BrcmFirmwareRepo.
     - If you update kexts, you need to delete VoodooInput.kext in VoodooPS2Controller.kext/Contents/Plugins to avoid loading VoodooInput twice. VoodooInput.kext, which is required by VoodooI2C for MT2 emulation, is already bundled with VoodooI2C.
 ## Changelog
 May 9, 2020
-- Revert _PTS patch as it is a workaround to correctly shutdown without restarting.
-- Switch from VoodooTSCSync.kext to CpuTscSync.kext to fix rare kernel panic on wake.
+- Reverted _PTS patch as it is a workaround to correctly shutdown without restarting which is no longer needed.
+- Switched from VoodooTSCSync.kext to CpuTscSync.kext to fix rare kernel panic on wake.
 
 April 24, 2020
 - Added back _PTS part in ACPI to avoid "Device not ejected properly" message on wake.

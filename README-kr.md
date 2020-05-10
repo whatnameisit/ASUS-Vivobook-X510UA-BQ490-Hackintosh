@@ -108,7 +108,7 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 
 ## Unlock MSR 0xE2 (CFG Lock)
 - Note: 자신의 노트북의 바이오스 버전을 확실히 알아야 합니다. 버전이 다르다면 노트북에 이상이 생길 수 있습니다.
-1. https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/extras/msr-lock를 참고하십시오.
+1. [Dortania 가이드](https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/extras/msr-lock)를 참고하십시오.
 2. BIOS 버전이 309이라면 설정해주어야 할 Offset은 0x527에 해당합니다.
 
 ## When you think you are done
@@ -120,7 +120,7 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 
 1. OpenCore
     - CC kext를 /L*/E*에서 로드합니다.
-    - 윈도우도 정상작동합니다.
+    - 윈도우는 KMS 라이센스 사용시 정상작동합니다.
     - BlessOverride 개별 설정이 필요합니다.
 2. Clover
     - 키보드 Fn 조합 (터치패드 활성화/비활성화 버튼) 이 작동하지 않는 경우 CC를 제외한 켁스트를 전부 Clover에서 로드하십시오. 단, Clover에서 로드하는 경우 BrcmFirmwareRepo 대신 BrcmFirmwareData를 사용해야 블루투스가 안정적입니다.
@@ -128,7 +128,7 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 
 ## Changelog
 May 9, 2020
-- _PTS 패치는 종료시 재부팅되는 것을 방지하는 것이기 때문에 다시 지웠습니다.
+- _PTS 패치는 종료시 재부팅되는 것을 방지하는 것이고 해당사항이 없기 때문에 다시 지웠습니다.
 - 간헐적 커널 패닉이 일어나는 VoodooTSCSync.kext로부터 패닉이 없는 CpuTscSync.kext로 변경했습니다.
 
 April 24, 2020
