@@ -164,7 +164,7 @@ December 26, 2019
 December 16, 2019
 - Set the default touchpad patch to be SSDT-I2C1_USTP.aml.
 
--December 15, 2019
+December 15, 2019
 - Updated AppleALC to 1.4.4 and deleted CodecCommander and the corresponding patches.
 
 October 28, 2019
