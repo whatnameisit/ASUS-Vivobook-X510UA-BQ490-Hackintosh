@@ -127,6 +127,9 @@ Pick one of the below two patches.
     - If you can't get Fn keys to work (namely touchpad enable/disable), try loading all kexts except CC from Clover in which case BrcmFirmwareData needs to load instead of BrcmFirmwareRepo.
     - If you update kexts, you need to delete VoodooInput.kext in VoodooPS2Controller.kext/Contents/Plugins to avoid loading VoodooInput twice. VoodooInput.kext, which is required by VoodooI2C for MT2 emulation, is already bundled with VoodooI2C.
 ## Changelog
+June 2, 2020
+- Updated OpenCore to 0.5.9.
+
 May 9, 2020
 - Reverted _PTS patch as it is a workaround to correctly shutdown without restarting which is no longer needed.
 - Switched from VoodooTSCSync.kext to CpuTscSync.kext to fix rare kernel panic on wake.
