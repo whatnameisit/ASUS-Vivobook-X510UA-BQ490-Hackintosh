@@ -122,6 +122,7 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
     - CC kext를 /L*/E*에서 로드합니다.
     - 윈도우는 KMS 라이센스 사용시 정상작동합니다.
     - BlessOverride 개별 설정이 필요합니다.
+    - bootpicker와 boot chime 파일을 https://github.com/acidanthera/OcBinaryData 에서 다운로드 할 수 있습니다.
 2. Clover
     - 키보드 Fn 조합 (터치패드 활성화/비활성화 버튼) 이 작동하지 않는 경우 CC를 제외한 켁스트를 전부 Clover에서 로드하십시오. 단, Clover에서 로드하는 경우 BrcmFirmwareRepo 대신 BrcmFirmwareData를 사용해야 블루투스가 안정적입니다.
     - 켁스트를 업데이트 한 경우 VoodooPS2Controller.kext/Contents/Plugins 폴더 안의 VoodooInput.kext를 삭제해야 합니다. VoodooI2C.kext/Contents/Plugins/VoodooInput.kext로 VoodooI2C에 필요한 MT2 emulation이 이미 적용됩니다.
