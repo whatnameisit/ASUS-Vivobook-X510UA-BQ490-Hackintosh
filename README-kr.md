@@ -119,8 +119,7 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 ## Other things
 
 1. OpenCore
-    - CC kext를 /L*/E*에서 로드합니다.
-    - 윈도우는 KMS 라이센스 사용시 정상작동합니다.
+    - 윈도우는 KMS 라이센스 사용시 정상작동합니다. 또는 `CustomSMBIOSGuid`를 `True`, `UpdateSmbiosMode`를 `Custom`으로 설정할 수도 있습니다.
     - BlessOverride 개별 설정이 필요합니다.
     - bootpicker와 boot chime 파일을 https://github.com/acidanthera/OcBinaryData 에서 다운로드 할 수 있습니다.
 2. Clover
@@ -128,6 +127,9 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
     - 켁스트를 업데이트 한 경우 VoodooPS2Controller.kext/Contents/Plugins 폴더 안의 VoodooInput.kext를 삭제해야 합니다. VoodooI2C.kext/Contents/Plugins/VoodooInput.kext로 VoodooI2C에 필요한 MT2 emulation이 이미 적용됩니다.
 
 ## Changelog
+July 27, 2020
+- CodecCommander를 삭제하고 AppleALC layout-id를 13으로 설정합니다. 마이크와 HDMI 소리도 잘 작동합니다.
+
 June 2, 2020
 - OpenCore를 0.5.9로 업데이트 했습니다.
 

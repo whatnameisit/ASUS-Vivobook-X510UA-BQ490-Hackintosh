@@ -24,14 +24,6 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Mic fix</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-CC.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>Quiet and optimal fan speed</string>
 				<key>Enabled</key>
 				<true/>
@@ -566,7 +558,7 @@
 				<key>name</key>
 				<string>audio</string>
 				<key>layout-id</key>
-				<data>AwAAAA==</data>
+				<integer>13</integer>
 				<key>hda-gfx</key>
 				<string>onboard-1</string>
 			</dict>
@@ -584,6 +576,8 @@
 				<data>FlkAAA==</data>
 				<key>AAPL,ig-platform-id</key>
 				<data>AAAWWQ==</data>
+				<key>force-online</key>
+				<data>AQAAAA==</data>
 				<key>framebuffer-con1-busid</key>
 				<data>AAAAAA==</data>
 				<key>framebuffer-con1-enable</key>
@@ -1020,22 +1014,6 @@
 				<true/>
 				<key>ExecutablePath</key>
 				<string></string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>BundlePath</key>
-				<string>CodecCommander.kext</string>
-				<key>Comment</key>
-				<string>CodecCommander.kext</string>
-				<key>Enabled</key>
-				<false/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/CodecCommander</string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>

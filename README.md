@@ -120,14 +120,16 @@ Pick one of the below two patches.
 ## Other things
 
 1. OpenCore
-    - Load CC from /L*/E*
-    - Booting Windows is OK if you use KMS license.
+- Booting Windows is OK if you use KMS license. You can consider setting `CustomSMBIOSGuid` as `True` and `UpdateSMBIOSMode` as `Custom`.
     - Need to configure BlessOverride
     - Download bootpicker and chime resources available at https://github.com/acidanthera/OcBinaryData .
 2. Clover
     - If you can't get Fn keys to work (namely touchpad enable/disable), try loading all kexts except CC from Clover in which case BrcmFirmwareData needs to load instead of BrcmFirmwareRepo.
     - If you update kexts, you need to delete VoodooInput.kext in VoodooPS2Controller.kext/Contents/Plugins to avoid loading VoodooInput twice. VoodooInput.kext, which is required by VoodooI2C for MT2 emulation, is already bundled with VoodooI2C.
 ## Changelog
+July 27, 2020
+- Delete CodecCommander and use AppleALC layout-id of 13 for working mic and HDMI sound.
+
 June 2, 2020
 - Updated OpenCore to 0.5.9.
 
