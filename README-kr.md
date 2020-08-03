@@ -127,6 +127,9 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
     - 켁스트를 업데이트 한 경우 VoodooPS2Controller.kext/Contents/Plugins 폴더 안의 VoodooInput.kext를 삭제해야 합니다. VoodooI2C.kext/Contents/Plugins/VoodooInput.kext로 VoodooI2C에 필요한 MT2 emulation이 이미 적용됩니다.
 
 ## Changelog
+Aug 4, 2020
+- 켁스트와 OpenCore를 Acidanthera August Release로 업데이트 했습니다.
+
 July 27, 2020
 - CodecCommander를 삭제하고 AppleALC layout-id를 13으로 설정합니다. 마이크와 HDMI 소리도 잘 작동합니다.
 

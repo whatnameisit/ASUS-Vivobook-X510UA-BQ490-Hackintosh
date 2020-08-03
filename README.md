@@ -127,6 +127,9 @@ Pick one of the below two patches.
     - If you can't get Fn keys to work (namely touchpad enable/disable), try loading all kexts except CC from Clover in which case BrcmFirmwareData needs to load instead of BrcmFirmwareRepo.
     - If you update kexts, you need to delete VoodooInput.kext in VoodooPS2Controller.kext/Contents/Plugins to avoid loading VoodooInput twice. VoodooInput.kext, which is required by VoodooI2C for MT2 emulation, is already bundled with VoodooI2C.
 ## Changelog
+Aug 4, 2020
+- Updated kexts and OpenCore to Acidanthera's August Release.
+
 July 27, 2020
 - Delete CodecCommander and use AppleALC layout-id of 13 for working mic and HDMI sound.
 
