@@ -122,7 +122,7 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
     - OpenCore는 Configuration.pdf를 참조하지 않고서는 설치하는 것을 권장하지 않기 때문에 가이드는 별도로 제공하지 않습니다.
 2. Clover
     - 키보드 Fn 조합 (터치패드 활성화/비활성화 버튼) 이 작동하지 않는 경우 CC를 제외한 켁스트를 전부 Clover에서 로드하십시오. 단, Clover에서 로드하는 경우 BrcmFirmwareRepo 대신 BrcmFirmwareData를 사용해야 블루투스가 안정적입니다.
-    - 켁스트를 업데이트 한 경우 VoodooPS2Controller.kext/Contents/Plugins 폴더 안의 VoodooInput.kext를 삭제해야 합니다. VoodooI2C.kext/Contents/Plugins/VoodooInput.kext로 VoodooI2C에 필요한 MT2 emulation이 이미 적용됩니다. 또한 VoodooPS2Trackpad.kext와 VoodooPS2Mouse.kext도 삭제할 것을 권장합니다.
+    - 켁스트를 업데이트 한 경우 VoodooPS2Controller.kext/Contents/Plugins 폴더 안의 VoodooInput.kext를 삭제해야 합니다. VoodooI2C.kext/Contents/Plugins/VoodooInput.kext로 VoodooI2C에 필요한 MT2 emulation이 이미 적용됩니다. 또한 VoodooPS2Trackpad.kext와 VoodooPS2Mouse.kext도 삭제할 것을 권장합니다.
 
 ## Changelog
 Aug 4, 2020
