@@ -10,24 +10,20 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 2. CPU:            Intel Core i5-8250U
 3. Graphics:        Intel UHD Graphics 620 // HDMI 연결하면 작동합니다 (Index 2). VRAM을 2048 MB로 할당했습니다.
 4. Wifi:           Intel Dual Band Wireless-AC 8265 - with bluetooth // DW1560로 교체 (AirDrop and Handoff 완벽히 작동합니다.)
-5. Card Reader:    USB로 연결
+5. Card Reader:    Alcor Micro USB Card Reader USB로 연결
 6. Camera:         ASUS UVC HD
 7. Audio:          Conexant Audio CX8050
 8. Touchpad:       ELAN1200
 9. Bios Version:   309
 
-## Thing will not able to use
+## Not Working
 
 1. hieplpvip의 FN + media 컨트롤 키에 해당하는 패치가 이 노트북에는 적용되지 않습니다.
-
-## Known problems
-
-1.  X510UA-BQ490에는 문제점이 없습니다.
+2. IMEI 펌웨어가 macOS와 호환되지 않는 부분이 있어 DRM 콘텐츠 지원이 미비합니다. [DRM Compatibility Chart](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.Chart.md).
 
 ## VoodooI2C
 
 1. 부드러운 움직임과 제스쳐를 위해 Polling mode를 사용합니다.
-2. 터치패드 제스쳐의 안정적인 사용을 위해 Finger ID가 포함된 VoodooInput와 VoodooI2C를 사용합니다.
 
 ## Attention please
 1. 이 fork는 X510UA-BQ490에 최적화되도록 구성했습니다. 만약 본인의 노트북에 옵티머스 외장그래픽이 없고 키보드 백라이트가 없다면 사용할 수 있지만, 책임은 본인에게 있습니다. 부담이 되거나 외장그래픽 기능을 제어해야 한다면 tctien342의 기존 master branch나 hieplpvip의 Zenbook repository를 참고하시길 바랍니다.
@@ -45,13 +41,13 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 7. 터치패드와 소리가 (마이크) 정상작동합니다. SSD의 EFI 파티션을 활성화시키고 (sudo diskutil mount EFI) Clover EFI의 하위폴더를 SSD의 EFI 하위폴더로 붙여넣습니다.
 8. EFI 폴더를 설치한 후 Clover Configurator를 이용해서 MacBookPro15,4의 SMBIOS 내용을 생성하십시오.
 - Note: 경우에 따라서 별도 패치가 필요할 수 있습니다.
-    - macOS에서 WiFi/Bluetooth를 정상적으로 사용하길 원하는 경우 -- Replace WiFi/Bluetooth card
-    - WiFi/Bluetooth 카드 설치 이후 잠자기에서 깨어난 상태에서 블루투스가 작동하지 않을 때 -- Set Bluetooth port as internal
-    - WiFi/Bluetooh 카드를 교체하지 않았지만 USB WiFi 동글이나 USB LAN를 통해 iMessage와 FaceTime를 활성화시킬 때 -- Install RehabMan's Null Ethernet
-    - 잠자기와 비행기모드 fn 버튼이 있을 때 -- Activate Sleep and Airplane fn keys
-    - 백라이트 버튼 기능을 제거할 경우 -- Remap PS2
-    - XOSI 대신 다른 패치를 사용할 경우 -- Replace XOSI patch
-    - (OpenCore) 전력관리를 최대 활성화하고자 하는 경우 -- Unlock MSR 0xE2 (CFG Lock)
+    - macOS에서 WiFi/Bluetooth를 정상적으로 사용하길 원하는 경우 -- [Replace WiFi/Bluetooth card](#replace-wifibluetooth-card)
+    - WiFi/Bluetooth 카드 설치 이후 잠자기에서 깨어난 상태에서 블루투스가 작동하지 않을 때 -- [Set Bluetooth port as internal](#set-bluetooth-port-as-internal)
+    - WiFi/Bluetooh 카드를 교체하지 않았지만 USB WiFi 동글이나 USB LAN를 통해 iMessage와 FaceTime를 활성화시킬 때 -- [Install RehabMan's Null Ethernet](#install-rehabmans-null-ethernet)
+    - 잠자기와 비행기모드 fn 버튼이 있을 때 -- [Activate Sleep and Airplane fn keys](#activate-sleep-and-airplane-fn-keys)
+    - 백라이트 버튼 기능을 제거할 경우 -- [Remap PS2](#remap-ps2)
+    - XOSI 대신 다른 패치를 사용할 경우 -- [Replace XOSI patch](#replace-xosi-patch)
+    - (OpenCore) 전력관리를 최대 활성화하고자 하는 경우 -- [Unlock MSR 0xE2 (CFG Lock)](#unlock-msr-0xe2-cfg-lock)
 
 ## Replace WiFi/Bluetooth card
 
@@ -61,7 +57,7 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 - Note 1: 2020.04.12 기준으로 WiFi/Bluetooth를 정상적으로 작동할 수 있는 다른 옵션이 있습니다.
     - Fenvi's AC1200 BCM94352Z (와이파이 켁스트 불필요)
     - Other BCM94352Z variants (와이파이 켁스트 필요)
-    - BCM94350ZAE variants (와이파이 켁스트 필요. pci-aspm-default에 0, 66, 또는 67 설정. 이 [issue](https://github.com/acidanthera/bugtracker/issues/794#issuecomment-608139817)를 참고하십시오.)
+    - BCM94350ZAE variants (와이파이 켁스트 필요. pci-aspm-default에 0, 66, 또는 67 설정. 이 [issue](https://github.com/acidanthera/bugtracker/issues/794#issuecomment-608139817)와 [입력사항](https://github.com/acidanthera/airportbrcmfixup#specific-boot-args-and-ioreg-properties)를 참고하십시오.)
     - DW1830 (와이파이 켁스트 불필요. 카드가 슬롯보다 크기가 크기 때문에 연장선이 필요합니다.)
 - Note 2: 와이파이 켁스트가 필요 없는 경우 블루투스 켁스트도 필요 없는지는 의견이 다 다릅니다. 직접 확인해보는 것이 가장 좋습니다.
 
@@ -79,7 +75,8 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 2. /ACPI/additional/SSDT-RMNE를 /ACPI/patched로 복사하십시오.
 3. 재부팅합니다.
 - Note 1: 안정적인 iMessage, FaceTime, 그리고 App Store를 사용하기 위해서는 Null Ethernet를 먼저 설치한 후 기타 USB 동글이나 LAN을 사용하십시오.
-- Note 2: 인텔 카드의 경우에도 와이파이와 블루투스를 작동시킬 수 있습니다. [WiFi](https://github.com/zxystd/itlwm) and [Bluetooth](https://github.com/zxystd/IntelBluetoothFirmware/releases). 와이파이 켁스트의 경우 XCode로 빌드해야 하며, 잘 작동하지 않을 수 있습니다. 본인 사용감에 무리가 없다면 RMNE를 삭제하십시오.
+- Note 2: 인텔 카드의 경우에도 와이파이와 블루투스를 작동시킬 수 있습니다. [OpenWireless](https://openintelwireless.github.io/). 와이파이 켁스트의 경우 잘 작동하지 않을 수 있습니다. 본인 사용감에 무리가 없다면 RMNE를 삭제하십시오.
+- Note 3: 이 노트북은 와이파이 모듈을 인텔에서 브로드컴으로 바꿀 수 있기 때문에 브로드컴을 사용할 것을 추천합니다.
 
 ## Activate Sleep and Airplane fn keys
 
@@ -108,7 +105,7 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 
 ## Unlock MSR 0xE2 (CFG Lock)
 - Note: 자신의 노트북의 바이오스 버전을 확실히 알아야 합니다. 버전이 다르다면 노트북에 이상이 생길 수 있습니다.
-1. [Dortania 가이드](https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/extras/msr-lock)를 참고하십시오.
+1. [Dortania 가이드](https://dortania.github.io/OpenCore-Post-Install/misc/msr-lock.html)를 참고하십시오.
 2. BIOS 버전이 309이라면 설정해주어야 할 Offset은 0x527에 해당합니다.
 
 ## When you think you are done
@@ -122,9 +119,10 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
     - 윈도우는 KMS 라이센스 사용시 정상작동합니다. 또는 `CustomSMBIOSGuid`를 `True`, `UpdateSmbiosMode`를 `Custom`으로 설정할 수도 있습니다.
     - BlessOverride 개별 설정이 필요합니다.
     - bootpicker와 boot chime 파일을 https://github.com/acidanthera/OcBinaryData 에서 다운로드 할 수 있습니다.
+    - OpenCore는 Configuration.pdf를 참조하지 않고서는 설치하는 것을 권장하지 않기 때문에 가이드는 별도로 제공하지 않습니다.
 2. Clover
     - 키보드 Fn 조합 (터치패드 활성화/비활성화 버튼) 이 작동하지 않는 경우 CC를 제외한 켁스트를 전부 Clover에서 로드하십시오. 단, Clover에서 로드하는 경우 BrcmFirmwareRepo 대신 BrcmFirmwareData를 사용해야 블루투스가 안정적입니다.
-    - 켁스트를 업데이트 한 경우 VoodooPS2Controller.kext/Contents/Plugins 폴더 안의 VoodooInput.kext를 삭제해야 합니다. VoodooI2C.kext/Contents/Plugins/VoodooInput.kext로 VoodooI2C에 필요한 MT2 emulation이 이미 적용됩니다.
+    - 켁스트를 업데이트 한 경우 VoodooPS2Controller.kext/Contents/Plugins 폴더 안의 VoodooInput.kext를 삭제해야 합니다. VoodooI2C.kext/Contents/Plugins/VoodooInput.kext로 VoodooI2C에 필요한 MT2 emulation이 이미 적용됩니다. 또한 VoodooPS2Trackpad.kext와 VoodooPS2Mouse.kext도 삭제할 것을 권장합니다.
 
 ## Changelog
 Aug 4, 2020

@@ -10,24 +10,20 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 2. CPU:            Intel Core i5-8250U
 3. Graphics:        Intel UHD Graphics 620 // Dual monitor with HDMI (Index 2) and 2048 MB VRAM
 4. Wifi:           Intel Dual Band Wireless-AC 8265 - with bluetooth // REPLACED WITH DW1560 (AirDrop and Handoff Working perfectly)
-5. Card Reader:    Connected via USB
+5. Card Reader:    Alcor Micro USB Card Reader Connected via USB
 6. Camera:         ASUS UVC HD
 7. Audio:          Conexant Audio CX8050
 8. Touchpad:       ELAN1200
 9. Bios Version:   309
 
-## Thing will not able to use
+## Not Working
 
 1. FN + media controller's key
-
-## Known problems
-
-1.  Not on X510UA-BQ490
+2. The support for DRM contents is limited due to incompatible firmware. Please see the [DRM Compatibility Chart](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.Chart.md).
 
 ## VoodooI2C
 
 1. Polling mode for smooth movements and gestures
-2. Finger ID-implemented VoodooInput and VoodooI2C for persistent gesture input
 
 ## Attention please
 1. Note that this fork is mostly for my laptop only (X510UA-BQ490). If yours has similar features such as no dGPU and no KB backlight, try, but at your own risk. Otherwise, please go to tctien342's original master branch or hieplpvip's Zenbook repository.
@@ -45,13 +41,13 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 7. Now the touchpad and sound input should function correctly. You need to mount EFI and copy Clover EFI to the system EFI partition in like what you have done on USB EFI partition.
 8. After System EFI replaced by your EFI, use Clover Configurator to change SMBIOS, generate your serial and MBL.
 - Note: You may want to complete these extra steps.
-    - You want to replace the WiFi/Bluetooth card for macOS support -- Replace WiFi/Bluetooth card
-    - You have replaced the WiFi/Bluetooth card but Bluetooth fails upon wake from sleep -- Set Bluetooth port as internal
-    - You have not replaced the WiFi/Bluetooth card but want to have working iMessage and FaceTime with USB WiFi dongle or USB LAN -- Install RehabMan's Null Ethernet
-    - You have Sleep and Airplane fn keys -- Activate Sleep and Airplane fn keys
-    - You want to get rid of the control buttons to nonexistent keyboard backlight -- Remap PS2
-    - You want to try a different _OSI patch -- Replace XOSI patch
-    - (OpenCore) You want to enable full power management -- Unlock MSR 0xE2 (CFG Lock)
+    - You want to replace the WiFi/Bluetooth card for macOS support -- [Replace WiFi/Bluetooth card](#replace-wifibluetooth-card)
+    - You have replaced the WiFi/Bluetooth card but Bluetooth fails upon wake from sleep -- [Set Bluetooth port as internal](#set-bluetooth-port-as-internal)
+    - You have not replaced the WiFi/Bluetooth card but want to have working iMessage and FaceTime with USB WiFi dongle or USB LAN -- [Install RehabMan's Null Ethernet](#install-rehabmans-null-ethernet)
+    - You have Sleep and Airplane fn keys -- [Activate Sleep and Airplane fn keys](#activate-sleep-and-airplane-fn-keys)
+    - You want to get rid of the control buttons to nonexistent keyboard backlight -- [Remap PS2](#remap-ps2)
+    - You want to try a different _OSI patch -- [Replace XOSI patch](#replace-xosi-patch)
+    - (OpenCore) You want to enable full power management -- [Unlock MSR 0xE2 (CFG Lock)](#unlock-msr-0xe2-cfg-lock)
 
 
 ## Replace WiFi/Bluetooth card
@@ -62,7 +58,7 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 - Note 1: There are a few other options to replace and get the WiFi/Bluetooth working to the fullest as of 2020.04.12.
     - Fenvi's AC1200 BCM94352Z (No WiFi kext required.)
     - Other BCM94352Z variants (WiFi kext required)
-    - BCM94350ZAE variants (WiFi kext required. pci-aspm-default set to 0, 66, or 67. Refer to this [issue](https://github.com/acidanthera/bugtracker/issues/794#issuecomment-608139817))
+    - BCM94350ZAE variants (WiFi kext required. pci-aspm-default set to 0, 66, or 67. Refer to this [issue](https://github.com/acidanthera/bugtracker/issues/794#issuecomment-608139817) and the [argument usage](https://github.com/acidanthera/airportbrcmfixup#specific-boot-args-and-ioreg-properties).)
     - DW1830 (No WiFi kext required. An extension cord is needed as the card does not fit into the slot)
 - Note 2: It is unknown to me whether no kext for WiFi required also means the same for Bluetooth. If you can test it yourself, please share the results.
 
@@ -80,7 +76,8 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 2. Copy /ACPI/additional/SSDT-RMNE to /ACPI/patched.
 3. Reboot.
 - Note 1: For iMessage, FaceTime, and App Store to function correctly with RMNE, I recommend you install RMNE before trying to connect to any USB networking devices. Otherwise, you need to reset the network mapping by having RMNE set to en0. Use Google.
-- Note 2: The stock Intel WiFi/Bluetooth card can be made to work with limitations. [WiFi](https://github.com/zxystd/itlwm) and [Bluetooth](https://github.com/zxystd/IntelBluetoothFirmware/releases). You need to build the WiFi kext with XCode. If you are satisfied with how it works, you can delete RMNE.
+- Note 2: The stock Intel WiFi/Bluetooth card can be made to work with limitations. [OpenWireless](https://openintelwireless.github.io/). If you are satisfied with how it works, you can delete RMNE.
+- Note 3: Just replace the little thing with a Broadcom one. Intel is really for those who can't replace their soldered cards.
 
 ## Activate Sleep and Airplane fn keys
 
@@ -109,7 +106,7 @@ Pick one of the below two patches.
 
 ## Unlock MSR 0xE2 (CFG Lock)
 - Note: You need to know which BIOS version matches your laptop model. Otherwise, there may be a permanent damage to your laptop.
-1. Follow [Dortania's guide](https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/extras/msr-lock).
+1. Follow [Dortania's guide](https://dortania.github.io/OpenCore-Post-Install/misc/msr-lock.html).
 2. The offset will be at 0x527 if your BIOS version is 309.
 
 ## When you think you are done
@@ -120,12 +117,13 @@ Pick one of the below two patches.
 ## Other things
 
 1. OpenCore
-- Booting Windows is OK if you use KMS license. You can consider setting `CustomSMBIOSGuid` as `True` and `UpdateSMBIOSMode` as `Custom`.
+    - Booting Windows is OK if you use KMS license. You can consider setting `CustomSMBIOSGuid` as `True` and `UpdateSMBIOSMode` as `Custom`.
     - Need to configure BlessOverride
     - Download bootpicker and chime resources available at https://github.com/acidanthera/OcBinaryData .
+    - OpenCore developers do not recomend the use of OpenCore without understanding every component of the supplied Configuration.pdf. Therefore, I will not be providing a guide.
 2. Clover
     - If you can't get Fn keys to work (namely touchpad enable/disable), try loading all kexts except CC from Clover in which case BrcmFirmwareData needs to load instead of BrcmFirmwareRepo.
-    - If you update kexts, you need to delete VoodooInput.kext in VoodooPS2Controller.kext/Contents/Plugins to avoid loading VoodooInput twice. VoodooInput.kext, which is required by VoodooI2C for MT2 emulation, is already bundled with VoodooI2C.
+    - If you update kexts, you need to delete VoodooInput.kext in VoodooPS2Controller.kext/Contents/Plugins to avoid loading VoodooInput twice. VoodooInput.kext, which is required by VoodooI2C for MT2 emulation, is already bundled with VoodooI2C. Also delete VoodooPS2Trackpad.kext and VoodooPS2Mouse.kext as they are not needed.
 ## Changelog
 Aug 4, 2020
 - Updated kexts and OpenCore to Acidanthera's August Release.
