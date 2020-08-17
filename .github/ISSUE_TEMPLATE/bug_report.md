@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-**What is your laptop model? Does it fit the specs in [README](#system-specification)?**
+**What is your laptop model? Does it fit the specs in [README](https://github.com/whatnameisit/Asus-Vivobook-X510UA-BQ490-Catalina-10.15.6-Hackintosh/blob/master/README.md#system-specification)?**
 
 **Describe the bug**
 A clear and concise description of what the bug is.
