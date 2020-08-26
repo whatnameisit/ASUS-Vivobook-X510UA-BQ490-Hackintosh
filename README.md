@@ -27,6 +27,7 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 
 ## Attention please
 1. Note that this fork is mostly for my laptop only (X510UA-BQ490). If yours has similar features such as no dGPU and no KB backlight, try, but at your own risk. Otherwise, please go to tctien342's original master branch or hieplpvip's Zenbook repository.
+2. Please read the whole README before doing anything. [It's strange that some people ask me unrelated things and whatever things they want and they come at me when they're told they have asked useless things](https://github.com/whatnameisit/Asus-Vivobook-X510UA-BQ490-Catalina-10.15.6-Hackintosh/issues/17).
 
 ## Steps to install
 
