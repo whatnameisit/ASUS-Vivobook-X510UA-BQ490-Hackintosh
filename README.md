@@ -27,7 +27,6 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 
 ## Attention please
 1. Note that this fork is mostly for my laptop only (X510UA-BQ490). If yours has similar features such as no dGPU and no KB backlight, try, but at your own risk. Otherwise, please go to tctien342's original master branch or hieplpvip's Zenbook repository.
-2. If the versions of your VirtualSMC and corresponding efi driver and plugins do not match, touchpad and other battery issues may arise. Please make sure to download the most recent stable release of the SMC package and install them accordingly.
 
 ## Steps to install
 

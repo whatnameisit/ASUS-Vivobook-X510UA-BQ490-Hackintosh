@@ -27,7 +27,6 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 
 ## Attention please
 1. 이 fork는 X510UA-BQ490에 최적화되도록 구성했습니다. 만약 본인의 노트북에 옵티머스 외장그래픽이 없고 키보드 백라이트가 없다면 사용할 수 있지만, 책임은 본인에게 있습니다. 부담이 되거나 외장그래픽 기능을 제어해야 한다면 tctien342의 기존 master branch나 hieplpvip의 Zenbook repository를 참고하시길 바랍니다.
-2. VirtualSMC와 플러그인 및 efi 파일의 버전이 서로 일치하지 않으면 터치패드나 기타 전원에 오류가 발생할 수 있습니다. 가장 최근에 나온 안정적인 SMC 패키지를 다운로드하고 알맞게 설치하십시오.
 
 ## Steps to install
 
