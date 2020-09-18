@@ -48,14 +48,6 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Enable MATH and LDR2</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-MATHLDR2_STA.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>Add MEM2</string>
 				<key>Enabled</key>
 				<true/>
