@@ -1,6 +1,5 @@
 # Asus Vivobook X510UA-BQ490
 
-Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore) 
 
 ![Alt text](https://ivanov-audio.com/wp-content/uploads/2014/01/Hackintosh-Featured-Image.png)
 
@@ -75,7 +74,7 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 2. /ACPI/additional/SSDT-RMNE를 /ACPI/patched로 복사하십시오.
 3. 재부팅합니다.
 - Note 1: 안정적인 iMessage, FaceTime, 그리고 App Store를 사용하기 위해서는 Null Ethernet를 먼저 설치한 후 기타 USB 동글이나 LAN을 사용하십시오.
-- Note 2: 인텔 카드의 경우에도 와이파이와 블루투스를 작동시킬 수 있습니다. [OpenWireless](https://openintelwireless.github.io/). 와이파이 켁스트의 경우 잘 작동하지 않을 수 있습니다. 본인 사용감에 무리가 없다면 RMNE를 삭제하십시오.
+- Note 2: 인텔 카드의 경우에도 와이파이와 블루투스를 작동시킬 수 있습니다. [OpenIntelWireless](https://openintelwireless.github.io/). 와이파이 켁스트의 경우 잘 작동하지 않을 수 있습니다. 본인 사용감에 무리가 없다면 RMNE를 삭제하십시오.
 - Note 3: 이 노트북은 와이파이 모듈을 인텔에서 브로드컴으로 바꿀 수 있기 때문에 브로드컴을 사용할 것을 추천합니다.
 
 ## Activate Sleep and Airplane fn keys

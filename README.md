@@ -1,6 +1,5 @@
 # Asus Vivobook X510UA-BQ490
 
-Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore) 
 
 ![Alt text](https://ivanov-audio.com/wp-content/uploads/2014/01/Hackintosh-Featured-Image.png)
 
@@ -76,7 +75,7 @@ Tested on 10.14.4-10.15 (Clover) and 10.15 Beta 2 (OpenCore)
 2. Copy /ACPI/additional/SSDT-RMNE to /ACPI/patched.
 3. Reboot.
 - Note 1: For iMessage, FaceTime, and App Store to function correctly with RMNE, I recommend you install RMNE before trying to connect to any USB networking devices. Otherwise, you need to reset the network mapping by having RMNE set to en0. Use Google.
-- Note 2: The stock Intel WiFi/Bluetooth card can be made to work with limitations. [OpenWireless](https://openintelwireless.github.io/). If you are satisfied with how it works, you can delete RMNE.
+- Note 2: The stock Intel WiFi/Bluetooth card can be made to work with limitations. [OpenIntelWireless](https://openintelwireless.github.io/). If you are satisfied with how it works, you can delete RMNE.
 - Note 3: Just replace the little thing with a Broadcom one. Intel is really for those who can't replace their soldered cards.
 
 ## Activate Sleep and Airplane fn keys
