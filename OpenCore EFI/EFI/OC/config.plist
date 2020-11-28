@@ -64,14 +64,6 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Change keyboard mapping</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-PS2.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>USB power</string>
 				<key>Enabled</key>
 				<true/>

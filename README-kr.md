@@ -5,15 +5,16 @@
 
 ## System specification
 
-1. Name:           Asus Vivobook X510UA-BQ490
-2. CPU:            Intel Core i5-8250U
-3. Graphics:        Intel UHD Graphics 620 // HDMI 연결하면 작동합니다 (Index 2). VRAM을 2048 MB로 할당했습니다.
-4. Wifi:           Intel Dual Band Wireless-AC 8265 - with bluetooth // DW1560로 교체 (AirDrop and Handoff 완벽히 작동합니다.)
-5. Card Reader:    Alcor Micro USB Card Reader USB로 연결
-6. Camera:         ASUS UVC HD
-7. Audio:          Conexant Audio CX8050
-8. Touchpad:       ELAN1200
-9. Bios Version:   309
+| Laptop | Asus Vivobook X510UA-Bq490 |
+| - | - |
+| CPU | Intel Core i5-8250U |
+| Graphics | Intel UHD Graphics 620 |
+| Wi-Fi / Bluetooth | *BCM94352Z (replaced)* |
+| Card Reader | Alcor Micro USB Card Reader connected via USB |
+| Camera | ASUS UVC HD |
+| Audio | Conexant Audio CX8050 |
+| Touchpad | ELAN1200 |
+| UEFI BIOS Version | 309 |
 
 ## Not Working
 
@@ -25,82 +26,27 @@
 1. 부드러운 움직임과 제스쳐를 위해 Polling mode를 사용합니다.
 
 ## Attention please
-1. 이 fork는 X510UA-BQ490에 최적화되도록 구성했습니다. 만약 본인의 노트북에 옵티머스 외장그래픽이 없고 키보드 백라이트가 없다면 사용할 수 있지만, 책임은 본인에게 있습니다. 부담이 되거나 외장그래픽 기능을 제어해야 한다면 tctien342의 기존 master branch나 hieplpvip의 Zenbook repository를 참고하시길 바랍니다.
+1. 이 fork는 X510UA-BQ490에 최적화되도록 구성했습니다. 만약 본인의 노트북에 옵티머스 외장그래픽이 없고 키보드 백라이트가 없다면 사용할 수 있지만, 책임은 본인에게 있습니다. 부담이 되거나 외장그래픽 기능을 제어해야 한다면 hieplpvip의 Zenbook repository를 참고하시길 바랍니다.
 2. 이 README를 꼭 숙지하고 진행하시기 바랍니다. [여기서 제공되는 것과 상관 없는 내용 및 아무 조치 없이 아무 말이나 한다면 무시됩니다](https://github.com/whatnameisit/Asus-Vivobook-X510UA-BQ490-Catalina-10.15.6-Hackintosh/issues/10#issuecomment-622947888).
 
 ## Steps to install
 
-1. macOS 인스톨러 USB를 준비합니다. 기존 맥 시스템이 없다면 가상머신을 이용하실 수 있습니다. 또는 [hackintosh.co.kr](http://hackintosh.co.kr)에서 고스트를 다운로드 받아 설치하시면 편리합니다.
-2. USB의 EFI 파티션에 Clover EFI의 하위폴더 EFI를 붙여넣으십시오.
-3. USB로 부팅해서 macOS Installer를 선택하십시오.
-4. 설치중에는 터치패드가 작동하지 않습니다. 따라서 별도의 마우스가 필요합니다. (또는 VoodooI2CHID.kext의 info.plist에서 IOGraphicsFamily에 대한 dependency를 삭제하거나 config.plist/KernelAndKextPatches/ForceKextsToLoad에서 force-load 하십시오.) tonymacx86이나 다른 해킨토시 커뮤니티를 참고해서 설치를 마무리하십시오. 한글을 원하시면 [hackintosh.co.kr](http://hackintosh.co.kr)를 이용하십시오.
-5. 설치가 완료된 후에 macOS로 부팅해서 /kexts/Other의 켁스트를 -> /Library/Extension로 붙여넣으십시오.
-6. Kext Utility를  이용해서 (또는 큰따옴표를 제외한 다음의 명령어를 터미널에 붙여넣습니다: "sudo chmod -R 755 /L*/E*&&sudo chown -R 0:0 /L*/E*&&sudo kextcache -i /") 캐시를 재생성하고 재부팅하십시오.
-    - 카탈리나를 설치했다면 [Hackintool](http://headsoft.com.au/download/mac/Hackintool.zip)로 먼저 Gate Keeper를 비활성화 시킨 후 진행하십시오.
-7. 터치패드와 소리가 (마이크) 정상작동합니다. SSD의 EFI 파티션을 활성화시키고 (sudo diskutil mount EFI) Clover EFI의 하위폴더를 SSD의 EFI 하위폴더로 붙여넣습니다.
-8. EFI 폴더를 설치한 후 Clover Configurator를 이용해서 MacBookPro15,4의 SMBIOS 내용을 생성하십시오.
+1. [Configuration.pdf](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf)를 정독합니다.
+2. [Dortania guides](https://dortania.github.io/getting-started/)를 정독합니다.
+3. macOS 인스톨러 USB를 준비합니다.
+4. USB의 EFI 파티션에 OpenCore EFI의 하위폴더 EFI를 붙여넣으습니다.
+5. USB로 부팅해서 macOS Installer를 선택한 후 설치합니다.
+6. SSD의 EFI 파티션을 마운트한 후 OpenCore EFI의 하위폴더를 SSD의 EFI 하위폴더로 붙여넣습니다.
+8. SMBIOS의 시리얼 숫자들을 새로 생성하십시오.
 - Note: 경우에 따라서 별도 패치가 필요할 수 있습니다.
-    - macOS에서 WiFi/Bluetooth를 정상적으로 사용하길 원하는 경우 -- [Replace WiFi/Bluetooth card](#replace-wifibluetooth-card)
-    - WiFi/Bluetooth 카드 설치 이후 잠자기에서 깨어난 상태에서 블루투스가 작동하지 않을 때 -- [Set Bluetooth port as internal](#set-bluetooth-port-as-internal)
-    - WiFi/Bluetooh 카드를 교체하지 않았지만 USB WiFi 동글이나 USB LAN를 통해 iMessage와 FaceTime를 활성화시킬 때 -- [Install RehabMan's Null Ethernet](#install-rehabmans-null-ethernet)
     - 잠자기와 비행기모드 fn 버튼이 있을 때 -- [Activate Sleep and Airplane fn keys](#activate-sleep-and-airplane-fn-keys)
-    - 백라이트 버튼 기능을 제거할 경우 -- [Remap PS2](#remap-ps2)
-    - XOSI 대신 다른 패치를 사용할 경우 -- [Replace XOSI patch](#replace-xosi-patch)
-    - (OpenCore) 전력관리를 최대 활성화하고자 하는 경우 -- [Unlock MSR 0xE2 (CFG Lock)](#unlock-msr-0xe2-cfg-lock)
-
-## Replace WiFi/Bluetooth card
-
-1. BCM94360NG 카드를 설치하십시오.
-2. 모하비의 경우 두 개의 블루투스 Brcm kext들 (Repo, RAM2), 카탈리나의 경우 세 개를 (Repo, Injector, RAM3) /L*/E*로 복사하고 캐시를 재생성하십시오.
-3. 재부팅합니다.
-- Note 1: 2020.04.12 기준으로 WiFi/Bluetooth를 정상적으로 작동할 수 있는 다른 옵션이 있습니다.
-    - Fenvi's AC1200 BCM94352Z (와이파이 켁스트 불필요)
-    - Other BCM94352Z variants (와이파이 켁스트 필요)
-    - BCM94350ZAE variants (와이파이 켁스트 필요. pci-aspm-default에 0, 66, 또는 67 설정. 이 [issue](https://github.com/acidanthera/bugtracker/issues/794#issuecomment-608139817)와 [입력사항](https://github.com/acidanthera/airportbrcmfixup#specific-boot-args-and-ioreg-properties)를 참고하십시오.)
-    - DW1830 (와이파이 켁스트 불필요. 카드가 슬롯보다 크기가 크기 때문에 연장선이 필요합니다.)
-- Note 2: 와이파이 켁스트가 필요 없는 경우 블루투스 켁스트도 필요 없는지는 의견이 다 다릅니다. 직접 확인해보는 것이 가장 좋습니다.
-
-## Set Bluetooth port as internal
-
-1. /L*/E*의 3rd party USB 관련 켁스트나 SSDT-UIA.aml가 로드되지 않은 것을 확인하십시오.
-2. headkaze의 [Hackintool]( http://headsoft.com.au/download/mac/Hackintool.zip)를 다운로드 하십시오:
-3. USB 탭에서 블루투스 포트를 확인하고 internal로 설정하십시오. UVC 카메라 또한 internal로 설정할 수 있습니다. Export/내보내기 버튼으로 codeless injection kext과 SSDT들을 데스크톱에 생성하고, 생성된 SSDT들은 삭제하십시오.
-4. USBPorts.kext를 /L*/E*에 설치하십시오.
-5. 캐시를 재생성하고 재부팅합니다.
-
-## Install RehabMan's Null Ethernet
-
-1. /kexts/other/additional/NullEthernet.kext를 /L*/E*에 설치하고 캐시를 재생성하십시오.
-2. /ACPI/additional/SSDT-RMNE를 /ACPI/patched로 복사하십시오.
-3. 재부팅합니다.
-- Note 1: 안정적인 iMessage, FaceTime, 그리고 App Store를 사용하기 위해서는 Null Ethernet를 먼저 설치한 후 기타 USB 동글이나 LAN을 사용하십시오.
-- Note 2: 인텔 카드의 경우에도 와이파이와 블루투스를 작동시킬 수 있습니다. [OpenIntelWireless](https://openintelwireless.github.io/). 와이파이 켁스트의 경우 잘 작동하지 않을 수 있습니다. 본인 사용감에 무리가 없다면 RMNE를 삭제하십시오.
-- Note 3: 이 노트북은 와이파이 모듈을 인텔에서 브로드컴으로 바꿀 수 있기 때문에 브로드컴을 사용할 것을 추천합니다.
-
+    - 전력관리를 최대 활성화하고자 하는 경우 -- [Unlock MSR 0xE2 (CFG Lock)](#unlock-msr-0xe2-cfg-lock)
+    
 ## Activate Sleep and Airplane fn keys
 
 1. [AsusSMC](https://github.com/hieplpvip/AsusSMC/releases)를 다운로드합니다.
 2. install_daemon.sh를 터미널로 드래그해서 실행시키십시오.
 - Note: 곧바로 작동하지 않는다면 재부팅하십시오. 켁스트와 efi 드라이버, OS, 클로버 등을 업데이트 할 때 새로 실행해야 할 수 있습니다.
-
-## Remap PS2
-
-1. MaciASL을 이용하여 ACPI/additional/SSDT-PS2.dsl을 .aml 확장자로 Patched 폴더에 저장하십시오.
-2. 재부팅합니다.
-- Optional: non-macOS USB 키보드를 사용할 경우 SSDT-PS2.dsl의 commented-out 내용을 활성화시키고 Karabiner-Elements를 이용하여 left-cmd와 left-alt를 교환시키면 PS2 키보드와 USB 키보드 둘 다 left-cmd와 left-alt가 동일한 기능으로 작동합니다.
-
-## Replace XOSI patch
-두 패치 중 하나를 택하십시오.
-### Insert _OSI for "Darwin"
-1. ACPI/Patched/SSDT-XOSI.aml을 삭제하십시오.
-2. MaciASL을 이용하여 ACPI/replacement/SSDT-_OSI-XINI.dsl을 .aml 확장자로 Patched 폴더에 저장하십시오.
-3. 기존 config.plist/ACPI/DSDT/Patches/ 중 _OSI와 OSID 패치를 삭제하고 /replacement/config-_OSI-XINI.plist/ACPI/DSDT/Patches의 OSYS 패치를 복사하여 붙여넣으십시오.
-4. 재부팅합니다.
-### Assign OSYS "Windows 2015" value
-1. ACPI/Patches/SSDT-XOSI.aml을 삭제하십시오.
-2. MaciASL을 이용하여 ACPI/replacement/SSDT-OSYS.dsl을 .aml 확장자로 Patched 폴더에 저장하십시오.
-3. 재부팅합니다.
-- SSDT-OSYS.dsl이 SSDT-_OSI-XINI.dsl보다 안정적일 것으로 예상됩니다.
 
 ## Unlock MSR 0xE2 (CFG Lock)
 - Note: 자신의 노트북의 바이오스 버전을 확실히 알아야 합니다. 버전이 다르다면 노트북에 이상이 생길 수 있습니다.
@@ -124,6 +70,9 @@
     - 켁스트를 업데이트 한 경우 VoodooPS2Controller.kext/Contents/Plugins 폴더 안의 VoodooInput.kext를 삭제해야 합니다. VoodooI2C.kext/Contents/Plugins/VoodooInput.kext로 VoodooI2C에 필요한 MT2 emulation이 이미 적용됩니다. 또한 VoodooPS2Trackpad.kext와 VoodooPS2Mouse.kext도 삭제할 것을 권장합니다.
 
 ## Changelog
+November 28, 2020
+- Clover를 더이상 지원하지 않습니다.
+
 Aug 4, 2020
 - 켁스트와 OpenCore를 Acidanthera August Release로 업데이트 했습니다.
 
@@ -218,10 +167,6 @@ tctien342 and hieplpvip for Asus repositories
 
 The VoodooI2C helpdesk for working touchpad
 
-headkaze for Hackintool
-
-RehabMan for Null Ethernet and many other things
-
 daliansky and williambj1 for many hotpatch methods
 
 LeeBinder for many helps
@@ -230,7 +175,7 @@ fewtarius for new CPUFriendDataProvider.kext and SMBIOS
 
 The Acidanthera team for OpenCore and many kexts
 
-zxystd for Intel WiFi/Bluetooth support
+The Dortania team for OpenCore guides
 
 ## [hackintosh.co.kr](http://hackintosh.co.kr)
 이 한국 커뮤니티에 방문하시면 기타 정보를 얻으실 수 있습니다.

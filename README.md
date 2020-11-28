@@ -5,15 +5,16 @@
 
 ## System specification
 
-1. Name:           Asus Vivobook X510UA-BQ490
-2. CPU:            Intel Core i5-8250U
-3. Graphics:        Intel UHD Graphics 620 // Dual monitor with HDMI (Index 2) and 2048 MB VRAM
-4. Wifi:           Intel Dual Band Wireless-AC 8265 - with bluetooth // REPLACED WITH DW1560 (AirDrop and Handoff Working perfectly)
-5. Card Reader:    Alcor Micro USB Card Reader Connected via USB
-6. Camera:         ASUS UVC HD
-7. Audio:          Conexant Audio CX8050
-8. Touchpad:       ELAN1200
-9. Bios Version:   309
+| Laptop | Asus Vivobook X510UA-Bq490 |
+| - | - |
+| CPU | Intel Core i5-8250U |
+| Graphics | Intel UHD Graphics 620 |
+| Wi-Fi / Bluetooth | *BCM94352Z (replaced)* |
+| Card Reader | Alcor Micro USB Card Reader connected via USB |
+| Camera | ASUS UVC HD |
+| Audio | Conexant Audio CX8050 |
+| Touchpad | ELAN1200 |
+| UEFI BIOS Version | 309 |
 
 ## Not Working
 
@@ -25,58 +26,21 @@
 1. Polling mode for smooth movements and gestures
 
 ## Attention please
-1. Note that this fork is mostly for my laptop only (X510UA-BQ490). If yours has similar features such as no dGPU and no KB backlight, try, but at your own risk. Otherwise, please go to tctien342's original master branch or hieplpvip's Zenbook repository.
+1. Note that this fork is mostly for my laptop only (X510UA-BQ490). If yours has similar features such as no dGPU and no KB backlight, try, but at your own risk. Otherwise, please go to hieplpvip's Zenbook repository.
 2. Please read the whole README before doing anything. [It's strange that some people ask me unrelated things and whatever things they want and they come at me when they're told they have asked useless things](https://github.com/whatnameisit/Asus-Vivobook-X510UA-BQ490-Catalina-10.15.6-Hackintosh/issues/17).
 
 ## Steps to install
 
-1. Prepare USB drive with macOS installer mounted on it.
-2. Replace EFI folder in USB EFI partition with the EFI folder in Clover EFI.
-3. Boot into USB and select macOS installer.
-4. During the installation, touchpad does not work. You need a mouse connected through USB. (Or you may delete the IOGraphicsFamily dependency from VoodooI2CHID.kext/info.plist. or force-load it in config.plist/KernelAndKextPatches/ForceKextsToLoad.) Follow installation instructions found on tonymacx86 or other hackintosh forums.
-5. After installation, boot into macOS, copy kexts In /kexts/Other -> /Library/Extension.
-6. Use Kext Utility (or simply copy this line without the quotation marks: "sudo chmod -R 755 /L*/E*&&sudo chown -R 0:0 /L*/E*&&sudo kextcache -i /") to rebuild kext cache then reboot.
-    - If you have installed Catalina, use [Hackintool](http://headsoft.com.au/download/mac/Hackintool.zip) to disable Gate Keeper beforehand.
-7. Now the touchpad and sound input should function correctly. You need to mount EFI and copy Clover EFI to the system EFI partition in like what you have done on USB EFI partition.
-8. After System EFI replaced by your EFI, use Clover Configurator to change SMBIOS, generate your serial and MBL.
+1. Read [Configuration.pdf](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf).
+2. Read [Dortania guides](https://dortania.github.io/getting-started/).
+3. Prepare USB drive with macOS installer mounted on it.
+4. Replace EFI folder in USB EFI partition with the EFI folder in OpenCore EFI.
+5. Boot into USB and select macOS installer and install.
+6. Mount EFI and copy OpenCore EFI to the system EFI partition.
+7. Replace the numbers in SMBIOS.
 - Note: You may want to complete these extra steps.
-    - You want to replace the WiFi/Bluetooth card for macOS support -- [Replace WiFi/Bluetooth card](#replace-wifibluetooth-card)
-    - You have replaced the WiFi/Bluetooth card but Bluetooth fails upon wake from sleep -- [Set Bluetooth port as internal](#set-bluetooth-port-as-internal)
-    - You have not replaced the WiFi/Bluetooth card but want to have working iMessage and FaceTime with USB WiFi dongle or USB LAN -- [Install RehabMan's Null Ethernet](#install-rehabmans-null-ethernet)
     - You have Sleep and Airplane fn keys -- [Activate Sleep and Airplane fn keys](#activate-sleep-and-airplane-fn-keys)
-    - You want to get rid of the control buttons to nonexistent keyboard backlight -- [Remap PS2](#remap-ps2)
-    - You want to try a different _OSI patch -- [Replace XOSI patch](#replace-xosi-patch)
-    - (OpenCore) You want to enable full power management -- [Unlock MSR 0xE2 (CFG Lock)](#unlock-msr-0xe2-cfg-lock)
-
-
-## Replace WiFi/Bluetooth card
-
-1. Replace your stock card with BCM94360NG.
-2. Go to /kexts/other/additional and copy the two Brcm kexts for Mojave (Repo and RAM2) and three for Catalina (Repo, Injector, RAM3) to /L*/E* and rebuild cache.
-3. Reboot.
-- Note 1: There are a few other options to replace and get the WiFi/Bluetooth working to the fullest as of 2020.04.12.
-    - Fenvi's AC1200 BCM94352Z (No WiFi kext required.)
-    - Other BCM94352Z variants (WiFi kext required)
-    - BCM94350ZAE variants (WiFi kext required. pci-aspm-default set to 0, 66, or 67. Refer to this [issue](https://github.com/acidanthera/bugtracker/issues/794#issuecomment-608139817) and the [argument usage](https://github.com/acidanthera/airportbrcmfixup#specific-boot-args-and-ioreg-properties).)
-    - DW1830 (No WiFi kext required. An extension cord is needed as the card does not fit into the slot)
-- Note 2: It is unknown to me whether no kext for WiFi required also means the same for Bluetooth. If you can test it yourself, please share the results.
-
-## Set Bluetooth port as internal
-
-1. Make sure USB injection kexts or SSDT-UIA.aml are not loaded.
-2. Download [Hackintool](http://headsoft.com.au/download/mac/Hackintool.zip) by headkaze.
-3. Under the USB tab, identify the Bluetooth port and set it as internal. The UVC camera can also be set as internal. Export and obtain the codeless injection kext and SSDTs in ~/Desktop. Delete the SSDTs.
-4. Install the USBPorts.kext in /L*/E*.
-5. Rebuild cache and reboot.
-
-## Install RehabMan's Null Ethernet
-
-1. Copy /kexts/other/additional/NullEthernet.kext to /L*/E* and rebuild cache.
-2. Copy /ACPI/additional/SSDT-RMNE to /ACPI/patched.
-3. Reboot.
-- Note 1: For iMessage, FaceTime, and App Store to function correctly with RMNE, I recommend you install RMNE before trying to connect to any USB networking devices. Otherwise, you need to reset the network mapping by having RMNE set to en0. Use Google.
-- Note 2: The stock Intel WiFi/Bluetooth card can be made to work with limitations. [OpenIntelWireless](https://openintelwireless.github.io/). If you are satisfied with how it works, you can delete RMNE.
-- Note 3: Just replace the little thing with a Broadcom one. Intel is really for those who can't replace their soldered cards.
+    - You want to enable full power management -- [Unlock MSR 0xE2 (CFG Lock)](#unlock-msr-0xe2-cfg-lock)
 
 ## Activate Sleep and Airplane fn keys
 
@@ -84,47 +48,21 @@
 2. Run install_daemon.sh by dragging it onto terminal.
 - Note: Reboot if the script does not seem to work. After updating your EFI folder or any kexts, you may need to rerun the script.
 
-## Remap PS2
-
-1. Use MaciASL to save ACPI/additional/SSDT-PS2.dsl with the .aml extension in Patched folder.
-2. Reboot.
-- Optional: If you have a non-macOS USB keyboard, uncommenting the code in SSDT-PS2.dsl will swap left-cmd and left-alt. Install and configure Karabiner-Elements to switch back left-cmd and left-alt. This result in the same mapping in your PS2 keyboard and USB keyboard.
-
-## Replace XOSI patch
-Pick one of the below two patches.
-### Insert _OSI for "Darwin"
-1. Delete ACPI/Patched/SSDT-XOSI.aml.
-2. Use MaciASL to save ACPI/replacement/SSDT-_OSI-XINI.dsl with the .aml extension in Patched folder.
-3. Delete the _OSI and OSID patch in config.plist/ACPI/DSDT/Patches and copy OSYS patch from /replacement/config-_OSI-XINI.plist/ACPI/DSDT/Patches to config.plist.
-4. Reboot.
-### Assign OSYS "Windows 2015" value
-1. Delete ACPI/Patched/SSDT-XOSI.aml.
-2. Use MaciASL to save ACPI/replacement/SSDT-OSYS.dsl with the .aml extension in Patched folder.
-3. Reboot.
-- In my opinion, SSDT-OSYS.dsl is safer than SSDT-_OSI-XINI.dsl.
-
 ## Unlock MSR 0xE2 (CFG Lock)
+
 - Note: You need to know which BIOS version matches your laptop model. Otherwise, there may be a permanent damage to your laptop.
 1. Follow [Dortania's guide](https://dortania.github.io/OpenCore-Post-Install/misc/msr-lock.html).
 2. The offset will be at 0x527 if your BIOS version is 309.
 
 ## When you think you are done
 
-1. Update Clover, kexts, and efi files, but make sure to delete VoodooInput.kext inside VoodooPS2Controller.kext.
-2. Backup your /L*/E* by copying them to the system EFI partition and/or installation USB EFI partition.
-
-## Other things
-
-1. OpenCore
-    - Booting Windows is OK if you use KMS license. You can consider setting `CustomSMBIOSGuid` as `True` and `UpdateSMBIOSMode` as `Custom`.
-    - Need to configure BlessOverride
-    - Download bootpicker and chime resources available at https://github.com/acidanthera/OcBinaryData .
-    - OpenCore developers do not recomend the use of OpenCore without understanding every component of the supplied Configuration.pdf. Therefore, I will not be providing a guide.
-2. Clover
-    - If you can't get Fn keys to work (namely touchpad enable/disable), try loading all kexts except CC from Clover in which case BrcmFirmwareData needs to load instead of BrcmFirmwareRepo.
-    - If you update kexts, you need to delete VoodooInput.kext in VoodooPS2Controller.kext/Contents/Plugins to avoid loading VoodooInput twice. VoodooInput.kext, which is required by VoodooI2C for MT2 emulation, is already bundled with VoodooI2C. Also delete VoodooPS2Trackpad.kext and VoodooPS2Mouse.kext as they are not needed.
+1. Read Configuration.pdf and Dortania guides again to understand what you have.
+    
 ## Changelog
-Aug 4, 2020
+November 27, 2020
+- Deprecated Clover.
+
+August 4, 2020
 - Updated kexts and OpenCore to Acidanthera's August Release.
 
 July 27, 2020
@@ -218,10 +156,6 @@ tctien342 and hieplpvip for Asus repositories
 
 The VoodooI2C helpdesk for working touchpad
 
-headkaze for Hackintool
-
-RehabMan for Null Ethernet and many other things
-
 daliansky and williambj1 for many hotpatch methods
 
 LeeBinder for many helps
@@ -230,7 +164,7 @@ fewtarius for new CPUFriendDataProvider.kext and SMBIOS
 
 The Acidanthera team for OpenCore and many kexts
 
-zxystd for Intel WiFi/Bluetooth support
+The Dortania team for OpenCore guides
 
 ## For Koreans
 [README-kr](README-kr.md)를 참고하십시오.
