@@ -8,7 +8,7 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>Rename APSS to APXX</string>
+				<string>Return original APSS on non-Darwin</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
@@ -16,15 +16,31 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>XCPM fix</string>
+				<string>Use ATKD keyboard features</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
-				<string>SSDT-PLUG.aml</string>
+				<string>SSDT-ATKD.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Quiet and optimal fan speed</string>
+				<string>Enable battery reading</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-Battery.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Create fake EC device</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-EC.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Optimize fan</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
@@ -32,7 +48,15 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Fix HPET</string>
+				<string>Fix sleep</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-GPRW.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Disable HPET</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
@@ -40,7 +64,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Fix touchpad</string>
+				<string>Enable FMCN and SSCN on SKL touchpad model</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
@@ -48,15 +72,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Add MEM2</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-MEM2.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Fix OS</string>
+				<string>Allow ACPI objects to be enabled on Darwin</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
@@ -64,27 +80,43 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>USB power</string>
+				<string>Enable XCPM</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-PLUG.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Enable brightness control</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-PNLF.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Add SMBus compatibility</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-SBUS-MCHC.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Swap cmd and opt keys</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-Swap-CommandOption.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Inject USB power</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
 				<string>SSDT-USBX.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Everything else</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-X510UA.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Battery FBST fix</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-FBST.aml</string>
 			</dict>
 		</array>
 		<key>Delete</key>
@@ -1198,7 +1230,7 @@
 			<key>7C436110-AB2A-4BBB-A880-FE41995C9F82</key>
 			<dict>
 				<key>SystemAudioVolume</key>
-				<data>gA==</data>
+				<data>Rg==</data>
 				<key>boot-args</key>
 				<string>brcmfx-country=#a bpr_postresetdelay=400 bpr_initialdelay=400 bpr_probedelay=200</string>
 				<key>csr-active-config</key>
@@ -1320,13 +1352,13 @@
 			<key>AudioOut</key>
 			<integer>1</integer>
 			<key>AudioSupport</key>
-			<false/>
+			<true/>
 			<key>MinimumVolume</key>
-			<integer>50</integer>
+			<integer>30</integer>
 			<key>PlayChime</key>
-			<string>Auto</string>
+			<string>Disabled</string>
 			<key>VolumeAmplifier</key>
-			<integer>143</integer>
+			<integer>100</integer>
 		</dict>
 		<key>ConnectDrivers</key>
 		<true/>
