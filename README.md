@@ -5,8 +5,9 @@
 
 ## System specification
 
-| Laptop | Asus Vivobook X510UA-BQ490 |
+| Name | Description |
 | - | - |
+| Laptop | Asus Vivobook X510UA-BQ490 |
 | CPU | Intel Core i5-8250U |
 | Graphics | Intel UHD Graphics 620 |
 | Wi-Fi / Bluetooth | *BCM94352Z (replaced)* |

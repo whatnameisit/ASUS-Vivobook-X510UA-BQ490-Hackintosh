@@ -5,8 +5,9 @@
 
 ## System specification
 
-| Laptop | Asus Vivobook X510UA-BQ490 |
+| Name | Description |
 | - | - |
+| Laptop | Asus Vivobook X510UA-BQ490 |
 | CPU | Intel Core i5-8250U |
 | Graphics | Intel UHD Graphics 620 |
 | Wi-Fi / Bluetooth | *BCM94352Z (replaced)* |
@@ -75,5 +76,5 @@ The Acidanthera team for OpenCore and many kexts
 
 The Dortania team for OpenCore guides
 
-## [hackintosh.co.kr](http://hackintosh.co.kr)
+## [x86.co.kr](http://x86.co.kr)
 이 한국 커뮤니티에 방문하시면 기타 정보를 얻으실 수 있습니다.
