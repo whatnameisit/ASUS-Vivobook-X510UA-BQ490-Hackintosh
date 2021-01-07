@@ -1,7 +1,7 @@
 # Battery: Modified RECB and WECB methods
 ## Problem
-I was studying the [`new` battery patch guide](https://xstar-dev.github.io/hackintosh_advanced/Guide_For_Battery_Hotpatch.html) and was wondering if there was a simpler way of reading and writing `FieldUnitObjs` with size above 32 bits.
-There are many databases which contain battery patches for various laptops, but they are not very consistent when breaking up `FieldUnitObjs` size above 32 bits. If the `OperationRegion` starts at `Zero`, then they use `RE1B` and `RECB` (or `WE1B` and `WECB`. I should inclusively call them `xE1B` and `xECB`.) methods. If it starts at something other than `Zero`, then they break up `256`-bits into a set of 32 `FieldUnitObjs` and write every single one of them into `xRBA` methods. A lack of a unified guide, and also tiring...
+I was studying the [`new` battery patch guide](https://xstar-dev.github.io/hackintosh_advanced/Guide_For_Battery_Hotpatch.html) and was wondering if there was a simpler way of reading and writing `FieldUnitObjs` with size above 32 bits.\
+There are many databases which contain battery patches for various laptops, but they are not very consistent when breaking up `FieldUnitObjs` size above 32 bits. If the `OperationRegion` starts at `Zero`, then they use `RE1B` and `RECB` (or `WE1B` and `WECB`. I should inclusively call them `xE1B` and `xECB`.) methods. If it starts at something other than `Zero`, then they break up `256`-bits into a set of 32 `FieldUnitObjs` and write every single one of them into `xRBA` methods. A lack of a unified guide, and also tiring...\
 The [`new` battery patch guide](https://xstar-dev.github.io/hackintosh_advanced/Guide_For_Battery_Hotpatch.html) talks about how `SystemMemory` `OperationRegions` also need patching and there it shows this:
 ```
 注意
@@ -83,7 +83,7 @@ Method (WECB, 3, Serialized)
     }
 }
 ```
-So let's modify these methods so I can let the computer do all the work and not me. I think it should be very simple. I just need to include the `OperationRegion` `Offset` as a `Variable`. Since the `xECB` methods pass the `FieldUnitObj` `Offset` to `xE1B` methods as `Arg0`, adding the `OperationRegion` `Offset` to `Arg0` and passing it would suffice.
+So let's modify these methods so I can let the computer do all the work and not me. I think it should be very simple. I just need to include the `OperationRegion` `Offset` as a `Variable`. Since the `xECB` methods pass the `FieldUnitObj` `Offset` to `xE1B` methods as `Arg0`, adding the `OperationRegion` `Offset` to `Arg0` and passing it would suffice.\
 Increase the number of `Arguments` to `xECB` methods by `1` in their definition:
 ```
 ...
@@ -138,8 +138,8 @@ Field (SMBX, ByteAcc, NoLock, Preserve)
     ALD1,   8
 }
 ```
-tctien342 and hieplpvip were kind to us and broke this whole thing into 32 `FieldUnitObjs` and wrote them all into two methods and all too very long lines of codes, but not anymore! We are going to change that. Now remember the `FieldUnitObj` `Offset` `0x04`, `FieldUnitObj` `Length` `256`, and `OperationRegion` `Offset` `0x18`.
-`BDAT` is read and written in `DSDT` four times. Inside `Method (\_SB.PCI0.LPCB.EC0.SMBR...` and `Method (\_SB.PCI0.LPCB.EC0.SMBW...`.
+tctien342 and hieplpvip were kind to us and broke this whole thing into 32 `FieldUnitObjs` and wrote them all into two methods and all too very long lines of codes, but not anymore! We are going to change that. Now remember the `FieldUnitObj` `Offset` `0x04`, `FieldUnitObj` `Length` `256`, and `OperationRegion` `Offset` `0x18`.\
+`BDAT` is read and written in `DSDT` four times. Inside `Method (\_SB.PCI0.LPCB.EC0.SMBR...` and `Method (\_SB.PCI0.LPCB.EC0.SMBW...`.\
 `SMBR`:
 ```
 ...
@@ -156,7 +156,7 @@ BDAT = Zero
 BDAT = Arg4
 ...
 ```
-In the above, the second operation is `Read` and all the others are `Write`. So let's make use of our new methods.
+In the above, the second operation is `Read` and all the others are `Write`. So let's make use of our new methods.\
 `SMBR`:
 ```
 ...
@@ -173,7 +173,7 @@ WECB (0x04, 256, Zero, 0x18)
 WECB (0x04, 256, Arg4, 0x18)
 ...
 ```
-Now we are done!
+Now we are done!\
 I have already uploaded the modified [SSDT-Battery.aml](SSDT-Battery.aml) so you can use it right away. It also has modified `B1B2` (now called `R16B`) and newly defined `W16B` method to write to a 16-bit register instead so for easier recognition.
 ## Other things
 - What if the `OperationRegion` starts at `Zero` `Offset`? Then the last `Argument` should be `Zero`.
