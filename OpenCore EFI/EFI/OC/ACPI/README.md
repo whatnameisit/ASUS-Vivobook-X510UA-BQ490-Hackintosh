@@ -174,7 +174,7 @@ WECB (0x04, 256, Arg4, 0x18)
 ...
 ```
 Now we are done!\
-I have already uploaded the modified [SSDT-Battery.aml](SSDT-Battery.aml) so you can use it right away. It also has modified `B1B2` (now called `R16B`) and newly defined `W16B` method to write to a 16-bit register instead so for easier recognition.
+I have already uploaded the modified [SSDT-Battery.aml](SSDT-Battery.aml) so you can use it right away. It also has renamed `B1B2` (now called `R16B`) and newly defined `W16B` method to write to a 16-bit register instead for easier recognition.
 ## Other things
 - What if the `OperationRegion` starts at `Zero` `Offset`? Then the last `Argument` should be `Zero`.
-- Studying the ACPI is more interesting than I thought. I might work on [`Battery Information Supplement`](https://github.com/acidanthera/VirtualSMC/blob/master/Docs/Battery%20Information%20Supplement.md).
+- Studying the ACPI is more interesting than I thought. I might work on [Battery Information Supplement](https://github.com/acidanthera/VirtualSMC/blob/master/Docs/Battery%20Information%20Supplement.md).
