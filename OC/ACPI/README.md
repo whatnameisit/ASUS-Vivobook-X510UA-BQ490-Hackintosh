@@ -1,7 +1,7 @@
 # Battery: Modified RECB and WECB methods
 ## Problem
 I was studying the [`new` battery patch guide](https://xstar-dev.github.io/hackintosh_advanced/Guide_For_Battery_Hotpatch.html) and was wondering if there was a simpler way of reading and writing `FieldUnitObjs` with size above 32 bits.\
-There are many databases which contain battery patches for various laptops, but they are not very consistent when breaking up `FieldUnitObjs` size above 32 bits. If the `OperationRegion` starts at `Zero`, then they use `RE1B` and `RECB` (or `WE1B` and `WECB`. I should inclusively call them `xE1B` and `xECB`.) methods. If it starts at something other than `Zero`, then they break up `256`-bits into a set of 32 `FieldUnitObjs` and write every single one of them into `xRBA` methods. A lack of a unified guide, and also tiring...\
+There are many databases which contain battery patches for various laptops, but they are not very consistent when breaking up `FieldUnitObjs` size above 32 bits. If the `OperationRegion` starts at `Zero`, then they use `RE1B` and `RECB` (or `WE1B` and `WECB`. I should inclusively call them `xE1B` and `xECB`.) methods. If it starts at something other than `Zero`, then they break up `256`-bits into a set of 32 `FieldUnitObjs` and write every single one of them into `xRBA` methods. A lack of a unified guide, and also tiring to rewrite all the registers...\
 The [`new` battery patch guide](https://xstar-dev.github.io/hackintosh_advanced/Guide_For_Battery_Hotpatch.html) talks about how `SystemMemory` `OperationRegions` also need patching and there it shows this:
 ```
 注意
@@ -26,7 +26,7 @@ Scope (_SB.PCI0.LPCB.EC0)
         Local0 = (0xFE708300 + Arg0)
         OperationRegion (ERM2, SystemMemory, Local0, One)
 ```
-Notice how they summed the `Offsets` of the `OperationRegion` and the `FieldUnitObj`. With this, no more manually breaking up `FieldUnitObjs` and putting them all into `xRBA` methods; just write a set of `xE1B` and `xECB` methods! But I have to be smarter. I do not want to define a new set of methods every time a different `OperationRegion` `Offset` shows up.
+Notice how they summed the `Offsets` of the `OperationRegion` and the `FieldUnitObj`. With this, no more manually breaking up `FieldUnitObjs` and putting them all into `xRBA` methods; just write a set of `xE1B` and `xECB` methods with added `Offsets`! But I have to be smarter. I do not want to define a new set of methods every time a different `OperationRegion` `Offset` shows up.
 ## Preliminary work
 These are the usual methods to read and write to larger-sized `FieldUnitObjs`:
 ```
@@ -84,7 +84,7 @@ Method (WECB, 3, Serialized)
 }
 ```
 So let's modify these methods so I can let the computer do all the work and not me. I think it should be very simple. I just need to include the `OperationRegion` `Offset` as a `Variable`. Since the `xECB` methods pass the `FieldUnitObj` `Offset` to `xE1B` methods as `Arg0`, adding the `OperationRegion` `Offset` to `Arg0` and passing it would suffice.\
-Increase the number of `Arguments` to `xECB` methods by `1` in their definition:
+Increase the number of `Arguments` to `xECB` methods by `1` in their headers:
 ```
 ...
 Method (RECB, 3, Serialized)
@@ -162,7 +162,7 @@ In the above, the second operation is `Read` and all the others are `Write`. So 
 ...
 WECB (0x04, 256, Zero, 0x18)
 ...
-Local0 [0x02] = RECB (0x04, 0x0100, 0x18)
+Local0 [0x02] = RECB (0x04, 256, 0x18)
 ...
 ```
 `SMBW`:
@@ -177,4 +177,5 @@ Now we are done!\
 I have already uploaded the modified [SSDT-Battery.aml](SSDT-Battery.aml) so you can use it right away. It also has renamed `B1B2` (now called `R16B`) and newly defined `W16B` method to write to a 16-bit register instead for easier recognition.
 ## Other things
 - What if the `OperationRegion` starts at `Zero` `Offset`? Then the last `Argument` should be `Zero`.
-- Studying the ACPI is more interesting than I thought. I might work on [Battery Information Supplement](https://github.com/acidanthera/VirtualSMC/blob/master/Docs/Battery%20Information%20Supplement.md).
+- Be careful when converting `Base10` and `Hex`. Example: `256 = 0x100`.
+- Studying the ACPI specs and usages is more interesting than I thought. I might work on [Battery Information Supplement](https://github.com/acidanthera/VirtualSMC/blob/master/Docs/Battery%20Information%20Supplement.md) and [Hibernate on Low Battery](https://applelife.ru/threads/hibernate-pri-razrjade-batarei.2874421/). The latter one is the ultimate fix to this [issue](https://github.com/whatnameisit/Asus-Vivobook-X510UA-BQ490-Hackintosh/issues/9).
