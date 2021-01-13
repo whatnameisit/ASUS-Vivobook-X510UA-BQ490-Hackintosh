@@ -177,7 +177,7 @@ Field (SMBX, ByteAcc, NoLock, Preserve)
     ALD1,   8
 }
 ```
-tctien342 and hieplpvip were kind to us and broke this whole thing into 32 `FieldUnitObjs` and wrote them all into two methods and all too very long lines of codes, but not anymore! We are going to change that. Now remember the `FieldUnitObj` `Offset` `0x04`, `FieldUnitObj` `Length` `256`, and `OperationRegion` `Offset` `0x18`.\
+tctien342 and hieplpvip were kind to us and broke this whole thing into 32 `FieldUnitObjs` and wrote them all into two methods and all too very long lines of codes, but not anymore! We are going to change that. Now remember the `OperationRegion` `Offset` `0x18`, `FieldUnitObj` `Offset` `0x04`, and `FieldUnitObj` `Length` `256`.\
 `BDAT` is read and written in `DSDT` four times. Inside `Method (SMBR...` and `Method (SMBW...` under `Scope (\_SB.PCI0.LPCB.EC0)`.\
 `SMBR`:
 ```
