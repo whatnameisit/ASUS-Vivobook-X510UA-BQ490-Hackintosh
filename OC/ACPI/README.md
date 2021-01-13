@@ -111,7 +111,7 @@ Method (WECB, 4, Serialized)
 ...
 ```
 Then remember to write the `OperationRegion` `Offset` in the last `Argument`.\
-Let's rearrange the `Arguments` so that the order makes sense:
+But the order is messy. Let's rearrange the `Arguments` so that the order makes sense:
 ```
 RECB (OperationRegion Offset, FieldUnitObj Offset, FieldUnitObj Length)
 WECB (OperationRegion Offset, FieldUnitObj Offset, FieldUnitObj Length, Value written to FieldUnitObj)
