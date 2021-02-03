@@ -217,5 +217,5 @@ I have already uploaded the modified [SSDT-Battery.aml](SSDT-Battery.aml) so you
 ## Other things
 - What if the `OperationRegion` starts at `Zero` `Offset`? Then `Arg0` should be `Zero`.
 - Be careful when converting `Base10` and `Hex`. Example: `256 = 0x100`.
-- If you have battery related `FieldUnitObjs` in `SystemMemory` `OperationRegions`, obviously you need to write new methods or at least modify the current ones. There is no need to do so for this ASUS laptop. But if you need, see [SSDT-ECSMRW.dsl](SSDT-ECSMRW.dsl).
+- If you have battery related `FieldUnitObjs` in `SystemMemory` `OperationRegions`, obviously you need to write new methods or at least modify the current ones. There is no need to do so for this ASUS laptop. But if you need, see [SSDT-ECSMRW.dsl](Battery/SSDT-ECSMRW.dsl).
 - Studying the ACPI specs and usages is more interesting than I thought. I might work on [Battery Information Supplement](https://github.com/acidanthera/VirtualSMC/blob/master/Docs/Battery%20Information%20Supplement.md) and [Hibernate on Low Battery](https://applelife.ru/threads/hibernate-pri-razrjade-batarei.2874421/). The latter one is the ultimate fix to this [issue](https://github.com/whatnameisit/Asus-Vivobook-X510UA-BQ490-Hackintosh/issues/9).
