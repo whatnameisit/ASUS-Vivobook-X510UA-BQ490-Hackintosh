@@ -16,35 +16,35 @@ DefinitionBlock ("", "SSDT", 2, "what", "ECSMRW", 0x00000000)
             Name (STMR, Zero) // Object assigned to SysTemMemoRy
         }
 
-        Method (RSTO, 2, NotSerialized) // Temporary store method for Read
+        Method (RSTO, 2, NotSerialized) // Temporary store method for Read.
         {
             If (Arg1 = \EBCR) // If it is EC
             {
-                OperationRegion (ECRD, EmbeddedControl, Arg0, One) // Define an EC OperationRegion
+                OperationRegion (ECRD, EmbeddedControl, Arg0, One) // define an EC OperationRegion
                 Field (ECRD, ByteAcc, NoLock, Preserve)
                 {
                     BYTE,   8
                 }
 
-                Return (BYTE) /* \_SB_.PCI0.LPCB.EC0_.RSTO.BYTE */ // And read a FieldUnitObj piece torn down in RXCT
+                Return (BYTE) /* \_SB_.PCI0.LPCB.EC0_.RSTO.BYTE */ // and read a FieldUnitObj one-by-one torn down in RXCT.
             }
             ElseIf (Arg1 = \STMR) // If it is SM
             {
-                OperationRegion (SMRD, SystemMemory, Arg0, One) // Define a SM OperationRegion
+                OperationRegion (SMRD, SystemMemory, Arg0, One) // define a SM OperationRegion
                 Field (SMRD, ByteAcc, NoLock, Preserve)
                 {
                     BYTS,   8
                 }
 
-                Return (BYTS) /* \_SB_.PCI0.LPCB.EC0_.RSTO.BYTS */ // and read a FieldUnitObj piece torn down in RXCT
+                Return (BYTS) /* \_SB_.PCI0.LPCB.EC0_.RSTO.BYTS */ // and read a FieldUnitObj one-by-one torn down in RXCT.
             }
             Else
             {
-                Return (Zero) // Return 0 on error
+                Return (Zero) // Return 0 on if RCXT is not correctly executed.
             }
         }
 
-        Method (RXCT, 4, Serialized) // Execute read. The order of the Arguments can be found in HOWR.
+        Method (RXCT, 4, Serialized) // Execute Read. The order of the Arguments can be found in HOWR.
         {
             Arg2 = ((Arg2 + 0x07) >> 0x03)
             Name (TEMP, Buffer (Arg2){})
@@ -60,39 +60,39 @@ DefinitionBlock ("", "SSDT", 2, "what", "ECSMRW", 0x00000000)
             Return (TEMP) /* \_SB_.PCI0.LPCB.EC0_.RXCT.TEMP */
         }
 
-        Name (HOWR, Package (0x02) // How-to-read order. Preserve this information and not whine about forgetting how to use new methods.
+        Name (HOWR, Package (0x02) // How-to-read order. Preserve this information so no one will whine about forgetting how to use new methods.
         {
             "RXCT (OperationRegion Offset, FieldUnitObj Offset, FieldUnitObj Length, EmbeddedControl or SystemMemory)", // Written out
             "RXCT (0x18, 0x04, 256, EBCR)" // Example
         })
-        Method (WSTO, 3, NotSerialized) // Temporary store method for Write
+        Method (WSTO, 3, NotSerialized) // Temporary store method for Write.
         {
             If (Arg2 = \EBCR) // If it is EC
             {
-                OperationRegion (ECWT, EmbeddedControl, Arg0, One)
+                OperationRegion (ECWT, EmbeddedControl, Arg0, One) // define an EC OperationRegion
                 Field (ECWT, ByteAcc, NoLock, Preserve)
                 {
                     BYTE,   8
                 }
 
-                BYTE = Arg1 // Write the value to FieldUnitObj one-by-one torn down in WXCT
+                BYTE = Arg1 // and write the value to FieldUnitObj one-by-one torn down in WXCT.
             }
             ElseIf (Arg2 = \STMR) // If it is SM
             {
-                OperationRegion (SMWT, SystemMemory, Arg0, One)
+                OperationRegion (SMWT, SystemMemory, Arg0, One) // define a SM OperationRegion
                 Field (SMWT, ByteAcc, NoLock, Preserve)
                 {
                     BYTS,   8
                 }
 
-                BYTS = Arg1 // Write the value to FieldUnitObj one-by-one torn down in WXCT
+                BYTS = Arg1 // and write the value to FieldUnitObj one-by-one torn down in WXCT.
             }
             Else
-            {
+            { // Do nothing if WXCT is not correctly executed.
             }
         }
 
-        Method (WXCT, 5, Serialized) //Execute write. The order of the Arguments can be found in HOWW.
+        Method (WXCT, 5, Serialized) //Execute Write. The order of the Arguments can be found in HOWW.
         {
             Arg2 = ((Arg2 + 0x07) >> 0x03)
             Name (TEMP, Buffer (Arg2){})
@@ -107,7 +107,7 @@ DefinitionBlock ("", "SSDT", 2, "what", "ECSMRW", 0x00000000)
             }
         }
 
-        Name (HOWW, Package (0x02) // How-to-write order. Preserve this information and not whine about forgetting how to use new methods.
+        Name (HOWW, Package (0x02) // How-to-write order. Preserve this information so no one will whine about forgetting how to use new methods.
         {
             "WXCT (OperationRegion Offset, FieldUnitObj Offset, FieldUnitObj Length, Value written to FieldUnitObj, EmbeddedControl or SystemMemory)",  // Written out
             "WXCT (0x2A, 0x0A, 64, Arg2, STMR)" // Example
