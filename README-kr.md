@@ -5,7 +5,7 @@
 
 ## System specification
 
-| Name | Description |
+| Item | Details |
 | - | - |
 | Model | Asus Vivobook X510UA-BQ490 |
 | CPU | Intel Core i5-8250U |
