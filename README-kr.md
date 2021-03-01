@@ -15,7 +15,7 @@
 | Camera | ASUS UVC HD |
 | Audio | Conexant Audio CX8050 |
 | Touchpad | ELAN1200 |
-| UEFI BIOS Utility Version | 309 |
+| UEFI BIOS Utility | X510UAR-AS.310 |
 
 ## Not working
 
@@ -52,7 +52,7 @@
 
 - Note: 자신의 노트북의 바이오스 버전을 확실히 알아야 합니다. 버전이 다르다면 노트북에 이상이 생길 수 있습니다.
 1. [Dortania 가이드](https://dortania.github.io/OpenCore-Post-Install/misc/msr-lock.html)를 참고하십시오.
-2. BIOS 버전이 309이라면 설정해주어야 할 Offset은 0x527에 해당합니다.
+2. UEFI BIOS 버전이 X510UAR-AS.310이라면 설정해주어야 할 Offset은 0x527에 해당합니다.
 
 ## When you think you are done
  

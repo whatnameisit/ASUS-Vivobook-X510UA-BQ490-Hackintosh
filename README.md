@@ -15,7 +15,7 @@
 | Camera | ASUS UVC HD |
 | Audio | Conexant Audio CX8050 |
 | Touchpad | ELAN1200 |
-| UEFI BIOS Utility Version | 309 |
+| UEFI BIOS Utility | X510UAR-AS.310 |
 
 ## Not working
 
@@ -50,9 +50,9 @@
 
 ## Unlock MSR 0xE2 (CFG Lock)
 
-- Note: You need to know which BIOS version matches your laptop model. Otherwise, there may be a permanent damage to your laptop.
+- Note: You need to know which UEFI BIOS version matches your laptop model. Otherwise, there may be a permanent damage to your laptop.
 1. Follow [Dortania's guide](https://dortania.github.io/OpenCore-Post-Install/misc/msr-lock.html).
-2. The offset will be at 0x527 if your BIOS version is 309.
+2. The offset will be at 0x527 if your UEFI BIOS version is X510UAR-AS.310.
 
 ## When you think you are done
 
