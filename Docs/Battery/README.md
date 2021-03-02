@@ -213,9 +213,9 @@ WECB (0x18, 0x04, 256, Arg4)
 ...
 ```
 Now we are done!\
-I have already uploaded the modified [SSDT-Battery.aml](../OC/ACPI/SSDT-Battery.aml) so you can use it right away. In it, I have also renamed `B1B2` (now called `R16B`) and newly defined `W16B` method to write to a 16-bit `FieldUnitObj` instead to easily recognize that the `FieldUnitObj` and the corresponding `Method` has been patched.
+I have already uploaded the modified [SSDT-Battery.aml](../../OC/ACPI/SSDT-Battery.aml) so you can use it right away. In it, I have also renamed `B1B2` (now called `R16B`) and newly defined `W16B` method to write to a 16-bit `FieldUnitObj` instead to easily recognize that the `FieldUnitObj` and the corresponding `Method` has been patched.
 ## Other things
 - What if the `OperationRegion` starts at `Offset` of `Zero`? Then `Arg0` should be `Zero`.
 - Be careful when converting `Base10` and `Hex`. Example: `256 = 0x100`.
-- If you have battery related `FieldUnitObjs` in `SystemMemory` `OperationRegions`, obviously you need to write new methods or at least modify the current ones. There is no need to do so for this ASUS laptop. But in case if you need it, see [SSDT-ECSMRW.dsl](Battery/SSDT-ECSMRW.dsl).
+- If you have battery related `FieldUnitObjs` in `SystemMemory` `OperationRegions`, obviously you need to write new methods or at least modify the current ones. There is no need to do so for this ASUS laptop. But in case if you need it, see [SSDT-ECSMRW.dsl](SSDT-ECSMRW.dsl).
 - Studying the ACPI specs and usages is more interesting than I thought. I might work on [Battery Information Supplement](https://github.com/acidanthera/VirtualSMC/blob/master/Docs/Battery%20Information%20Supplement.md) and [Hibernate on Low Battery](https://applelife.ru/threads/hibernate-pri-razrjade-batarei.2874421/). The latter one is the ultimate fix to this [issue](https://github.com/whatnameisit/Asus-Vivobook-X510UA-BQ490-Hackintosh/issues/9).
