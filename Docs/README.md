@@ -213,7 +213,7 @@ WECB (0x18, 0x04, 256, Arg4)
 ...
 ```
 Now we are done!\
-I have already uploaded the modified [SSDT-Battery.aml](SSDT-Battery.aml) so you can use it right away. In it, I have also renamed `B1B2` (now called `R16B`) and newly defined `W16B` method to write to a 16-bit `FieldUnitObj` instead to easily recognize that the `FieldUnitObj` and the corresponding `Method` has been patched.
+I have already uploaded the modified [SSDT-Battery.aml](../OC/ACPI/SSDT-Battery.aml) so you can use it right away. In it, I have also renamed `B1B2` (now called `R16B`) and newly defined `W16B` method to write to a 16-bit `FieldUnitObj` instead to easily recognize that the `FieldUnitObj` and the corresponding `Method` has been patched.
 ## Other things
 - What if the `OperationRegion` starts at `Offset` of `Zero`? Then `Arg0` should be `Zero`.
 - Be careful when converting `Base10` and `Hex`. Example: `256 = 0x100`.
