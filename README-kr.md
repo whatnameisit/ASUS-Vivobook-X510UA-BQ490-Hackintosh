@@ -15,7 +15,7 @@
 | Camera | ASUS UVC HD |
 | Audio | Conexant Audio CX8050 |
 | Touchpad | ELAN1200 |
-| UEFI BIOS Utility Version | 309 |
+| UEFI BIOS Utility | X510UAR-AS.310 |
 
 ## Not working
 
@@ -27,8 +27,8 @@
 1. 부드러운 움직임과 제스쳐를 위해 Polling mode를 사용합니다.
 
 ## Attention please
-1. 이 fork는 X510UA-BQ490에 최적화되도록 구성했습니다. 만약 본인의 노트북에 옵티머스 외장그래픽이 없고 키보드 백라이트가 없다면 사용할 수 있지만, 책임은 본인에게 있습니다. 부담이 되거나 외장그래픽 기능을 제어해야 한다면 hieplpvip의 Zenbook repository를 참고하시길 바랍니다.
-2. 이 README를 꼭 숙지하고 진행하시기 바랍니다. [여기서 제공되는 것과 상관 없는 내용 및 아무 조치 없이 아무 말이나 한다면 무시됩니다](https://github.com/whatnameisit/Asus-Vivobook-X510UA-BQ490-Catalina-10.15.6-Hackintosh/issues/10#issuecomment-622947888).
+1. 이 fork는 X510UA-BQ490에 최적화되도록 구성했습니다. 만약 본인의 노트북에 옵티머스 외장그래픽이 없고 키보드 백라이트가 없다면 사용할 수 있지만, 책임은 본인에게 있습니다. 부담이 되거나 외장그래픽 기능을 제어해야 한다면 [hieplpvip의 Zenbook repository](https://github.com/hieplpvip/Asus-Zenbook-Hackintosh)와 [S510UA hackintosh repository](https://github.com/LeeBinder/Asus-Vivobook-S510UA-Hackintosh)를 참고하시길 바랍니다.
+2. 이 README를 꼭 숙지하고 진행하시기 바랍니다. [여기서 제공되는 것과 상관 없는 내용 및 아무 조치 없이 아무 말이나 한다면 무시됩니다](https://github.com/whatnameisit/Asus-Vivobook-X510UA-BQ490-Hackintosh/issues/10#issuecomment-622947888).
 
 ## Steps to install
 
@@ -52,7 +52,6 @@
 
 - Note: 자신의 노트북의 바이오스 버전을 확실히 알아야 합니다. 버전이 다르다면 노트북에 이상이 생길 수 있습니다.
 1. [Dortania 가이드](https://dortania.github.io/OpenCore-Post-Install/misc/msr-lock.html)를 참고하십시오.
-2. BIOS 버전이 309이라면 설정해주어야 할 Offset은 0x527에 해당합니다.
 
 ## When you think you are done
  

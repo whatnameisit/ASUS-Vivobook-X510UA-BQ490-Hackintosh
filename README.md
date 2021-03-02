@@ -15,7 +15,7 @@
 | Camera | ASUS UVC HD |
 | Audio | Conexant Audio CX8050 |
 | Touchpad | ELAN1200 |
-| UEFI BIOS Utility Version | 309 |
+| UEFI BIOS Utility | X510UAR-AS.310 |
 
 ## Not working
 
@@ -27,8 +27,8 @@
 1. Polling mode for smooth movements and gestures
 
 ## Attention please
-1. Note that this fork is mostly for my laptop only (X510UA-BQ490). If yours has similar features such as no dGPU and no KB backlight, try, but at your own risk. Otherwise, please go to hieplpvip's Zenbook repository.
-2. Please read the whole README before doing anything. [It's strange that some people ask me unrelated things and whatever things they want and they come at me when they're told they have asked useless things](https://github.com/whatnameisit/Asus-Vivobook-X510UA-BQ490-Catalina-10.15.6-Hackintosh/issues/17).
+1. Note that this fork is mostly for my laptop only (X510UA-BQ490). If yours has similar features such as no dGPU and no KB backlight, try, but at your own risk. Otherwise, please go to [hieplpvip's Zenbook repository](https://github.com/hieplpvip/Asus-Zenbook-Hackintosh) or [S510UA hackintosh repository](https://github.com/LeeBinder/Asus-Vivobook-S510UA-Hackintosh).
+2. Please read the whole README before doing anything. [It's strange that some people ask me unrelated things and whatever things they want and they come at me when they're told they have asked useless things](https://github.com/whatnameisit/Asus-Vivobook-X510UA-BQ490-Hackintosh/issues/17).
 
 ## Steps to install
 
@@ -50,9 +50,8 @@
 
 ## Unlock MSR 0xE2 (CFG Lock)
 
-- Note: You need to know which BIOS version matches your laptop model. Otherwise, there may be a permanent damage to your laptop.
+- Note: You need to know which UEFI BIOS version matches your laptop model. Otherwise, there may be a permanent damage to your laptop.
 1. Follow [Dortania's guide](https://dortania.github.io/OpenCore-Post-Install/misc/msr-lock.html).
-2. The offset will be at 0x527 if your BIOS version is 309.
 
 ## When you think you are done
 
