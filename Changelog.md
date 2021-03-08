@@ -1,4 +1,9 @@
 # Changelog
+As of March 8, 2021
+- Added back `_PTS` patch in ACPI again as it is needed to shutdown and not restart.
+- Simplified the structure of `SSDT-Battery.aml` and wrote a guide that explains the new methods.
+- Flashed UEFI BIOS Utility to `X510UAR-AS.310`.
+- Switched from polling to interrupts mode of trackpad and deleted `USTP` as the flashed UEFI BIOS no longer has flaws in GPI0.
 
 November 28, 2020
 - Deprecated Clover.

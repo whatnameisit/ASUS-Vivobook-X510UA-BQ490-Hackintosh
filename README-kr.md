@@ -24,7 +24,7 @@
 
 ## VoodooI2C
 
-1. 부드러운 움직임과 제스쳐를 위해 Polling mode를 사용합니다.
+1. 부드러운 움직임, 제스쳐, 그리고 효율성을 위해 Interrupts Mode를 사용합니다.
 
 ## Attention please
 1. 이 fork는 X510UA-BQ490에 최적화되도록 구성했습니다. 만약 본인의 노트북에 옵티머스 외장그래픽이 없고 키보드 백라이트가 없다면 사용할 수 있지만, 책임은 본인에게 있습니다. 부담이 되거나 외장그래픽 기능을 제어해야 한다면 [hieplpvip의 Zenbook repository](https://github.com/hieplpvip/Asus-Zenbook-Hackintosh)와 [S510UA hackintosh repository](https://github.com/LeeBinder/Asus-Vivobook-S510UA-Hackintosh)를 참고하시길 바랍니다.
