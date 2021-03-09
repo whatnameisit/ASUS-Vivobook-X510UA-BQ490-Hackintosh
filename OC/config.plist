@@ -64,14 +64,6 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Enable FMCN and SSCN on SKL touchpad model</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-I2C1_USTP.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>Allow ACPI objects to be enabled on Darwin</string>
 				<key>Enabled</key>
 				<true/>
@@ -117,6 +109,14 @@
 				<true/>
 				<key>Path</key>
 				<string>SSDT-PTS.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Enable trackpad in interrupts mode</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-Trackpad.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>

@@ -24,7 +24,7 @@
 
 ## VoodooI2C
 
-1. Polling mode for smooth movements and gestures
+1. Interrupts mode for smooth movements, gestures, and efficiency.
 
 ## Attention please
 1. Note that this fork is mostly for my laptop only (X510UA-BQ490). If yours has similar features such as no dGPU and no KB backlight, try, but at your own risk. Otherwise, please go to [hieplpvip's Zenbook repository](https://github.com/hieplpvip/Asus-Zenbook-Hackintosh) or [S510UA hackintosh repository](https://github.com/LeeBinder/Asus-Vivobook-S510UA-Hackintosh).
