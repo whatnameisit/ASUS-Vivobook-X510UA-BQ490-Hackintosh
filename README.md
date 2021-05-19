@@ -10,7 +10,7 @@
 | Model | Asus Vivobook X510UA-BQ490 |
 | CPU | Intel Core i5-8250U |
 | Graphics | Intel UHD Graphics 620 |
-| Wi-Fi / Bluetooth | *BCM94360NG / BRCM20702 (replaced)* |
+| Wi-Fi / Bluetooth | *BCM94360NG / BRCM20702 (Replaced)* |
 | Card Reader | Alcor Micro USB Card Reader connected via USB |
 | Camera | ASUS UVC HD |
 | Audio | Conexant Audio CX8050 |
@@ -62,8 +62,6 @@
 Apple for macOS
 
 tctien342 and hieplpvip for Asus repositories
-
-The VoodooI2C helpdesk for working touchpad
 
 daliansky and williambj1 for many hotpatch methods
 
