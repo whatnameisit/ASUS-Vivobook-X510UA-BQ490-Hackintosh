@@ -74,6 +74,3 @@ fewtarius for new CPUFriendDataProvider.kext and SMBIOS
 The Acidanthera team for OpenCore and many kexts
 
 The Dortania team for OpenCore guides
-
-## [x86.co.kr](http://x86.co.kr)
-이 한국 커뮤니티에 방문하시면 기타 정보를 얻으실 수 있습니다.
