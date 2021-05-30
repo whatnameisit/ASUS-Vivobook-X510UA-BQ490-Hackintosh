@@ -32,9 +32,9 @@
 1. Read [Configuration.pdf](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf).
 2. Read [Dortania guides](https://dortania.github.io/getting-started/).
 3. Prepare USB drive with macOS installer mounted on it.
-4. Replace EFI folder in USB EFI partition with the EFI folder in OpenCore EFI.
+4. Download this repository and copy and paste the OC and BOOT folders to USB EFI partition.
 5. Boot into USB and select macOS installer and install.
-6. Mount EFI and copy OpenCore EFI to the system EFI partition.
+6. Mount EFI and copy USB EFI to the system EFI partition.
 7. Replace the numbers in SMBIOS.
 - Note: You may want to complete these extra steps.
     - You have Sleep and Airplane fn keys -- [Activate Sleep and Airplane fn keys](#activate-sleep-and-airplane-fn-keys)
