@@ -42,7 +42,7 @@
 
 ## Activate Sleep and Airplane fn keys
 
-1. Download Release of [AsusSMC](https://github.com/hieplpvip/AsusSMC/releases).
+1. Download [AsusSMC](https://github.com/hieplpvip/AsusSMC/releases).
 2. Run install_daemon.sh by dragging it onto terminal.
 
 ## Unlock MSR 0xE2 (CFG Lock)
