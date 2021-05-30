@@ -1,6 +1,6 @@
 # Asus Vivobook X510UA-BQ490
 
-![](images/Laptop.png)
+![](images/Laptop.JPG)
 
 ## System specification
 
