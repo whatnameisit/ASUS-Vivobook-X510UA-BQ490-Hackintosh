@@ -48,7 +48,7 @@
 ## Unlock MSR 0xE2 (CFG Lock)
 
 1. [Dortania 가이드](https://dortania.github.io/OpenCore-Post-Install/misc/msr-lock.html)를 참고하십시오.
-- Note: 자신의 노트북의 바이오스 버전을 확실히 알아야 합니다. 버전이 다르다면 노트북에 이상이 생길 수 있습니다. 혹은 본인 의사결정으로 OpenCore에서 제공되는 ControlMsrE2.efi를 사용해볼 수도 있습니다.
+- Note: 자신의 노트북의 바이오스 버전을 확실히 알아야 합니다. 버전이 다르다면 노트북에 이상이 생길 수 있습니다. 혹은 OpenCore에서 제공되는 ControlMsrE2.efi를 사용해볼 수도 있습니다. 어떤 결정을 하던지 책임은 본인에게 있습니다.
 
 ## When you think you are done
  
