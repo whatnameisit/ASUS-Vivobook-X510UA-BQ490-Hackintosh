@@ -1,4 +1,9 @@
 # Changelog
+
+May 30, 2021
+- Added FileVault support in configuration. Enable FileVault in Settings-Security and Privacy-FileVault.
+- Added hibernation support. Use either hibernatemode 3 or 25. The Lilu NVRAM GUID has configurable variable for hibernatemode 3. See [HibernationFixup](https://github.com/acidanthera/hibernationfixup) and the [discussions](https://applelife.ru/threads/hibernationfixup-lilu-plagin-dlja-reshenija-problem-s-gibernaciej.2355002/).
+
 As of March 8, 2021
 - Added back `_PTS` patch in ACPI again as it is needed to shutdown and not restart.
 - Simplified the structure of `SSDT-Battery.aml` and wrote a guide that explains the new methods.
