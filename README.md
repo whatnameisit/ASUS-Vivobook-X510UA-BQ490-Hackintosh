@@ -1,7 +1,6 @@
 # Asus Vivobook X510UA-BQ490
 
-
-![Alt text](https://ivanov-audio.com/wp-content/uploads/2014/01/Hackintosh-Featured-Image.png)
+![](images/Laptop.png)
 
 ## System specification
 
