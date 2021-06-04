@@ -10,7 +10,7 @@
 | CPU | Intel Core i5-8250U |
 | Graphics | Intel UHD Graphics 620 |
 | RAM | Samsung SODIMM DDR4 8GB x 2 *(upgraded)* |
-| Wi-Fi / Bluetooth | BCM94360NG / BRCM20702 *(Replaced)* |
+| Wi-Fi / Bluetooth | BCM94360NG / BCM20702 *(Replaced)* |
 | Card Reader | Alcor Micro USB Card Reader connected via USB |
 | Camera | ASUS UVC HD |
 | Audio | Conexant Audio CX8050 |
