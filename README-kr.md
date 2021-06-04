@@ -9,8 +9,8 @@
 | Model | Asus Vivobook X510UA-BQ490 |
 | CPU | Intel Core i5-8250U |
 | Graphics | Intel UHD Graphics 620 |
-| RAM | Samsung SODIMM DDR4 8GB x 2 *(upgraded)* |
-| Wi-Fi / Bluetooth | BCM94360NG / BRCM20702 *(Replaced)* |
+| RAM | Samsung 8GB x 2 2400 MHz DDR4 SODIMM *(upgraded)* |
+| Wi-Fi / Bluetooth | BCM94360NG / BCM20702 *(Replaced)* |
 | Card Reader | Alcor Micro USB Card Reader connected via USB |
 | Camera | ASUS UVC HD |
 | Audio | Conexant Audio CX8050 |
