@@ -1,4 +1,4 @@
-# Asus Vivobook X510UA-BQ490
+# Asus Vivobook X510UA-BQ490 Hackintosh
 
 ![](images/Laptop.JPG)
 
