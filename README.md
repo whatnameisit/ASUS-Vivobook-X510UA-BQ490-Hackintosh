@@ -1,4 +1,4 @@
-# Asus Vivobook X510UA-BQ490
+# Asus Vivobook X510UA-BQ490 Hackintosh
 
 ![](images/Laptop.JPG)
 
@@ -13,7 +13,7 @@
 | Wi-Fi / Bluetooth | BCM94360NG / BCM20702 *(Replaced)* |
 | Card Reader | Alcor Micro USB Card Reader connected via USB |
 | Camera | ASUS UVC HD |
-| Audio | Conexant Audio CX8050 |
+| Audio | Conexant CX8050 |
 | Touchpad | ELAN1200 |
 | UEFI BIOS Utility | X510UAR-AS.310 |
 
