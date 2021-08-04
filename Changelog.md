@@ -1,5 +1,8 @@
 # Changelog
 
+August 4, 2021
+- Added GenericCardReaderFriend so the SD card reader is recognized as external card reader in System Information
+
 May 30, 2021
 - Added FileVault support in configuration. Enable FileVault in Settings-Security and Privacy-FileVault.
 - Added hibernation support. Use either hibernatemode 3 or 25. The Lilu NVRAM GUID has configurable variable for hibernatemode 3. See [HibernationFixup](https://github.com/acidanthera/hibernationfixup) and the [discussions](https://applelife.ru/threads/hibernationfixup-lilu-plagin-dlja-reshenija-problem-s-gibernaciej.2355002/).
