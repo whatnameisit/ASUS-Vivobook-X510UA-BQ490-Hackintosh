@@ -660,6 +660,8 @@
 				<data>FlkAAA==</data>
 				<key>device_type</key>
 				<string>Display Controller</string>
+				<key>enable-backlight-smoother</key>
+				<data>AQAAAA==</data>
 				<key>framebuffer-con1-busid</key>
 				<data>AAAAAA==</data>
 				<key>framebuffer-con1-enable</key>
@@ -688,10 +690,6 @@
 				<string>Intel UHD Graphics 620</string>
 				<key>name</key>
 				<string>display</string>
-				<key>enable-backlight-smoother</key>
-				<data>AQAAAA==</data>
-				<key>#backlight-smoother-interval	</key>
-				<data>BAAAAA==</data>
 			</dict>
 		</dict>
 		<key>Delete</key>
