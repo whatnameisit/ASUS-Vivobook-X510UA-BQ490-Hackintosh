@@ -26,25 +26,17 @@
 				<key>Comment</key>
 				<string>Enable battery reading</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Path</key>
 				<string>SSDT-Battery.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Enable battery reading and test sleep at high voltage</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-Battery-testh.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Enable battery reading and test sleep at low voltage</string>
+				<string>Enable battery reading and sleep at 5 percent battery level</string>
 				<key>Enabled</key>
 				<false/>
 				<key>Path</key>
-				<string>SSDT-Battery-testl.aml</string>
+				<string>SSDT-Battery-test.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
