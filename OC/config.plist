@@ -32,9 +32,9 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Enable battery reading and sleep at 5 percent battery level</string>
+				<string>Sleep at 5 percent battery level</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Path</key>
 				<string>SSDT-Battery-test.aml</string>
 			</dict>
