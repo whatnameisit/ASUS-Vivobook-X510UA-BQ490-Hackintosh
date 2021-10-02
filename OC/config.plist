@@ -112,7 +112,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Sleep at 5 percent battery level</string>
+				<string>Sleep at 10 percent battery level</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
