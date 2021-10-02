@@ -72,7 +72,7 @@ Method (\_SB.PCI0.LPCB.EC0.BAT0._BST, 0, NotSerialized)  // _BST: Battery Status
     Return (\_SB.PCI0.LPCB.EC0.BAT0.PBST) /* External reference */
 }
 ```
-This is the exact same format usr-sse2 used in their laptop. However, what if I wanted to set a custom level to hibernate? I would take multiples of `Local1` to be in the second condition: the `*=` operator. This could be used to multiply a variable by a number and set that assign the result to that variable. If `Local1 *= 2`, it is 10 percent battery level.
+This is the exact same format usr-sse2 used in their laptop. However, what if I wanted to set a custom level to hibernate? I would take multiples of `Local1` to be in the second condition with the `*=` operator. This could be used to multiply a variable by a number and set that assign the result to that variable. If `Local1 *= 2`, it is 10 percent battery level.
 ```
 Method (\_SB.PCI0.LPCB.EC0.BAT0._BST, 0, NotSerialized)  // _BST: Battery Status
 {
@@ -91,7 +91,7 @@ Method (\_SB.PCI0.LPCB.EC0.BAT0._BST, 0, NotSerialized)  // _BST: Battery Status
 }
 ```
 If you want to have any other level than 10 percent, modify the multiplier or do other calculations. But keep in mind that it is somewhat meaningless below 5, say 3, because the laptop will not hibernate until it reaches 3 percent.\
-Now we are done!\
+Now we are done!
 
 ## Other things
 - I have not tested if this works without hibernation. In the original [thread](https://applelife.ru/threads/hibernate-pri-razrjade-batarei.2874421/), usr-sse2 said it needs working hibernation, but notifying the sleep button at the specified level would mean sleep at that level, right? I will test later.
