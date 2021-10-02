@@ -32,14 +32,6 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Sleep at 5 percent battery level</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-Battery-test.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>Create fake EC device</string>
 				<key>Enabled</key>
 				<true/>
@@ -117,6 +109,14 @@
 				<true/>
 				<key>Path</key>
 				<string>SSDT-SBUS-MCHC.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Sleep at 5 percent battery level</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-SleepLowBat.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
