@@ -95,4 +95,3 @@ If you want to have any other level than 10 percent, modify the multiplier or do
 
 ## Other things
 - This document uses the word "hibernate," but the technique here works with regular sleep.
-- I also have not tested this on Windows. I will update this doc when I do.
