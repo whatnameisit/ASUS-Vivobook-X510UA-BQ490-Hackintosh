@@ -1,4 +1,4 @@
-# Battery: Hibernate at low battery
+# Battery: Hibernate at low battery level
 ## Problem
 This Asus Vivobook is reported to imediately wake after sleep at low battery level: [Issue #9](https://github.com/whatnameisit/Asus-Vivobook-X510UA-BQ490-Hackintosh/issues/9). I have not experienced such issue, but it seems a real one. I have tried the updated HibernationFixup.kext on other laptop which forces sleep / hibernation from the kernel, but it did not work. I think kexts are great, and I really appreciate the developers, but sometimes they break because most of them modify the kernel which is regularly updated.\
 So what could I do? Well, the new feature in HibernationFixup.kext is supposed to eliminate the need to modify ACPI to force sleep / hibernate at low battery, which means I could still modify the ACPI to do the correct job.\
@@ -95,3 +95,4 @@ If you want to have any other level than 10 percent, modify the multiplier or do
 
 ## Other things
 - This document uses the word "hibernate," but the technique here works with regular sleep.
+- I also have not tested this on Windows. I will update this doc when I do.
