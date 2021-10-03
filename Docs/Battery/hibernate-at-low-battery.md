@@ -90,8 +90,9 @@ Method (\_SB.PCI0.LPCB.EC0.BAT0._BST, 0, NotSerialized)  // _BST: Battery Status
     Return (\_SB.PCI0.LPCB.EC0.BAT0.PBST) /* External reference */
 }
 ```
-If you want to have any other level than 10 percent, modify the multiplier or do other calculations. But keep in mind that it is somewhat meaningless below 5, say 3, because the laptop will not hibernate until it reaches 3 percent.\
-Now we are done!
+Now we are done!\
+If you want to have any other level than 10 percent, modify the multiplier or do other calculations. But keep in mind that it is somewhat meaningless below 5, say 3, because the laptop will not hibernate until it reaches 3 percent.
 
 ## Other things
+- This document uses the word "hibernate," but the technique here works with regular sleep.
 - I also have not tested this on Windows. I will update this doc when I do.
