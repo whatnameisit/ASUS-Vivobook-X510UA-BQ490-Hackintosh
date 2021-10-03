@@ -94,5 +94,4 @@ If you want to have any other level than 10 percent, modify the multiplier or do
 Now we are done!
 
 ## Other things
-- I have not tested if this works without hibernation. In the original [thread](https://applelife.ru/threads/hibernate-pri-razrjade-batarei.2874421/), usr-sse2 said it needs working hibernation, but notifying the sleep button at the specified level would mean sleep at that level, right? I will test later.
 - I also have not tested this on Windows. I will update this doc when I do.
