@@ -1,6 +1,6 @@
 # Battery: Hibernate at low battery level
 ## Problem
-This Asus Vivobook is reported to imediately wake after sleep at low battery level: [Issue #9](https://github.com/whatnameisit/Asus-Vivobook-X510UA-BQ490-Hackintosh/issues/9). I have not experienced such issue, but it seems a real one. I have tried the updated HibernationFixup.kext on other laptop which forces sleep / hibernation from the kernel, but it did not work. I think kexts are great, and I really appreciate the developers, but sometimes they break because most of them modify the kernel which is regularly updated.\
+This Asus Vivobook is reported to imediately wake after sleep at low battery level: [Issue #9](https://github.com/whatnameisit/Asus-Vivobook-X510UA-BQ490-Hackintosh/issues/9). I have not experienced such issue, but it seems a real one. I have tried the updated HibernationFixup.kext on other laptop which forces sleep / hibernation from the kernel, but it is working only _halfway_. I think kexts are great, and I really appreciate the developers, but sometimes they break because most of them modify the kernel which is regularly updated.\
 So what could I do? Well, the new feature in HibernationFixup.kext is supposed to eliminate the need to modify ACPI to force sleep / hibernate at low battery, which means I could still modify the ACPI to do the correct job.\
 It has been some time since I knew the work was possible from reading [Hibernate при разряде батареи](https://applelife.ru/threads/hibernate-pri-razrjade-batarei.2874421/), but I did not quite understand what was being done. Someone asked if this thread could be used on their hackintosh on this [issue](https://github.com/tylernguyen/x1c6-hackintosh/issues/126#issuecomment-833750930), and the author of the thread, usr-sse2, explained what to be done. Thanks to him, I can write a patch then.
 
@@ -95,4 +95,4 @@ If you want to have any other level than 10 percent, modify the multiplier or do
 
 ## Other things
 - This document uses the word "hibernate," but the technique here works with regular sleep.
-- I also have not tested this on Windows. I will update this doc when I do.
+- When I said HibernationFixup.kext works _halfway_ on this topic, I meant it does not seem to work with regular sleep. Also, hibernation without concerning force sleep at warning level works OK for this laptop, but not on all the other machines which although may be configuration issues. lvs1974 is working their way to update things, but I am being impatient and doing things on my own, and unlike kexts ACPI mods work on Windows.
