@@ -19,7 +19,7 @@ Method (_BIX, 0, NotSerialized)  // _BIX: Battery Information Extended
     Return (BIXT) /* \_SB_.PCI0.LPCB.EC0_.BAT0.BIXT */
 }
 ```
-This means `BIXT` is the package that `_BIX` returns and the third index contains the value of design capacity.
+This means `BIXT` is the package that `_BIX` returns and the third index shouold contain the value of design capacity.
 ```
 Name (BIXT, Package (0x14)
 {
@@ -45,7 +45,7 @@ Name (BIXT, Package (0x14)
     "ASUSTeK"
 })
 ```
-Now, does 0x1770 correspond to 42WH as written in the laptop specification? I am not sure. However, the package is updated as `_BIX` is executed every now and then, so I think it is safe to use the third index of `BIXT` and assume it does contain the design capacity value.\
+Now, does 0x1770 correspond to 42WH as written in the laptop specification? I am not sure. However, the package is updated as `_BIX` is executed every now and then, so I think it is safe to use the third index of `BIXT` and assume it will contain the design capacity value by the time `_BST` is executed.\
 Looking into `_BST`, we find it returns `PBST`.
 ```
 Method (_BST, 0, NotSerialized)  // _BST: Battery Status
@@ -72,7 +72,7 @@ Method (\_SB.PCI0.LPCB.EC0.BAT0._BST, 0, NotSerialized)  // _BST: Battery Status
     Return (\_SB.PCI0.LPCB.EC0.BAT0.PBST) /* External reference */
 }
 ```
-This is the exact same format usr-sse2 used in their laptop. However, what if I wanted to set a custom level to hibernate? I would take multiples of `Local1` to be in the second condition with the `*=` operator. This could be used to multiply a variable by a number and set that assign the result to that variable. If `Local1 *= 2`, it is 10 percent battery level.
+This is the exact same format usr-sse2 used in their laptop. However, what if I wanted to set another custom level to hibernate? I would take multiples of `Local1` to be in the second condition with the `*=` operator. This could be used to multiply a variable by a number and set that assign the result to that variable. If `Local1 *= 2`, it is 10 percent battery level.
 ```
 Method (\_SB.PCI0.LPCB.EC0.BAT0._BST, 0, NotSerialized)  // _BST: Battery Status
 {
@@ -94,6 +94,6 @@ Now we are done!\
 If you want to have any other level than 10 percent, modify the multiplier or do other calculations. But keep in mind that it is somewhat meaningless below 5, say 3, because the laptop will not hibernate and keep waking up until the battery reaches 3 percent.
 
 ## Other things
-- This document uses the word "hibernate," but the technique here works with regular sleep.
+- This document uses the word "hibernate," but the technique here works with regular sleep, even in Windows.
 - I uploaded an example with minimum information in comments. Check [SSDT-SleepLowBat-example.dsl](SSDT-SleepLowBat-example.dsl)
 - When I said HibernationFixup.kext works _halfway_ on this topic, I meant it does not seem to work with regular sleep. Also, hibernation without concerning force sleep at warning level works OK for this laptop, but not on all the other machines which although may be configuration issues. lvs1974 is working their way to update things, but I am being impatient and doing things on my own, and, unlike kexts, ACPI mods work on Windows.

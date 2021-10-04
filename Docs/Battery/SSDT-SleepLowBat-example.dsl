@@ -18,12 +18,12 @@ DefinitionBlock ("", "SSDT", 2, "what", "LowBat", 0x00000000)
 
     /*
        Find _BIX method and check which package _BIX returns.
-       If there is no _BIX in the ACPI, refer to _BIF and the corresponding index for design capacity.
+       If there is no _BIX in the ACPI, check _BIF and the corresponding index for design capacity: second index (0x01).
     Method (\_SB.PCI0.LPCB.EC0.BAT0._BIX, 0, NotSerialized)  // _BIX: Battery Information Extended
     {
         // Contents before returning _BIX package
         
-        Return (\_SB_.PCI0.LPCB.EC0_.BAT0.BIXT) // _BIX returns BIXT. The second (0x03) index of BIXT will contain design capacity.
+        Return (\_SB_.PCI0.LPCB.EC0_.BAT0.BIXT) // _BIX returns BIXT. The third (0x02) index of BIXT will contain design capacity.
     }
     */
 
@@ -34,16 +34,16 @@ DefinitionBlock ("", "SSDT", 2, "what", "LowBat", 0x00000000)
         
         If ((DerefOf (\_SB.PCI0.LPCB.EC0.BAT0.PBST [Zero]) & One)) // Check the first (Zero) index of PBST is DWORD 1, or discharging. DWORD 1 & One should return One, or true, meaning it is discharging.
         {
-            Divide (DerefOf (\_SB.PCI0.LPCB.EC0.BAT0.BIXT [0x02]), 0x14, Local0, Local1) // Divide the design capacity by 0x14 = 20, and store that into Local1.
-            Local1 *= 0x02 // Multiply Local1 by 2 which will be 10.
-            If ((DerefOf (\_SB.PCI0.LPCB.EC0.BAT0.PBST [0x02]) < Local1)) // If the current charge level is less than 10 percent of design capacity
+            Divide (DerefOf (\_SB.PCI0.LPCB.EC0.BAT0.BIXT [0x02]), 0x14, Local0, Local1) // Divide the design capacity (100) by 0x14 (20), and store that into Local1 (5).
+            Local1 *= 0x02 // Multiply Local1 (5) by 2 (now 10).
+            If ((DerefOf (\_SB.PCI0.LPCB.EC0.BAT0.PBST [0x02]) < Local1)) // If the battery remaining capacity is less than 10 percent of design capacity
             {
                 Notify (\_SB.SLPB, 0x80) // notify the sleep button, meaning go to sleep.
             }
         }
         
 
-        Return (\_SB.PCI0.LPCB.EC0.BAT0.PBST) // _BST returns PBST. The first (Zero) index of PBST will be battery state.
+        Return (\_SB.PCI0.LPCB.EC0.BAT0.PBST) // Need to make note of this first. _BST returns PBST. The first (Zero) and third (0x02) indexes of PBST will be battery state and battery remaining capacity.
     }
 }
 
