@@ -1,8 +1,9 @@
+// This is a template that does not work on its own. Read below to use in your own SSDT.
 // This example includes breaking up SystemMemory OperationRegion FieldUnitObjs.
 // Both EC and SM OperationRegions share the same methods, but are differentiated by assigning EBCR or STMR. 
-// I have changed the Argument sequence a lot, so be careful when actually using this work.
+// I have changed the Argument sequence a lot, so be careful when comparing with old methods and actually using this work.
 // Read the comments to understand what is being done.
-// If you just want to use them, read HOWR and HOWW.
+// If you just want to use them, copy the contents below and write calls as in HOWR and HOWW.
 
 DefinitionBlock ("", "SSDT", 2, "what", "ECSMRW", 0x00000000)
 {

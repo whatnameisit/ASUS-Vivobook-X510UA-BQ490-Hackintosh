@@ -220,4 +220,4 @@ I have already uploaded the modified [SSDT-Battery.aml](../../OC/ACPI/SSDT-Batte
 ## Other things
 - What if the `OperationRegion` starts at `Offset` of `Zero`? Then `Arg0` should be `Zero`.
 - Be careful when converting `Base10` and `Hex`. Example: `256 = 0x100`.
-- If you have battery related `FieldUnitObjs` in `SystemMemory` `OperationRegions`, obviously you need to write new methods or at least modify the current ones. There is no need to do so for this ASUS laptop. But in case if you need it, see [SSDT-ECSMRW.dsl](SSDT-ECSMRW.dsl).
+- If you have battery related `FieldUnitObjs` in `SystemMemory` `OperationRegions`, obviously you need to write new methods or at least modify the current ones. There is no need to do so for this ASUS laptop. But in case if you need it, see [SSDT-ECSMRW-example.dsl](SSDT-ECSMRW-example.dsl).
