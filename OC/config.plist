@@ -112,6 +112,14 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
+				<string>Sleep at 10 percent battery level</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-SleepLowBat.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>Enable trackpad in interrupts mode</string>
 				<key>Enabled</key>
 				<true/>
@@ -482,6 +490,36 @@
 				<data>AAAAAAAAAAA=</data>
 				<key>Replace</key>
 				<data>WEJJWAA=</data>
+				<key>ReplaceMask</key>
+				<data></data>
+				<key>Skip</key>
+				<integer>0</integer>
+				<key>TableLength</key>
+				<integer>0</integer>
+				<key>TableSignature</key>
+				<data>AAAAAA==</data>
+			</dict>
+			<dict>
+				<key>Base</key>
+				<string>\_SB.PCI0.LPCB.EC0.BAT0</string>
+				<key>BaseSkip</key>
+				<integer>0</integer>
+				<key>Comment</key>
+				<string>Battery fix: Rename M(_BST) to XBXT</string>
+				<key>Count</key>
+				<integer>1</integer>
+				<key>Enabled</key>
+				<true/>
+				<key>Find</key>
+				<data>X0JTVA==</data>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data></data>
+				<key>OemTableId</key>
+				<data>AAAAAAAAAAA=</data>
+				<key>Replace</key>
+				<data>WEJYVA==</data>
 				<key>ReplaceMask</key>
 				<data></data>
 				<key>Skip</key>

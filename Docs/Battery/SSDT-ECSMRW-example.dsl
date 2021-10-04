@@ -1,8 +1,9 @@
+// This is just a template. It does not work on its own. Read below to use in your own SSDT.
 // This example includes breaking up SystemMemory OperationRegion FieldUnitObjs.
 // Both EC and SM OperationRegions share the same methods, but are differentiated by assigning EBCR or STMR. 
-// I have changed the Argument sequence a lot, so be careful when actually using this work.
+// I have changed the Argument sequence a lot, so be careful when comparing with old methods and actually using this work.
 // Read the comments to understand what is being done.
-// If you just want to use them, read HOWR and HOWW.
+// If you just want to use them, copy the contents below and write calls as in HOWR and HOWW.
 
 DefinitionBlock ("", "SSDT", 2, "what", "ECSMRW", 0x00000000)
 {
@@ -16,21 +17,21 @@ DefinitionBlock ("", "SSDT", 2, "what", "ECSMRW", 0x00000000)
             Name (STMR, Zero) // Object assigned to SysTemMemoRy
         }
 
-        Method (RSTO, 2, NotSerialized) // Temporary store method for Read.
+        Method (RSTO, 2, NotSerialized) // Temporary store method for Read
         {
-            If (Arg1 = \EBCR) // If it is EC
+            If (Arg1 = \EBCR) // If it is EC,
             {
-                OperationRegion (ECRD, EmbeddedControl, Arg0, One) // define an EC OperationRegion
+                OperationRegion (ECRD, EmbeddedControl, Arg0, One) // define an EC OperationRegion.
                 Field (ECRD, ByteAcc, NoLock, Preserve)
                 {
                     BYTE,   8
                 }
 
-                Return (BYTE) /* \_SB_.PCI0.LPCB.EC0_.RSTO.BYTE */ // and read a FieldUnitObj one-by-one torn down in RXCT.
+                Return (BYTE) /* \_SB_.PCI0.LPCB.EC0_.RSTO.BYTE */ // and read a FieldUnitObj one-by-one torn down in RXCT,
             }
-            ElseIf (Arg1 = \STMR) // If it is SM
+            ElseIf (Arg1 = \STMR) // or, if it is SM,
             {
-                OperationRegion (SMRD, SystemMemory, Arg0, One) // define a SM OperationRegion
+                OperationRegion (SMRD, SystemMemory, Arg0, One) // define a SM OperationRegion,
                 Field (SMRD, ByteAcc, NoLock, Preserve)
                 {
                     BYTS,   8
@@ -60,16 +61,16 @@ DefinitionBlock ("", "SSDT", 2, "what", "ECSMRW", 0x00000000)
             Return (TEMP) /* \_SB_.PCI0.LPCB.EC0_.RXCT.TEMP */
         }
 
-        Name (HOWR, Package (0x02) // How-to-read order. Preserve this information so no one will whine about forgetting how to use new methods.
+        Name (HOWR, Package (0x02) // How-to-read order. This information will stay unlike comments when you compile the file into assembly.
         {
             "RXCT (OperationRegion Offset, FieldUnitObj Offset, FieldUnitObj Length, EmbeddedControl or SystemMemory)", // Written out
             "RXCT (0x18, 0x04, 256, EBCR)" // Example
         })
-        Method (WSTO, 3, NotSerialized) // Temporary store method for Write.
+        Method (WSTO, 3, NotSerialized) // Temporary store method for Write
         {
-            If (Arg2 = \EBCR) // If it is EC
+            If (Arg2 = \EBCR) // If it is EC,
             {
-                OperationRegion (ECWT, EmbeddedControl, Arg0, One) // define an EC OperationRegion
+                OperationRegion (ECWT, EmbeddedControl, Arg0, One) // define an EC OperationRegion,
                 Field (ECWT, ByteAcc, NoLock, Preserve)
                 {
                     BYTE,   8
@@ -77,9 +78,9 @@ DefinitionBlock ("", "SSDT", 2, "what", "ECSMRW", 0x00000000)
 
                 BYTE = Arg1 // and write the value to FieldUnitObj one-by-one torn down in WXCT.
             }
-            ElseIf (Arg2 = \STMR) // If it is SM
+            ElseIf (Arg2 = \STMR) // If it is SM,
             {
-                OperationRegion (SMWT, SystemMemory, Arg0, One) // define a SM OperationRegion
+                OperationRegion (SMWT, SystemMemory, Arg0, One) // define a SM OperationRegion,
                 Field (SMWT, ByteAcc, NoLock, Preserve)
                 {
                     BYTS,   8
@@ -107,7 +108,7 @@ DefinitionBlock ("", "SSDT", 2, "what", "ECSMRW", 0x00000000)
             }
         }
 
-        Name (HOWW, Package (0x02) // How-to-write order. Preserve this information so no one will whine about forgetting how to use new methods.
+        Name (HOWW, Package (0x02) // How-to-write order. This information will stay unlike comments when you compile the file into assembly.
         {
             "WXCT (OperationRegion Offset, FieldUnitObj Offset, FieldUnitObj Length, Value written to FieldUnitObj, EmbeddedControl or SystemMemory)",  // Written out
             "WXCT (0x2A, 0x0A, 64, Arg2, STMR)" // Example
