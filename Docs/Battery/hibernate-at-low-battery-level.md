@@ -1,6 +1,6 @@
 # Battery: Hibernate at low battery level
 ## Problem
-This Asus Vivobook is reported to imediately wake after sleep at low battery level: [Issue #9](https://github.com/whatnameisit/Asus-Vivobook-X510UA-BQ490-Hackintosh/issues/9). I have not experienced such issue, but it seems a real one. I have tried the updated HibernationFixup.kext on other laptop which forces sleep / hibernation from the kernel, but it is working only _halfway_. I think kexts are great, and I really appreciate the developers, but sometimes they break because most of them modify the kernel which is regularly updated.\
+This Asus Vivobook is reported to imediately wake after sleep at low battery level: [Issue #9](https://github.com/whatnameisit/Asus-Vivobook-X510UA-BQ490-Hackintosh/issues/9). I have not experienced such issue because I do not let the laptop run on battery until 5 percent, but it seems a real one. I have tried the updated HibernationFixup.kext on other laptop which forces sleep / hibernation from the kernel, but it is working only _halfway_. I think kexts are great, and I really appreciate the developers, but sometimes they break because they modify the kernel which is regularly updated.\
 So what could I do? Well, the new feature in HibernationFixup.kext is supposed to eliminate the need to modify ACPI to force sleep / hibernate at low battery, which means I could still modify the ACPI to do the correct job.\
 It has been some time since I knew the work was possible from reading [Hibernate при разряде батареи](https://applelife.ru/threads/hibernate-pri-razrjade-batarei.2874421/), but I did not quite understand what was being done. Someone asked if this thread could be used on their hackintosh on this [issue](https://github.com/tylernguyen/x1c6-hackintosh/issues/126#issuecomment-833750930), and the author of the thread, usr-sse2, explained what to be done. Thanks to him, I can write a patch then.
 
@@ -91,7 +91,7 @@ Method (\_SB.PCI0.LPCB.EC0.BAT0._BST, 0, NotSerialized)  // _BST: Battery Status
 }
 ```
 Now we are done!\
-If you want to have any other level than 10 percent, modify the multiplier or do other calculations. But keep in mind that it is somewhat meaningless below 5, say 3, because the laptop will not hibernate until it reaches 3 percent.
+If you want to have any other level than 10 percent, modify the multiplier or do other calculations. But keep in mind that it is somewhat meaningless below 5, say 3, because the laptop will not hibernate and keep waking up until the battery reaches 3 percent.
 
 ## Other things
 - This document uses the word "hibernate," but the technique here works with regular sleep.
