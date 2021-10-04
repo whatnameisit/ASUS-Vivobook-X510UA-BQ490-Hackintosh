@@ -1,4 +1,4 @@
-// This is a template that does not work on its own. Read below to use in your own SSDT.
+// This is just a template. It does not work on its own. Read below to use in your own SSDT.
 // This example includes breaking up SystemMemory OperationRegion FieldUnitObjs.
 // Both EC and SM OperationRegions share the same methods, but are differentiated by assigning EBCR or STMR. 
 // I have changed the Argument sequence a lot, so be careful when comparing with old methods and actually using this work.

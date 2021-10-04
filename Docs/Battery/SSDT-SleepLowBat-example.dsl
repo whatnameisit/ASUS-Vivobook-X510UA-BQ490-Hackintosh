@@ -1,5 +1,14 @@
-// This is a template that does not work on its own. Read below to use in your own SSDT.
-// This example includes how to set a custom sleep battery level.
+// This is just a template. It does not work on its own. Read below to use in your own SSDT.
+// This example includes how to force sleep at a custom battery charge level.
+// This way of patching by itself will also affect sleep behavior in other OS.
+// If you want to apply this only to macOS, refer to "Overview" in OC-little-Translated: https://github.com/5T33Z0/OC-Little-Translated. You might as well read the rest.
+// Original _BST needs to be renamed to something else for the newly written _BST to execute without error.
+// Find the Base of _BST, which in this case is \_SB.PCI0.LPCB.EC0.BAT0, and rename _BST to, say, ZBST. Check you do not have the same object name in this scope.
+// In config.plist
+// Base    : \_SB.PCI0.LPCB.EC0.BAT0
+// Comment : Rename _BST to ZBST in \_SB.PCI0.LPCB.EC0.BAT0
+// Find    : 5F 42 53 54
+// Replace : 5A 42 53 54
 
 DefinitionBlock ("", "SSDT", 2, "what", "LowBat", 0x00000000)
 {
