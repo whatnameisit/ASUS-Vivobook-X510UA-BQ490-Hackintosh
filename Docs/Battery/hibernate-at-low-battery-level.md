@@ -95,4 +95,5 @@ If you want to have any other level than 10 percent, modify the multiplier or do
 
 ## Other things
 - This document uses the word "hibernate," but the technique here works with regular sleep.
+- I uploaded an example with minimum information in comments. Check [SSDT-ECSMRW-example.dsl](SSDT-ECSMRW-example.dsl)
 - When I said HibernationFixup.kext works _halfway_ on this topic, I meant it does not seem to work with regular sleep. Also, hibernation without concerning force sleep at warning level works OK for this laptop, but not on all the other machines which although may be configuration issues. lvs1974 is working their way to update things, but I am being impatient and doing things on my own, and unlike kexts ACPI mods work on Windows.
