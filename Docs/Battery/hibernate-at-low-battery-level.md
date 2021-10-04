@@ -45,7 +45,7 @@ Name (BIXT, Package (0x14)
     "ASUSTeK"
 })
 ```
-Now, is 0x1770 equal to 6000 42WH? I am not sure. However, the package is updated as `_BIX` is executed every now and then, so I think it is safe to use the third index of `BIXT` and assume it does contain the design capacity value.\
+Now, does 0x1770 correspond to 42WH? I am not sure. However, the package is updated as `_BIX` is executed every now and then, so I think it is safe to use the third index of `BIXT` and assume it does contain the design capacity value.\
 Looking into `_BST`, we find it returns `PBST`.
 ```
 Method (_BST, 0, NotSerialized)  // _BST: Battery Status
