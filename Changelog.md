@@ -1,4 +1,6 @@
 # Changelog
+October 4, 2021
+- Added means to force sleep on custom battery charge level.
 
 August 4, 2021
 - Added GenericCardReaderFriend so the SD card reader is recognized as external card reader in System Information
