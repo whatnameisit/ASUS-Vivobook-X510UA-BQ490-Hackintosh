@@ -1327,7 +1327,7 @@
 			<key>ScanPolicy</key>
 			<integer>0</integer>
 			<key>SecureBootModel</key>
-			<string>j213</string>
+			<string>Default</string>
 			<key>Vault</key>
 			<string>Optional</string>
 		</dict>
@@ -1383,6 +1383,10 @@
 			<key>7C436110-AB2A-4BBB-A880-FE41995C9F82</key>
 			<array>
 				<string>boot-args</string>
+			</array>
+			<key>E09B9297-7928-4440-9AAB-D1F8536FBF0A</key>
+			<array>
+				<string>hbfx-ahbm</string>
 			</array>
 		</dict>
 		<key>LegacyEnable</key>
@@ -1518,6 +1522,8 @@
 		<key>Drivers</key>
 		<array>
 			<dict>
+				<key>Comment</key>
+				<string></string>
 				<key>Path</key>
 				<string>HfsPlus.efi</string>
 				<key>Enabled</key>
@@ -1526,6 +1532,8 @@
 				<string></string>
 			</dict>
 			<dict>
+				<key>Comment</key>
+				<string></string>
 				<key>Path</key>
 				<string>ExFatDxe.efi</string>
 				<key>Enabled</key>
@@ -1534,6 +1542,8 @@
 				<string></string>
 			</dict>
 			<dict>
+				<key>Comment</key>
+				<string></string>
 				<key>Path</key>
 				<string>OpenRuntime.efi</string>
 				<key>Enabled</key>
@@ -1542,6 +1552,8 @@
 				<string></string>
 			</dict>
 			<dict>
+				<key>Comment</key>
+				<string></string>
 				<key>Path</key>
 				<string>OpenCanopy.efi</string>
 				<key>Enabled</key>
@@ -1550,6 +1562,8 @@
 				<string></string>
 			</dict>
 			<dict>
+				<key>Comment</key>
+				<string></string>
 				<key>Path</key>
 				<string>OpenLinuxBoot.efi</string>
 				<key>Enabled</key>
@@ -1558,6 +1572,8 @@
 				<string></string>
 			</dict>
 			<dict>
+				<key>Comment</key>
+				<string></string>
 				<key>Path</key>
 				<string>ext4_x64.efi</string>
 				<key>Enabled</key>
