@@ -599,7 +599,7 @@
 			<key>RebaseRegions</key>
 			<false/>
 			<key>ResetHwSig</key>
-			<true/>
+			<false/>
 			<key>ResetLogoStatus</key>
 			<false/>
 			<key>SyncTableIds</key>
@@ -1083,24 +1083,6 @@
 				<key>Arch</key>
 				<string>x86_64</string>
 				<key>BundlePath</key>
-				<string>HibernationFixup.kext</string>
-				<key>Comment</key>
-				<string>CPUFriend</string>
-				<key>Enabled</key>
-				<true/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/HibernationFixup</string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>Arch</key>
-				<string>x86_64</string>
-				<key>BundlePath</key>
 				<string>ACPIPoller.kext</string>
 				<key>Comment</key>
 				<string>Poll for fan</string>
@@ -1253,7 +1235,7 @@
 			<key>ConsoleAttributes</key>
 			<integer>0</integer>
 			<key>HibernateMode</key>
-			<string>Auto</string>
+			<string>None</string>
 			<key>HideAuxiliary</key>
 			<false/>
 			<key>LauncherOption</key>
@@ -1364,10 +1346,7 @@
 				<string>No</string>
 			</dict>
 			<key>E09B9297-7928-4440-9AAB-D1F8536FBF0A</key>
-			<dict>
-				<key>hbfx-ahbm</key>
-				<integer>61</integer>
-			</dict>
+			<dict/>
 		</dict>
 		<key>Delete</key>
 		<dict>
@@ -1385,9 +1364,7 @@
 				<string>boot-args</string>
 			</array>
 			<key>E09B9297-7928-4440-9AAB-D1F8536FBF0A</key>
-			<array>
-				<string>hbfx-ahbm</string>
-			</array>
+			<array/>
 		</dict>
 		<key>LegacyEnable</key>
 		<false/>
