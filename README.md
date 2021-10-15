@@ -2,6 +2,8 @@
 
 ![](images/Laptop.JPG)
 
+The motherboard got fried from unsafe contact with the Wi-Fi card. I will not be updating this repository.
+
 ## System specification
 
 | Item | Details |
